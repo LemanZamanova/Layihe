@@ -1,0 +1,43 @@
+﻿using System.ComponentModel.DataAnnotations;
+using Timoto.Models.Base;
+
+namespace Timoto.Models
+{
+    public class Car : BaseEntity
+    {
+        [Required]
+        public string Name { get; set; }
+        public string ImageUrl { get; set; }
+
+        public int Seats { get; set; }
+        public int Doors { get; set; }
+        public int LuggageVolume { get; set; }
+        public int EngineSize { get; set; }
+        public int Year { get; set; }
+        public int Mileage { get; set; }
+        public float FuelEconomy { get; set; }
+
+        public string ExteriorColor { get; set; }
+        public string InteriorColor { get; set; }
+        public string Location { get; set; }
+        public int DailyPrice { get; set; }
+        public int LikeCount { get; set; }
+        public string Description { get; set; }
+
+        // Foreign keys
+        public int FuelTypeId { get; set; }
+        public FuelType FuelType { get; set; }
+
+        public int TransmissionTypeId { get; set; }
+        public TransmissionType TransmissionType { get; set; }
+
+        public int DriveTypeId { get; set; }
+        public DriveType DriveType { get; set; }
+
+        public int BodyTypeId { get; set; }
+        public BodyType BodyType { get; set; }
+
+        //Many-to-Many: CarFeatures
+        public ICollection<CarFeature> CarFeatures { get; set; }
+    }
+}

@@ -854,6 +854,7 @@ wwwroot\assets\images\misc\car-2.png
 wwwroot\assets\images\misc\e1.jpg
 wwwroot\assets\images\misc\e2.jpg
 wwwroot\assets\images\misc\map.png
+wwwroot\assets\images\misc\porshe.png
 wwwroot\assets\images\news\big.jpg
 wwwroot\assets\images\news\pic-blog-1.jpg
 wwwroot\assets\images\news\pic-blog-2.jpg
@@ -896,8 +897,7 @@ wwwroot\assets\images\testimonial\2.jpg
 wwwroot\assets\images\testimonial\3.jpg
 wwwroot\assets\images\timoto_black.png
 wwwroot\assets\images\timoto_gold.png
-wwwroot\assets\images\timoto_grey.png
-wwwroot\assets\images\timoto_white_text.png
+wwwroot\assets\images\timoto_white_text_logo.png
 wwwroot\assets\images\ui\arrow-down.png
 wwwroot\assets\images\ui\arrow-down-light.png
 wwwroot\assets\images\ui\arrow-up.png

@@ -1,17 +1,22 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Timoto.DAL;
+using Timoto.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-//builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
-//{
-//    
-//}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
+{
 
-//builder.Services.AddDbContext<AppDbContext>(opt =>
-//{
+}).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
-//    opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+builder.Services.AddDbContext<AppDbContext>(opt =>
+{
 
-//});
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
+
+});
 
 
 

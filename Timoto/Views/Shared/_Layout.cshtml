@@ -20,14 +20,20 @@
     <link id="colors" href="~/assets/css/colors/scheme-01.css" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "home-page" : "")">
+
     <div id="wrapper">
 
         <!-- page preloader begin -->
         <div id="de-preloader"></div>
         <!-- page preloader close -->
         <!-- header begin -->
-        <header class="transparent header-light scroll-light has-topbar">
+        <header class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home"
+    ? "header-scrolled header-light scroll-light has-topbar"
+    : "transparent header-light scroll-light has-topbar")">
+
+
+
             <div id="topbar" class="topbar-dark text-light">
                 <div class="container">
                     <div class="topbar-left xs-hide">
@@ -59,7 +65,7 @@
                                     <!-- logo begin -->
                                     <div id="logo">
                                         <a href="index.html">
-                                            <img class="logo-1" src="~/assets/images/timoto_gold.png" alt="">
+                                            <img class="logo-1" src="~/assets/images/timoto_white_text_logo.png" alt="">
                                             <img class="logo-2" src="~/assets/images/timoto_black.png" alt="">
                                         </a>
                                     </div>
@@ -86,61 +92,20 @@
                                             <li><a class="menu-item" href="account-favorite.html">My Favorite Cars</a></li>
                                         </ul>
                                     </li>
+                                    
+                                    
                                     <li>
-                                        <a class="menu-item" href="#">Pages</a>
-                                        <ul>
-                                            <li><a class="menu-item" href="about.html">About Us</a></li>
-                                            <li><a class="menu-item" href="contact.html">Contact</a></li>
-                                            <li><a class="menu-item" href="login.html">Login</a></li>
-                                            <li><a class="menu-item" href="register.html">Register</a></li>
-                                            <li><a class="menu-item" href="404.html">Page 404</a></li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a class="menu-item" href="#">News</a>
-                                        <ul>
-                                            <li>
-                                                <a class="menu-item" href="news-standart-right-sidebar.html">News Standard</a>
-                                                <ul>
-                                                    <li><a class="menu-item" href="news-standart-right-sidebar.html">Right Sidebar</a></li>
-                                                    <li><a class="menu-item" href="news-standart-left-sidebar.html">Left Sidebar</a></li>
-                                                    <li><a class="menu-item" href="news-standart-no-sidebar.html">No Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a class="menu-item" href="news-grid-right-sidebar.html">News Grid</a>
-                                                <ul>
-                                                    <li><a class="menu-item" href="news-grid-right-sidebar.html">Right Sidebar</a></li>
-                                                    <li><a class="menu-item" href="news-grid-left-sidebar.html">Left Sidebar</a></li>
-                                                    <li><a class="menu-item" href="news-grid-no-sidebar.html">No Sidebar</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a class="menu-item" href="#">Elements</a>
-                                        <ul>
-                                            <li><a class="menu-item" href="icon-boxes.html">Icon Boxes</a></li>
-                                            <li><a class="menu-item" href="badge.html">Badge</a></li>
-                                            <li><a class="menu-item" href="counters.html">Counters</a></li>
-                                            <li><a class="menu-item" href="gallery-popup.html">Gallery Popup</a></li>
-                                            <li><a class="menu-item" href="icons-elegant.html">Icons Elegant</a></li>
-                                            <li><a class="menu-item" href="icons-etline.html">Icons Etline</a></li>
-                                            <li><a class="menu-item" href="icons-font-awesome.html">Icons Font Awesome</a></li>
-                                            <li><a class="menu-item" href="map.html">Map</a></li>
-                                            <li><a class="menu-item" href="modal.html">Modal</a></li>
-                                            <li><a class="menu-item" href="popover.html">Popover</a></li>
-                                            <li><a class="menu-item" href="tabs.html">Tabs</a></li>
-                                            <li><a class="menu-item" href="tooltips.html">Tooltips</a></li>
-                                        </ul>
+                                        <a class="menu-item" href="#">Contact</a>
+                                        
                                     </li>
                                 </ul>
+                                <div class="de-flex-col">
+                                    <div class="menu_side_area">
+                                        <a href="login.html" class="btn-main">Add Car</a>
+                                        <span id="menu-btn"></span>
+                                    </div>
                             </div>
-                            <div class="de-flex-col">
-                                <div class="menu_side_area">
-                                    <a href="login.html" class="btn-main">Sign In</a>
-                                    <span id="menu-btn"></span>
-                                </div>
+                            
                             </div>
                         </div>
                     </div>
@@ -231,15 +196,28 @@
     <script src="~/assets/js/plugins.js"></script>
     <script src="~/assets/js/designesia.js"></script>
     <script>
-        window.addEventListener('scroll', function () {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('header-scrolled');
-            } else {
-                header.classList.remove('header-scrolled');
-            }
-        });
+        const header = document.querySelector('header');
+        const isHome = document.body.classList.contains('home-page');
+
+        if (!isHome) {
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 50) {
+                    header.classList.add('header-scrolled');
+                    header.classList.remove('transparent');
+                } else {
+                    header.classList.remove('header-scrolled');
+                    header.classList.add('transparent');
+                }
+            });
+        }
     </script>
+
+
+
+
+
+    
+
 </body>
 
 </html>

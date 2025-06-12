@@ -146,3 +146,7 @@ function fillInAddress() {
     }
   }
 }
+$("[data-bgimage]").each(function () {
+    var bg = $(this).data("bgimage");
+    $(this).css("background-image", bg);
+});

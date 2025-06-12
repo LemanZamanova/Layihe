@@ -48,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>i0kf9t6f1c</Fingerprint>
-      <Integrity>EnAHid9hkvhTJllUw9IH6KVYqT+eJYkMyuSjyqY3HEs=</Integrity>
+      <Fingerprint>hs58s7bmqu</Fingerprint>
+      <Integrity>r+jATLmfFFeUh00w8zndAA3Lw03ugy3T7ZidIyGmf/U=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\css\coloring.css'))</OriginalItemSpec>
@@ -264,8 +264,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>qpuu7xy897</Fingerprint>
-      <Integrity>Al7Q+aUn3D2J+58laFIjQrQmHi1ml2mExxCcqdxKp8M=</Integrity>
+      <Fingerprint>zdbaui65w4</Fingerprint>
+      <Integrity>2aEW072BVVimTzsld3vdlC2uY+lIksKL2HAK0Tu1lwo=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\css\style.css'))</OriginalItemSpec>
@@ -15408,6 +15408,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\misc\map.png'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\misc\porshe.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Timoto</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Timoto</BasePath>
+      <RelativePath>assets/images/misc/porshe.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>9c06qxnv3n</Fingerprint>
+      <Integrity>OfXAQsqJnVUL2kydIgbV++UeOaFYOa0zlIWOtuLItF8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\misc\porshe.png'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\news-2\pic-blog-1.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>Timoto</SourceId>
@@ -16164,41 +16182,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\timoto_gold.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\timoto_grey.png'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\timoto_white_text_logo.png'))">
       <SourceType>Package</SourceType>
       <SourceId>Timoto</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Timoto</BasePath>
-      <RelativePath>assets/images/timoto_grey.png</RelativePath>
+      <RelativePath>assets/images/timoto_white_text_logo.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>bdizsonpdx</Fingerprint>
-      <Integrity>v/N1OXv7zWoX3JMgppZV6U1opM5smsyX63jKqir5H/0=</Integrity>
+      <Fingerprint>1deagay756</Fingerprint>
+      <Integrity>y0Czd8aVkbmlQi/2y4utpip8Y4XbarqJmLdTUewYBZQ=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\timoto_grey.png'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\timoto_white_text.png'))">
-      <SourceType>Package</SourceType>
-      <SourceId>Timoto</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/Timoto</BasePath>
-      <RelativePath>assets/images/timoto_white_text.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>yijk2qp6bp</Fingerprint>
-      <Integrity>JmYM/zZwbNanl1/87qiyu29hjy+Ai6gqDQiKCsAutyk=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\timoto_white_text.png'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\timoto_white_text_logo.png'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\ui\arrow-down.png'))">
       <SourceType>Package</SourceType>
@@ -16338,8 +16338,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>vanoxlv1o6</Fingerprint>
-      <Integrity>CQ9Q7/xPkL3Hvc74OwIC8Ced9G3x1E/zIyz2L79noig=</Integrity>
+      <Fingerprint>bnf44gyn77</Fingerprint>
+      <Integrity>N8xeQw/h5K0AViDeYzRJIGiq4KXcfNF95kg4yv73dh4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\js\plugins.js'))</OriginalItemSpec>

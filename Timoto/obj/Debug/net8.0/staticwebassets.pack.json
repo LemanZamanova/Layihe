@@ -3425,6 +3425,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\misc\\map.png"
     },
     {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\misc\\porshe.png",
+      "PackagePath": "staticwebassets\\assets\\images\\misc\\porshe.png"
+    },
+    {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\news-2\\pic-blog-1.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\news-2\\pic-blog-1.jpg"
     },
@@ -3593,12 +3597,8 @@
       "PackagePath": "staticwebassets\\assets\\images\\timoto_gold.png"
     },
     {
-      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\timoto_grey.png",
-      "PackagePath": "staticwebassets\\assets\\images\\timoto_grey.png"
-    },
-    {
-      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\timoto_white_text.png",
-      "PackagePath": "staticwebassets\\assets\\images\\timoto_white_text.png"
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\timoto_white_text_logo.png",
+      "PackagePath": "staticwebassets\\assets\\images\\timoto_white_text_logo.png"
     },
     {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\ui\\arrow-down-light.png",

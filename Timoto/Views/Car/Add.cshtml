@@ -1,0 +1,54 @@
+﻿@model Timoto.ViewModels.CarFormVM
+
+@{
+    ViewData["Title"] = "Add New Car";
+}
+
+<h2>Add New Car</h2>
+
+<form asp-action="Add" method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input asp-for="Car.Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Daily Price</label>
+        <input asp-for="Car.DailyPrice" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Fuel Type</label>
+        @Html.DropDownListFor(model => model.Car.FuelTypeId, Model.FuelTypes, "Select", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Transmission</label>
+        @Html.DropDownListFor(model => model.Car.TransmissionTypeId, Model.TransmissionTypes, "Select", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Drive Type</label>
+        @Html.DropDownListFor(model => model.Car.DriveTypeId, Model.DriveTypes, "Select", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Body Type</label>
+        @Html.DropDownListFor(model => model.Car.BodyTypeId, Model.BodyTypes, "Select", new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Features</label><br />
+        @foreach (var feature in Model.AllFeatures)
+        {
+            <label class="form-check-label">
+                <input type="checkbox" name="SelectedFeatureIds" value="@feature.Id" class="form-check-input" />
+                @feature.Name
+            </label>
+
+            <br />
+        }
+    </div>
+
+    <button type="submit" class="btn btn-success">Add Car</button>
+</form>
