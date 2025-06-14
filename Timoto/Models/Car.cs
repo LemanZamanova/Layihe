@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Timoto.Models.Base;
 
 namespace Timoto.Models
@@ -7,7 +8,7 @@ namespace Timoto.Models
     {
         [Required]
         public string Name { get; set; }
-        public string ImageUrl { get; set; }
+
 
         public int Seats { get; set; }
         public int Doors { get; set; }
@@ -19,7 +20,13 @@ namespace Timoto.Models
 
         public string ExteriorColor { get; set; }
         public string InteriorColor { get; set; }
+
+
         public string Location { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+
+
         public int DailyPrice { get; set; }
         public int LikeCount { get; set; }
         public string Description { get; set; }
@@ -41,6 +48,10 @@ namespace Timoto.Models
         public int VehicleTypeId { get; set; }
         public VehicleType VehicleType { get; set; }
 
+
+        public List<CarImage> CarImages { get; set; }
+        [NotMapped]
+        public CarImage MainImage => CarImages?.FirstOrDefault(img => img.IsMain);
 
         //Many-to-Many: CarFeatures
         public ICollection<CarFeature> CarFeatures { get; set; }

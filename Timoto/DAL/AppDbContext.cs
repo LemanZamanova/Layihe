@@ -17,6 +17,7 @@ namespace Timoto.DAL
         public DbSet<VehicleType> VehicleTypes { get; set; }
         public DbSet<Feature> Features { get; set; }
         public DbSet<CarFeature> CarFeatures { get; set; }
+        public DbSet<CarImage> CarImages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

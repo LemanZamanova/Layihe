@@ -1,4 +1,6 @@
-﻿@model Timoto.ViewModels.CarFilterVM
+﻿@using Timoto.Models
+
+@model Timoto.ViewModels.CarFilterVM
 
 <!-- content begin -->
 <div class="no-bottom no-top zebra" id="content">
@@ -130,13 +132,12 @@
                 <!-- CAR DISPLAY SECTION -->
                 <div class="col-lg-9">
                     <div class="row">
-                       
                         @foreach (Car car in Model.Cars)
                         {
                             <div class="col-xl-4 col-lg-6">
                                 <div class="de-item mb30">
                                     <div class="d-img">
-                                        <img src="~/assets/images/cars/@car.CarImages.FirstOrDefault(x => x.IsMain)?.ImageUrl" class="img-fluid" alt="">
+                                        <img src="~/assets/images/cars/@(car.CarImages?.FirstOrDefault()?.ImageUrl ?? "default.jpg")" class="img-fluid" alt="">
                                     </div>
                                     <div class="d-info">
                                         <div class="d-text">

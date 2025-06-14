@@ -3305,6 +3305,22 @@
       "PackagePath": "staticwebassets\\assets\\images\\car-thumbs\\vw-polo.jpg"
     },
     {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cars\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cars\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cars\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cars\\4.jpg"
+    },
+    {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\bentley.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\cars\\bentley.jpg"
     },
@@ -3615,6 +3631,10 @@
     {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\ui\\arrow-up.png",
       "PackagePath": "staticwebassets\\assets\\images\\ui\\arrow-up.png"
+    },
+    {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\js\\Filter.js",
+      "PackagePath": "staticwebassets\\assets\\js\\Filter.js"
     },
     {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\js\\countdown-custom.js",

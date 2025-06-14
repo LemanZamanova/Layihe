@@ -20,8 +20,16 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/wwwroot/assets/images/cars/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = d3d3cm9vdFxhc3NldHNcaW1hZ2VzXGNhcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Car/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Car/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Car/Index.cshtml]

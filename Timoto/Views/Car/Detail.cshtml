@@ -1,0 +1,180 @@
+﻿@model DetailVM
+
+<!-- content begin -->
+<div class="no-bottom no-top zebra" id="content">
+    <div id="top"></div>
+
+    <!-- section begin -->
+    <section id="subheader" class="jarallax text-light">
+        <img src="~/assets/images/background/2.jpg" class="jarallax-img" alt="">
+        <div class="center-y relative text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1>Vehicle Fleet</h1>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section close -->
+
+    <section id="section-car-details">
+        <div class="container">
+            <div class="row g-5">
+                <!-- LEFT SIDE: IMAGES + MAP -->
+                <div class="col-lg-6">
+                    @{
+                        var mainImage = Model.Cars.CarImages?.FirstOrDefault(i => i.IsMain);
+                        var otherImages = Model.Cars.CarImages?.Where(i => !i.IsMain).ToList();
+                    }
+                    <div id="slider-carousel" class="owl-carousel">
+                        @if (mainImage != null)
+                        {
+                            <div class="item">
+                                <img src="~/assets/images/cars/@mainImage.ImageUrl" alt="">
+                            </div>
+                        }
+
+                       
+
+                        <!-- Other images -->
+                        @foreach (var img in otherImages)
+                        {
+                            <div class="item">
+
+
+                                <img src="~/assets/images/cars/@img.ImageUrl" alt="">
+                            </div>
+                        }
+                    </div>
+
+                    <div class="spacer-20"></div>
+                    <h4>Location on Map</h4>
+                    <div id="map" style="width: 100%; height: 300px;"></div>
+                </div>
+
+                <!-- MIDDLE COLUMN: SPECIFICATIONS -->
+                <div class="col-lg-3">
+                    <h3>@Model.Cars.Name </h3>
+                    <p>@Model.Cars.Description</p>
+
+                    <div class="spacer-10"></div>
+
+                    <h4>Specifications</h4>
+                    <div class="de-spec">
+                        <div class="d-row"><span class="d-title">Body</span><span class="d-value">@Model.Cars.BodyType?.Name </span></div>
+                        <div class="d-row"><span class="d-title">Seat</span><span class="d-value">@Model.Cars.Seats seats</span></div>
+                        <div class="d-row"><span class="d-title">Door</span><span class="d-value">@Model.Cars.Doors doors</span></div>
+                        <div class="d-row"><span class="d-title">Luggage</span><span class="d-value">@Model.Cars.LuggageVolume</span></div>
+                        <div class="d-row"><span class="d-title">Fuel Type</span><span class="d-value">@Model.Cars.FuelType?.Name</span></div>
+                        <div class="d-row"><span class="d-title">Engine</span><span class="d-value">@Model.Cars.EngineSize</span></div>
+                        <div class="d-row"><span class="d-title">Year</span><span class="d-value">@Model.Cars.Year</span></div>
+                        <div class="d-row"><span class="d-title">Mileage</span><span class="d-value">@Model.Cars.Mileage</span></div>
+                        <div class="d-row"><span class="d-title">Transmission</span><span class="d-value">@Model.Cars.TransmissionType?.Name</span></div>
+                        <div class="d-row"><span class="d-title">Drive</span><span class="d-value">@Model.Cars.DriveType?.Name</span></div>
+                        <div class="d-row"><span class="d-title">Fuel Economy</span><span class="d-value">@Model.Cars.FuelEconomy</span></div>
+                        <div class="d-row"><span class="d-title">Exterior Color</span><span class="d-value">@Model.Cars.ExteriorColor</span></div>
+                        <div class="d-row"><span class="d-title">Interior Color</span><span class="d-value">@Model.Cars.InteriorColor</span></div>
+                        <div class="d-row"><span class="d-title">Location</span><span class="d-value">@Model.Cars.Location</span></div>
+                    </div>
+
+                    <div class="spacer-single"></div>
+
+                    <h4>Features</h4>
+                    <ul class="ul-style-2">
+                        @foreach (var feature in Model.Cars.CarFeatures)
+                        {
+                            <li>@feature.Feature.Name</li>
+                        }
+                    </ul>
+                </div>
+
+                <!-- RIGHT COLUMN: BOOKING -->
+                <div class="col-lg-3">
+                    <div class="de-price text-center">
+                        Daily rate
+                        <h3>$@Model.Cars.DailyPrice</h3>
+                    </div>
+                    <div class="spacer-30"></div>
+                    <div class="de-box mb25">
+                        <form name="contactForm" id='contact_form' method="post">
+                            <h4>Booking this car</h4>
+                            <div class="spacer-20"></div>
+                            <div class="row">
+                                <div class="col-lg-12 mb20">
+                                    <h5>Pick Up Date & Time</h5>
+                                    <div class="date-time-field">
+                                        <input type="text" id="date-picker" name="Pick Up Date" value="">
+                                        <select name="Pick Up Time" id="pickup-time">
+                                            <option selected disabled value="Select time">Time</option>
+                                            @for (int h = 0; h < 24; h++)
+                                            {
+                                                <option value="@($"{h:D2}:00")">@($"{h:D2}:00")</option>
+                                                <option value="@($"{h:D2}:30")">@($"{h:D2}:30")</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 mb20">
+                                    <h5>Return Date & Time</h5>
+                                    <div class="date-time-field">
+                                        <input type="text" id="date-picker-2" name="Collection Date" value="">
+                                        <select name="Collection Time" id="collection-time">
+                                            <option selected disabled value="Select time">Time</option>
+                                            @for (int h = 0; h < 24; h++)
+                                            {
+                                                <option value="@($"{h:D2}:00")">@($"{h:D2}:00")</option>
+                                                <option value="@($"{h:D2}:30")">@($"{h:D2}:30")</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type='submit' id='send_message' value='Book Now' class="btn-main btn-fullwidth">
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+
+                    <div class="de-box">
+                        <h4>Share</h4>
+                        <div class="de-color-icons">
+                            <span><i class="fa fa-twitter fa-lg"></i></span>
+                            <span><i class="fa fa-facebook fa-lg"></i></span>
+                            <span><i class="fa fa-reddit fa-lg"></i></span>
+                            <span><i class="fa fa-linkedin fa-lg"></i></span>
+                            <span><i class="fa fa-pinterest fa-lg"></i></span>
+                            <span><i class="fa fa-stumbleupon fa-lg"></i></span>
+                            <span><i class="fa fa-delicious fa-lg"></i></span>
+                            <span><i class="fa fa-envelope fa-lg"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- content close -->
+
+<a href="#" id="back-to-top"></a>
+
+<!-- Google Map Script -->
+<script>
+    function initMap() {
+        const location = { lat: @Model.Cars.Latitude, lng: @Model.Cars.Longitude };
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: location
+        });
+
+        new google.maps.Marker({
+            position: location,
+            map: map,
+            title: '@Model.Cars.Location'
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>

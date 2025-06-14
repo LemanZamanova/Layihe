@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+p6YJ+rnumQ8MU8zhTblLFoj2Rd97Mw4oKLVO3z42mY=",
+  "Hash": "VPHdpx98dkR43toB7mqsno6bGF3XY57WvMdqTcFgstE=",
   "Source": "Timoto",
   "BasePath": "_content/Timoto",
   "Mode": "Default",
@@ -17027,6 +17027,90 @@
       "OriginalItemSpec": "wwwroot\\assets\\images\\background\\subheader.jpg"
     },
     {
+      "Identity": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\1.jpg",
+      "SourceId": "Timoto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\",
+      "BasePath": "_content/Timoto",
+      "RelativePath": "assets/images/cars/1#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "atwx2oe8yi",
+      "Integrity": "olmGhm2eoiPxCUg9jjRObPnGKWhvQymBpbBVBuiQGgg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\cars\\1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\2.jpg",
+      "SourceId": "Timoto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\",
+      "BasePath": "_content/Timoto",
+      "RelativePath": "assets/images/cars/2#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "o0sfk0qqsv",
+      "Integrity": "mO+NaehFAmo68dFBdk4nZ0CYTU2zPDtjKmUBTT4by6c=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\cars\\2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\3.jpg",
+      "SourceId": "Timoto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\",
+      "BasePath": "_content/Timoto",
+      "RelativePath": "assets/images/cars/3#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "u1753iu8v8",
+      "Integrity": "DgI70Ux3zZXddEB0m257wM9o9vrA+u7eTcgkMqqkKnk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\cars\\3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\4.jpg",
+      "SourceId": "Timoto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\",
+      "BasePath": "_content/Timoto",
+      "RelativePath": "assets/images/cars/4#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "7zny9byq0v",
+      "Integrity": "4wJDBD0hrboZwNC5aM5+mr25Ma1ILO/cIOTIfFaGrfU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\cars\\4.jpg"
+    },
+    {
       "Identity": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\bentley.jpg",
       "SourceId": "Timoto",
       "SourceType": "Discovered",
@@ -17151,6 +17235,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\cars\\hyundai-staria.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\Index.cshtml",
+      "SourceId": "Timoto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\",
+      "BasePath": "_content/Timoto",
+      "RelativePath": "assets/images/cars/Index#[.{fingerprint}]?.cshtml",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "z0a32g7njy",
+      "Integrity": "gwe8IYXk2BNhs5iaE11Ryy9mr99yqkmxTpHo+Bgxprw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\cars\\Index.cshtml"
     },
     {
       "Identity": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\jeep-renegade.jpg",
@@ -19041,6 +19146,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\js\\designesia.js"
+    },
+    {
+      "Identity": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\js\\Filter.js",
+      "SourceId": "Timoto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\",
+      "BasePath": "_content/Timoto",
+      "RelativePath": "assets/js/Filter#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fvevw163nd",
+      "Integrity": "C0FlVLrakSgmjS/pnGMS2iihSISeh/Iy2H6LdwT2l6U=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\js\\Filter.js"
     },
     {
       "Identity": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\js\\jquery.countdown.js",
@@ -86704,6 +86830,334 @@
       ]
     },
     {
+      "Route": "assets/images/cars/1.atwx2oe8yi.jpg",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "541922"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"olmGhm2eoiPxCUg9jjRObPnGKWhvQymBpbBVBuiQGgg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "atwx2oe8yi"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/cars/1.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-olmGhm2eoiPxCUg9jjRObPnGKWhvQymBpbBVBuiQGgg="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/1.jpg",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "541922"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"olmGhm2eoiPxCUg9jjRObPnGKWhvQymBpbBVBuiQGgg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:06 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-olmGhm2eoiPxCUg9jjRObPnGKWhvQymBpbBVBuiQGgg="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/2.jpg",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "519353"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mO+NaehFAmo68dFBdk4nZ0CYTU2zPDtjKmUBTT4by6c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mO+NaehFAmo68dFBdk4nZ0CYTU2zPDtjKmUBTT4by6c="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/2.o0sfk0qqsv.jpg",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "519353"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mO+NaehFAmo68dFBdk4nZ0CYTU2zPDtjKmUBTT4by6c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o0sfk0qqsv"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/cars/2.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-mO+NaehFAmo68dFBdk4nZ0CYTU2zPDtjKmUBTT4by6c="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/3.jpg",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "641327"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DgI70Ux3zZXddEB0m257wM9o9vrA+u7eTcgkMqqkKnk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DgI70Ux3zZXddEB0m257wM9o9vrA+u7eTcgkMqqkKnk="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/3.u1753iu8v8.jpg",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "641327"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DgI70Ux3zZXddEB0m257wM9o9vrA+u7eTcgkMqqkKnk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "u1753iu8v8"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/cars/3.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DgI70Ux3zZXddEB0m257wM9o9vrA+u7eTcgkMqqkKnk="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/4.7zny9byq0v.jpg",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "484484"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4wJDBD0hrboZwNC5aM5+mr25Ma1ILO/cIOTIfFaGrfU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7zny9byq0v"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/cars/4.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4wJDBD0hrboZwNC5aM5+mr25Ma1ILO/cIOTIfFaGrfU="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/4.jpg",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "484484"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4wJDBD0hrboZwNC5aM5+mr25Ma1ILO/cIOTIfFaGrfU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:08 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4wJDBD0hrboZwNC5aM5+mr25Ma1ILO/cIOTIfFaGrfU="
+        }
+      ]
+    },
+    {
       "Route": "assets/images/cars/bentley.jpg",
       "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\bentley.jpg",
       "Selectors": [],
@@ -87192,6 +87646,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-Kyyomk2YXgIrV3hElc3VXQ9jhQRUVgl8Z+qZoFVj5Fk="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/Index.cshtml",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\Index.cshtml",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9057"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gwe8IYXk2BNhs5iaE11Ryy9mr99yqkmxTpHo+Bgxprw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 20:36:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gwe8IYXk2BNhs5iaE11Ryy9mr99yqkmxTpHo+Bgxprw="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/Index.z0a32g7njy.cshtml",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\Index.cshtml",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9057"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gwe8IYXk2BNhs5iaE11Ryy9mr99yqkmxTpHo+Bgxprw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 20:36:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z0a32g7njy"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/cars/Index.cshtml"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gwe8IYXk2BNhs5iaE11Ryy9mr99yqkmxTpHo+Bgxprw="
         }
       ]
     },
@@ -94572,6 +95108,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-lz5rzT+H2HPxXFz8X70t6Y4N4W+GCxm9eYBqABnJQUE="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/Filter.fvevw163nd.js",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\js\\Filter.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1877"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"C0FlVLrakSgmjS/pnGMS2iihSISeh/Iy2H6LdwT2l6U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 17:02:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fvevw163nd"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/js/Filter.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-C0FlVLrakSgmjS/pnGMS2iihSISeh/Iy2H6LdwT2l6U="
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/Filter.js",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\js\\Filter.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1877"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"C0FlVLrakSgmjS/pnGMS2iihSISeh/Iy2H6LdwT2l6U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 17:02:32 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-C0FlVLrakSgmjS/pnGMS2iihSISeh/Iy2H6LdwT2l6U="
         }
       ]
     },

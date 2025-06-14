@@ -808,12 +808,17 @@ wwwroot\assets\images\background\7.jpg
 wwwroot\assets\images\background\8.jpg
 wwwroot\assets\images\background\9.jpg
 wwwroot\assets\images\background\subheader.jpg
+wwwroot\assets\images\cars\1.jpg
+wwwroot\assets\images\cars\2.jpg
+wwwroot\assets\images\cars\3.jpg
+wwwroot\assets\images\cars\4.jpg
 wwwroot\assets\images\cars\bentley.jpg
 wwwroot\assets\images\cars\bmw-m5.jpg
 wwwroot\assets\images\cars\chevrolet-camaro.jpg
 wwwroot\assets\images\cars\ferrari-enzo.jpg
 wwwroot\assets\images\cars\ford-raptor.jpg
 wwwroot\assets\images\cars\hyundai-staria.jpg
+wwwroot\assets\images\cars\Index.cshtml
 wwwroot\assets\images\cars\jeep-renegade.jpg
 wwwroot\assets\images\cars\lexus.jpg
 wwwroot\assets\images\cars\mini-cooper.jpg
@@ -904,6 +909,7 @@ wwwroot\assets\images\ui\arrow-up.png
 wwwroot\assets\images\ui\arrow-up-light.png
 wwwroot\assets\js\countdown-custom.js
 wwwroot\assets\js\designesia.js
+wwwroot\assets\js\Filter.js
 wwwroot\assets\js\jquery.countdown.js
 wwwroot\assets\js\plugins.js
 wwwroot\assets\vendor\autoload.php

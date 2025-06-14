@@ -67735,6 +67735,416 @@
       ]
     },
     {
+      "Route": "assets/images/cars/1.atwx2oe8yi.jpg",
+      "AssetFile": "assets/images/cars/1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "541922"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"olmGhm2eoiPxCUg9jjRObPnGKWhvQymBpbBVBuiQGgg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:06 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "atwx2oe8yi"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-olmGhm2eoiPxCUg9jjRObPnGKWhvQymBpbBVBuiQGgg="
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/cars/1.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/1.jpg",
+      "AssetFile": "assets/images/cars/1.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "541922"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"olmGhm2eoiPxCUg9jjRObPnGKWhvQymBpbBVBuiQGgg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:06 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-olmGhm2eoiPxCUg9jjRObPnGKWhvQymBpbBVBuiQGgg="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/2.jpg",
+      "AssetFile": "assets/images/cars/2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "519353"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mO+NaehFAmo68dFBdk4nZ0CYTU2zPDtjKmUBTT4by6c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:00 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-mO+NaehFAmo68dFBdk4nZ0CYTU2zPDtjKmUBTT4by6c="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/2.o0sfk0qqsv.jpg",
+      "AssetFile": "assets/images/cars/2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "519353"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"mO+NaehFAmo68dFBdk4nZ0CYTU2zPDtjKmUBTT4by6c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:00 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o0sfk0qqsv"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-mO+NaehFAmo68dFBdk4nZ0CYTU2zPDtjKmUBTT4by6c="
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/cars/2.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/3.jpg",
+      "AssetFile": "assets/images/cars/3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "641327"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DgI70Ux3zZXddEB0m257wM9o9vrA+u7eTcgkMqqkKnk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:00 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-DgI70Ux3zZXddEB0m257wM9o9vrA+u7eTcgkMqqkKnk="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/3.u1753iu8v8.jpg",
+      "AssetFile": "assets/images/cars/3.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "641327"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"DgI70Ux3zZXddEB0m257wM9o9vrA+u7eTcgkMqqkKnk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:00 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "u1753iu8v8"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-DgI70Ux3zZXddEB0m257wM9o9vrA+u7eTcgkMqqkKnk="
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/cars/3.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/4.7zny9byq0v.jpg",
+      "AssetFile": "assets/images/cars/4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "484484"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4wJDBD0hrboZwNC5aM5+mr25Ma1ILO/cIOTIfFaGrfU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:08 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7zny9byq0v"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4wJDBD0hrboZwNC5aM5+mr25Ma1ILO/cIOTIfFaGrfU="
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/cars/4.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/4.jpg",
+      "AssetFile": "assets/images/cars/4.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "484484"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4wJDBD0hrboZwNC5aM5+mr25Ma1ILO/cIOTIfFaGrfU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 11 Apr 2023 10:57:08 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4wJDBD0hrboZwNC5aM5+mr25Ma1ILO/cIOTIfFaGrfU="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/Index.cshtml",
+      "AssetFile": "assets/images/cars/Index.cshtml",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9057"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gwe8IYXk2BNhs5iaE11Ryy9mr99yqkmxTpHo+Bgxprw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 20:36:12 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gwe8IYXk2BNhs5iaE11Ryy9mr99yqkmxTpHo+Bgxprw="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/cars/Index.z0a32g7njy.cshtml",
+      "AssetFile": "assets/images/cars/Index.cshtml",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9057"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gwe8IYXk2BNhs5iaE11Ryy9mr99yqkmxTpHo+Bgxprw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 20:36:12 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z0a32g7njy"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gwe8IYXk2BNhs5iaE11Ryy9mr99yqkmxTpHo+Bgxprw="
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/cars/Index.cshtml"
+        }
+      ]
+    },
+    {
       "Route": "assets/images/cars/bentley.jpg",
       "AssetFile": "assets/images/cars/bentley.jpg",
       "Selectors": [],
@@ -74127,6 +74537,88 @@
         {
           "Name": "label",
           "Value": "assets/images/ui/arrow-up.png"
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/Filter.fvevw163nd.js",
+      "AssetFile": "assets/js/Filter.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1877"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"C0FlVLrakSgmjS/pnGMS2iihSISeh/Iy2H6LdwT2l6U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 17:02:32 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fvevw163nd"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-C0FlVLrakSgmjS/pnGMS2iihSISeh/Iy2H6LdwT2l6U="
+        },
+        {
+          "Name": "label",
+          "Value": "assets/js/Filter.js"
+        }
+      ]
+    },
+    {
+      "Route": "assets/js/Filter.js",
+      "AssetFile": "assets/js/Filter.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1877"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"C0FlVLrakSgmjS/pnGMS2iihSISeh/Iy2H6LdwT2l6U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 17:02:32 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-C0FlVLrakSgmjS/pnGMS2iihSISeh/Iy2H6LdwT2l6U="
         }
       ]
     },

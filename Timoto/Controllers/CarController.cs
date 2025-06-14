@@ -25,6 +25,7 @@ namespace Timoto.Controllers
                 .Include(c => c.DriveType)
                 .Include(c => c.CarFeatures)
                 .ThenInclude(cf => cf.Feature)
+                .Include(c => c.CarImages)
                 .AsQueryable();
 
             if (filter.SelectedVehicleTypeIds.Any())
@@ -59,10 +60,10 @@ namespace Timoto.Controllers
             ViewBag.BodyTypes = _context.BodyTypes.ToList();
             ViewBag.VehicleTypes = _context.VehicleTypes.ToList();
             ViewBag.SeatOptions = _context.Cars
-                .Select(c => c.Seats)
+                 .Select(c => c.Seats)
                  .Distinct()
-                .OrderBy(s => s)
-                .ToList();
+                 .OrderBy(s => s)
+                 .ToList();
             ViewBag.EngineRanges = new List<(int Min, int Max)>
                     {
                        (1000, 2000),
@@ -82,6 +83,7 @@ namespace Timoto.Controllers
 
             return View(vm);
         }
+
 
         public async Task<IActionResult> Add()
         {
@@ -110,5 +112,30 @@ namespace Timoto.Controllers
 
             return RedirectToAction("Index");
         }
+        public async Task<IActionResult> Detail(int id)
+        {
+            var car = await _context.Cars
+                .Include(c => c.BodyType)
+                .Include(c => c.VehicleType)
+                .Include(c => c.FuelType)
+                .Include(c => c.TransmissionType)
+                .Include(c => c.DriveType)
+                .Include(c => c.CarFeatures)
+                .ThenInclude(cf => cf.Feature)
+                .Include(c => c.CarImages)
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (car == null) return NotFound();
+            var vm = new DetailVM
+            {
+                Cars = car,
+
+
+            };
+            return View(vm);
+        }
+
+
+
     }
 }

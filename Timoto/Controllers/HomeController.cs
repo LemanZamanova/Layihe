@@ -18,6 +18,7 @@ namespace Timoto.Controllers
         {
             var cars = _context.Cars
                 .Include(c => c.BodyType)
+                .Include(c => c.CarImages)
                 .OrderByDescending(c => c.LikeCount)
                 .Take(6)
                 .ToList();
