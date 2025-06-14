@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Timoto.Migrations
 {
     /// <inheritdoc />
-    public partial class Cars : Migration
+    public partial class Classes : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -125,6 +125,21 @@ namespace Timoto.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_TransmissionTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "VehicleTypes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VehicleTypes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -258,6 +273,7 @@ namespace Timoto.Migrations
                     TransmissionTypeId = table.Column<int>(type: "int", nullable: false),
                     DriveTypeId = table.Column<int>(type: "int", nullable: false),
                     BodyTypeId = table.Column<int>(type: "int", nullable: false),
+                    VehicleTypeId = table.Column<int>(type: "int", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()")
                 },
@@ -286,6 +302,12 @@ namespace Timoto.Migrations
                         name: "FK_Cars_TransmissionTypes_TransmissionTypeId",
                         column: x => x.TransmissionTypeId,
                         principalTable: "TransmissionTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Cars_VehicleTypes_VehicleTypeId",
+                        column: x => x.VehicleTypeId,
+                        principalTable: "VehicleTypes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -377,6 +399,11 @@ namespace Timoto.Migrations
                 name: "IX_Cars_TransmissionTypeId",
                 table: "Cars",
                 column: "TransmissionTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Cars_VehicleTypeId",
+                table: "Cars",
+                column: "VehicleTypeId");
         }
 
         /// <inheritdoc />
@@ -423,6 +450,9 @@ namespace Timoto.Migrations
 
             migrationBuilder.DropTable(
                 name: "TransmissionTypes");
+
+            migrationBuilder.DropTable(
+                name: "VehicleTypes");
         }
     }
 }

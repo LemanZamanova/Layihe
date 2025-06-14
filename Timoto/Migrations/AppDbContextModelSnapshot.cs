@@ -327,6 +327,9 @@ namespace Timoto.Migrations
                     b.Property<int>("TransmissionTypeId")
                         .HasColumnType("int");
 
+                    b.Property<int>("VehicleTypeId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Year")
                         .HasColumnType("int");
 
@@ -339,6 +342,8 @@ namespace Timoto.Migrations
                     b.HasIndex("FuelTypeId");
 
                     b.HasIndex("TransmissionTypeId");
+
+                    b.HasIndex("VehicleTypeId");
 
                     b.ToTable("Cars");
                 });
@@ -450,6 +455,29 @@ namespace Timoto.Migrations
                     b.ToTable("TransmissionTypes");
                 });
 
+            modelBuilder.Entity("Timoto.Models.VehicleType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("VehicleTypes");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -527,6 +555,12 @@ namespace Timoto.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Timoto.Models.VehicleType", "VehicleType")
+                        .WithMany("Cars")
+                        .HasForeignKey("VehicleTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("BodyType");
 
                     b.Navigation("DriveType");
@@ -534,6 +568,8 @@ namespace Timoto.Migrations
                     b.Navigation("FuelType");
 
                     b.Navigation("TransmissionType");
+
+                    b.Navigation("VehicleType");
                 });
 
             modelBuilder.Entity("Timoto.Models.CarFeature", b =>
@@ -581,6 +617,11 @@ namespace Timoto.Migrations
                 });
 
             modelBuilder.Entity("Timoto.Models.TransmissionType", b =>
+                {
+                    b.Navigation("Cars");
+                });
+
+            modelBuilder.Entity("Timoto.Models.VehicleType", b =>
                 {
                     b.Navigation("Cars");
                 });

@@ -15,19 +15,74 @@ namespace Timoto.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(CarFilterVM filter)
         {
-            var cars = _context.Cars
+            var query = _context.Cars
                 .Include(c => c.BodyType)
+                 .Include(c => c.VehicleType)
                 .Include(c => c.FuelType)
                 .Include(c => c.TransmissionType)
                 .Include(c => c.DriveType)
                 .Include(c => c.CarFeatures)
-                    .ThenInclude(cf => cf.Feature)
-                .ToList();
+                .ThenInclude(cf => cf.Feature)
+                .AsQueryable();
 
-            return View(cars);
+            if (filter.SelectedVehicleTypeIds.Any())
+                query = query.Where(c => filter.SelectedVehicleTypeIds.Contains(c.VehicleTypeId));
+
+            if (filter.SelectedBodyTypeIds != null && filter.SelectedBodyTypeIds.Any())
+                query = query.Where(c => filter.SelectedBodyTypeIds.Contains(c.BodyTypeId));
+
+            if (filter.SelectedSeatCounts != null && filter.SelectedSeatCounts.Any())
+                query = query.Where(c => filter.SelectedSeatCounts.Contains(c.Seats));
+
+            if (filter.MinPrice.HasValue)
+                query = query.Where(c => c.DailyPrice >= filter.MinPrice.Value);
+
+            if (filter.MaxPrice.HasValue)
+                query = query.Where(c => c.DailyPrice <= filter.MaxPrice.Value);
+
+            if (filter.SelectedEngineRanges != null && filter.SelectedEngineRanges.Any())
+            {
+                foreach (var range in filter.SelectedEngineRanges)
+                {
+                    var parts = range.Split('-');
+                    if (int.TryParse(parts[0], out int min))
+                    {
+                        int max = parts[1] == "max" ? int.MaxValue : int.Parse(parts[1]);
+                        query = query.Where(c => c.EngineSize >= min && c.EngineSize <= max);
+                    }
+                }
+            }
+
+            // ViewBag-lə filtrdə lazım olanlar
+            ViewBag.BodyTypes = _context.BodyTypes.ToList();
+            ViewBag.VehicleTypes = _context.VehicleTypes.ToList();
+            ViewBag.SeatOptions = _context.Cars
+                .Select(c => c.Seats)
+                 .Distinct()
+                .OrderBy(s => s)
+                .ToList();
+            ViewBag.EngineRanges = new List<(int Min, int Max)>
+                    {
+                       (1000, 2000),
+                       (2001, 4000),
+                       (4001, 6000),
+                       (6001, int.MaxValue)
+                     };
+            var vm = new CarFilterVM
+            {
+                Cars = query.ToList(),
+                SelectedBodyTypeIds = filter.SelectedBodyTypeIds ?? new List<int>(),
+                SelectedVehicleTypeIds = filter.SelectedVehicleTypeIds ?? new List<int>(),
+                SelectedSeatCounts = filter.SelectedSeatCounts ?? new List<int>(),
+                MinPrice = filter.MinPrice,
+                MaxPrice = filter.MaxPrice
+            };
+
+            return View(vm);
         }
+
         public async Task<IActionResult> Add()
         {
 

@@ -37,6 +37,11 @@ namespace Timoto.Models
         public int BodyTypeId { get; set; }
         public BodyType BodyType { get; set; }
 
+
+        public int VehicleTypeId { get; set; }
+        public VehicleType VehicleType { get; set; }
+
+
         //Many-to-Many: CarFeatures
         public ICollection<CarFeature> CarFeatures { get; set; }
     }
