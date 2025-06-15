@@ -148,3 +148,4 @@ C:\Users\HOME\OneDrive\Desktop\Timoto\Timoto\Timoto\obj\Debug\net8.0\refint\Timo
 C:\Users\HOME\OneDrive\Desktop\Timoto\Timoto\Timoto\obj\Debug\net8.0\Timoto.pdb
 C:\Users\HOME\OneDrive\Desktop\Timoto\Timoto\Timoto\obj\Debug\net8.0\Timoto.genruntimeconfig.cache
 C:\Users\HOME\OneDrive\Desktop\Timoto\Timoto\Timoto\obj\Debug\net8.0\ref\Timoto.dll
+C:\Users\HOME\OneDrive\Desktop\Timoto\Timoto\Timoto\bin\Debug\net8.0\Newtonsoft.Json.dll

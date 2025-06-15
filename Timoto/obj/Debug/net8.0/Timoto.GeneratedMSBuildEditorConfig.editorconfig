@@ -24,8 +24,32 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = d3d3cm9vdFxhc3NldHNcaW1hZ2VzXGNhcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Account/ConfirmEmailSuccess.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDb25maXJtRW1haWxTdWNjZXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Account/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFcnJvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Account/VerifyCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxWZXJpZnlDb2RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Car/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Car/Booking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEJvb2tpbmcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Car/Detail.cshtml]

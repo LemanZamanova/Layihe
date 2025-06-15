@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VPHdpx98dkR43toB7mqsno6bGF3XY57WvMdqTcFgstE=",
+  "Hash": "qgQYgH0yYI7sp1fdbkBOk+2gTjagPB4c6Y2/U5fy3pw=",
   "Source": "Timoto",
   "BasePath": "_content/Timoto",
   "Mode": "Default",
@@ -18810,6 +18810,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\svg\\google_icon.svg"
+    },
+    {
+      "Identity": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\T_icon.png",
+      "SourceId": "Timoto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\",
+      "BasePath": "_content/Timoto",
+      "RelativePath": "assets/images/T_icon#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "n4g8b77di4",
+      "Integrity": "WeWAD830rsa7/opzWWirmd7usPCjM9r7kD+lfc6QfIE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\T_icon.png"
     },
     {
       "Identity": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\team\\1.jpg",
@@ -93796,6 +93817,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-ZsmsCJM6VhKwMSkXzed2Vab0huF3j0XceEtiAmB0t7k="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/T_icon.n4g8b77di4.png",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\T_icon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1270106"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WeWAD830rsa7/opzWWirmd7usPCjM9r7kD+lfc6QfIE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Jun 2025 11:18:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n4g8b77di4"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/T_icon.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WeWAD830rsa7/opzWWirmd7usPCjM9r7kD+lfc6QfIE="
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/T_icon.png",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\T_icon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1270106"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WeWAD830rsa7/opzWWirmd7usPCjM9r7kD+lfc6QfIE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Jun 2025 11:18:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WeWAD830rsa7/opzWWirmd7usPCjM9r7kD+lfc6QfIE="
         }
       ]
     },

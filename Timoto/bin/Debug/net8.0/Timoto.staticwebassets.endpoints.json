@@ -65029,6 +65029,88 @@
       ]
     },
     {
+      "Route": "assets/images/T_icon.n4g8b77di4.png",
+      "AssetFile": "assets/images/T_icon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1270106"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WeWAD830rsa7/opzWWirmd7usPCjM9r7kD+lfc6QfIE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Jun 2025 11:18:28 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n4g8b77di4"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WeWAD830rsa7/opzWWirmd7usPCjM9r7kD+lfc6QfIE="
+        },
+        {
+          "Name": "label",
+          "Value": "assets/images/T_icon.png"
+        }
+      ]
+    },
+    {
+      "Route": "assets/images/T_icon.png",
+      "AssetFile": "assets/images/T_icon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1270106"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WeWAD830rsa7/opzWWirmd7usPCjM9r7kD+lfc6QfIE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 15 Jun 2025 11:18:28 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WeWAD830rsa7/opzWWirmd7usPCjM9r7kD+lfc6QfIE="
+        }
+      ]
+    },
+    {
       "Route": "assets/images/background/1.hx0vpw44oh.jpg",
       "AssetFile": "assets/images/background/1.jpg",
       "Selectors": [],

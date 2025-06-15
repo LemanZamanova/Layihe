@@ -1,5 +1,15 @@
 ﻿@model HomeVM
 <!-- content begin -->
+@if (TempData["WelcomeMessage"] != null)
+{
+    <div id="welcomeAlert"
+         class="alert alert-success text-center mx-auto"
+         style="max-width: 600px; font-size: 18px; font-weight: 500; margin-top: 100px;"
+         role="alert">
+        @TempData["WelcomeMessage"]
+    </div>
+}
+
 <div class="no-bottom no-top" id="content">
     <div id="top"></div>
     <section id="section-hero" aria-label="section" class="jarallax full-height vertical-center">
@@ -10,10 +20,10 @@
                     <h1>Drive Your Journey with Timoto</h1>
                     <p>Reliable, Affordable & Stylish Car Rentals – Anytime, Anywhere.</p>
                     <div class="hero-buttons">
-                        <a href="/Car" class="btn-main">Rent Now</a>
-                        <a href="/Car" style="display: inline-block;
-    margin-top: 0px;
-    padding: 4px 25px; border-radius:10px;opacity:0.8" class="btn-outline-light">View Cars</a>
+                        <a asp-controller="Car" asp-action="Booking"  class="btn-main">Rent Now</a>
+                        <a asp-controller="Car"  style="display: inline-block;
+                                margin-top: 0px;
+                              padding: 4px 25px; border-radius:10px;opacity:0.8" class="btn-outline-light">View Cars</a>
                     </div>
                 </div>
 

@@ -1,0 +1,84 @@
+﻿@using Timoto.ViewModels.Users
+@model RegisterVM
+
+<!-- content begin -->
+<div class="no-bottom no-top" id="content">
+    <div id="top"></div>
+
+    <!-- section begin -->
+    <section id="subheader" class="jarallax text-light">
+        <img src="~/assets/images/background/subheader.jpg" class="jarallax-img" alt="">
+        <div class="center-y relative text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1>Register</h1>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- section close -->
+
+    <section aria-label="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="bg-light p-5 rounded-4 shadow">
+                        <h3 class="text-center mb-2 fw-bold">Don't have an account? Register now.</h3>
+                        <p class="text-center text-muted mb-4">New to <strong>Timoto</strong>? Sign up in seconds and drive your way!</p>
+
+                        <form method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label asp-for="Name" class="form-label">Name</label>
+                                    <input asp-for="Name" class="form-control" placeholder="Your name" />
+                                    <span asp-validation-for="Name" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Surname" class="form-label">Surname</label>
+                                    <input asp-for="Surname" class="form-control" placeholder="Your surname" />
+                                    <span asp-validation-for="Surname" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Email" class="form-label">Email</label>
+                                    <input asp-for="Email" type="email" class="form-control" placeholder="you@example.com" />
+                                    <span asp-validation-for="Email" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Phone" class="form-label">Phone</label>
+                                    <input asp-for="Phone" class="form-control" placeholder="+994..." />
+                                    <span asp-validation-for="Phone" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="Password" class="form-label">Password</label>
+                                    <input asp-for="Password" type="password" class="form-control" placeholder="••••••••" />
+                                    <span asp-validation-for="Password" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label asp-for="ConfirmPassword" class="form-label">Re-enter Password</label>
+                                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="••••••••" />
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                                </div>
+
+                                <div class="col-md-12 text-center mt-3">
+                                    <button type="submit" class="btn btn-success px-4 py-2">Register Now</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- content close -->
+
+<a href="#" id="back-to-top"></a>

@@ -13,6 +13,7 @@ namespace Timoto.DAL
         public DbSet<FuelType> FuelTypes { get; set; }
         public DbSet<TransmissionType> TransmissionTypes { get; set; }
         public DbSet<Models.DriveType> DriveTypes { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
         public DbSet<BodyType> BodyTypes { get; set; }
         public DbSet<VehicleType> VehicleTypes { get; set; }
         public DbSet<Feature> Features { get; set; }

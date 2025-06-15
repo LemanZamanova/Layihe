@@ -893,6 +893,7 @@ wwwroot\assets\images\select-form\sportscar.png
 wwwroot\assets\images\select-form\van.png
 wwwroot\assets\images\svg\facebook_icon.svg
 wwwroot\assets\images\svg\google_icon.svg
+wwwroot\assets\images\T_icon.png
 wwwroot\assets\images\team\1.jpg
 wwwroot\assets\images\team\2.jpg
 wwwroot\assets\images\team\3.jpg

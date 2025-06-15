@@ -10848,6 +10848,18 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-y0Czd8aVkbmlQi/2y4utpip8Y4XbarqJmLdTUewYBZQ="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"7359"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022y0Czd8aVkbmlQi/2y4utpip8Y4XbarqJmLdTUewYBZQ=\u0022"},{"Name":"Last-Modified","Value":"Sat, 07 Jun 2025 17:40:59 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Timoto/assets/images/T_icon.n4g8b77di4.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\T_icon.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"n4g8b77di4"},{"Name":"integrity","Value":"sha256-WeWAD830rsa7/opzWWirmd7usPCjM9r7kD\u002Blfc6QfIE="},{"Name":"label","Value":"_content/Timoto/assets/images/T_icon.png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1270106"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022WeWAD830rsa7/opzWWirmd7usPCjM9r7kD\u002Blfc6QfIE=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Jun 2025 11:18:28 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Timoto/assets/images/T_icon.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\T_icon.png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-WeWAD830rsa7/opzWWirmd7usPCjM9r7kD\u002Blfc6QfIE="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1270106"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022WeWAD830rsa7/opzWWirmd7usPCjM9r7kD\u002Blfc6QfIE=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Jun 2025 11:18:28 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Timoto/assets/images/ui/arrow-down-light.hp207z659r.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\ui\arrow-down-light.png'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

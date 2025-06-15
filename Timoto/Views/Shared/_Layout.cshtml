@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+<!DOCTYPE html>
 <html lang="zxx">
 
 <head>
-    <title>Rentaly - Multipurpose Vehicle Car Rental Website Template</title>
-    <link rel="icon" href="~/assets/images/icon.png" type="image/gif" sizes="16x16">
+    <title>Timoto.az</title>
+    <link rel="icon" href="~/assets/images/T_icon.png" type="image/gif" sizes="20x20">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Rentaly - Multipurpose Vehicle Car Rental Website Template" name="description">
@@ -82,15 +83,39 @@
                                        
                                     </li>
                                     <li><a class="menu-item" href="booking.html">Booking</a></li>
-                                    <li>
-                                        <a class="menu-item" href="cars.html">My Account</a>
-                                        <ul>
-                                            <li><a class="menu-item" href="account-dashboard.html">Dashboard</a></li>
-                                            <li><a class="menu-item" href="account-profile.html">My Profile</a></li>
-                                            <li><a class="menu-item" href="account-booking.html">My Orders</a></li>
-                                            <li><a class="menu-item" href="account-favorite.html">My Favorite Cars</a></li>
+                                    @inject SignInManager<AppUser> SignInManager
+                                    @inject UserManager<AppUser> UserManager
+
+                                    <li class="menu-item-has-children">
+                                        <a class="menu-item" href="#">My Account</a>
+                                        <ul class="submenu">
+                                            @if (SignInManager.IsSignedIn(User))
+                                            {
+                                                
+                                                <li><a class="menu-item" asp-controller="Account" asp-action="Profile">My Profile</a></li>
+                                                <li><a class="menu-item" asp-controller="Account" asp-action="MyBookings">My Orders</a></li>
+                                                <li><a class="menu-item" asp-controller="Account" asp-action="Favorites">My Favorite Cars</a></li>
+                                                
+                                                   <li>
+
+                                                    <form asp-controller="Account" asp-action="Logout" method="post" class="d-inline">
+                                                        @Html.AntiForgeryToken()
+                                                        <button type="submit" class="menu-item border-0 bg-transparent p-0 text-start w-100" style="margin-bottom:10px; margin-left:16px">Logout</button>
+                                                    </form>
+
+                                                   </li>
+
+                                                    
+                                                
+                                            }
+                                            else
+                                            {
+                                                <li><a class="menu-item" asp-controller="Account" asp-action="Login">Login</a></li>
+                                                <li><a class="menu-item" asp-controller="Account" asp-action="Register">Register</a></li>
+                                            }
                                         </ul>
                                     </li>
+
                                     
                                     
                                     <li>
@@ -111,6 +136,7 @@
                 </div>
             </div>
         </header>
+      
         <!-- header close -->
         @RenderBody()
         <!-- footer begin -->
@@ -212,12 +238,21 @@
         }
     </script>
 
-
+    <script>
+        setTimeout(function () {
+            const alert = document.querySelector('.alert');
+            if (alert) {
+                alert.style.transition = 'opacity 0.5s ease';
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 500);
+            }
+        }, 4000); // 4 saniyəyə tədricən yox olur
+    </script>
 
 
 
     
-
+    
 </body>
 
 </html>

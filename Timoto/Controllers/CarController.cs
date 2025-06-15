@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Timoto.DAL;
+using Timoto.Models;
 using Timoto.ViewModels;
 
 namespace Timoto.Controllers
@@ -133,6 +134,57 @@ namespace Timoto.Controllers
 
             };
             return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Book(BookingVM model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+
+            DateTime startDate = DateTime.Parse($"{model.PickupDate} {model.PickupTime}");
+            DateTime endDate = DateTime.Parse($"{model.CollectioDate} {model.CollectionTime}");
+
+
+            bool isOverlap = _context.Bookings.Any(b =>
+                b.CarId == model.CarId &&
+                ((startDate >= b.StartDate && startDate < b.EndDate) ||
+                 (endDate > b.StartDate && endDate <= b.EndDate) ||
+                 (startDate <= b.StartDate && endDate >= b.EndDate)));
+
+            if (isOverlap)
+            {
+                TempData["BookingError"] = "Bu tarixdə maşın artıq bron edilib.";
+                return RedirectToAction("Detail", "Car", new { id = model.CarId });
+            }
+
+
+            if ((startDate - DateTime.Now).TotalDays > 30)
+            {
+                TempData["BookingError"] = "Çox uzaq tarix üçün bron edilə bilməz.";
+                return RedirectToAction("Detail", "Car", new { id = model.CarId });
+            }
+
+
+            Booking booking = new Booking
+            {
+                CarId = model.CarId,
+
+                StartDate = startDate,
+                EndDate = endDate,
+                CreatedAt = DateTime.Now,
+                IsDeleted = false
+            };
+
+            _context.Bookings.Add(booking);
+            await _context.SaveChangesAsync();
+
+            TempData["BookingSuccess"] = "Maşın uğurla bron edildi.";
+            return RedirectToAction("Detail", "Car", new { id = model.CarId });
         }
 
 

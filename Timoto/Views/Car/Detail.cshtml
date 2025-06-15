@@ -77,7 +77,7 @@
                         <div class="d-row"><span class="d-title">Fuel Economy</span><span class="d-value">@Model.Cars.FuelEconomy</span></div>
                         <div class="d-row"><span class="d-title">Exterior Color</span><span class="d-value">@Model.Cars.ExteriorColor</span></div>
                         <div class="d-row"><span class="d-title">Interior Color</span><span class="d-value">@Model.Cars.InteriorColor</span></div>
-                        <div class="d-row"><span class="d-title">Location</span><span class="d-value">@Model.Cars.Location</span></div>
+                        @* <div class="d-row"><span class="d-title">Location</span><span class="d-value">@Model.Cars.Location</span></div> *@
                     </div>
 
                     <div class="spacer-single"></div>
@@ -99,15 +99,19 @@
                     </div>
                     <div class="spacer-30"></div>
                     <div class="de-box mb25">
-                        <form name="contactForm" id='contact_form' method="post">
+                        <form name="contactForm" asp-controller="" asp-action="Book" method="post">
+                            @Html.AntiForgeryToken()
+
+                            <input type="hidden" name="CarId" value="@Model.Cars.Id" />
+
                             <h4>Booking this car</h4>
                             <div class="spacer-20"></div>
                             <div class="row">
                                 <div class="col-lg-12 mb20">
                                     <h5>Pick Up Date & Time</h5>
                                     <div class="date-time-field">
-                                        <input type="text" id="date-picker" name="Pick Up Date" value="">
-                                        <select name="Pick Up Time" id="pickup-time">
+                                        <input type="text" id="date-picker" name="PickUpDate" value="">
+                                        <select name="PickUpTime" id="pickup-time">
                                             <option selected disabled value="Select time">Time</option>
                                             @for (int h = 0; h < 24; h++)
                                             {
@@ -117,11 +121,12 @@
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-12 mb20">
                                     <h5>Return Date & Time</h5>
                                     <div class="date-time-field">
-                                        <input type="text" id="date-picker-2" name="Collection Date" value="">
-                                        <select name="Collection Time" id="collection-time">
+                                        <input type="text" id="date-picker-2" name="CollectionDate" value="">
+                                        <select name="CollectionTime" id="collection-time">
                                             <option selected disabled value="Select time">Time</option>
                                             @for (int h = 0; h < 24; h++)
                                             {
@@ -132,9 +137,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type='submit' id='send_message' value='Book Now' class="btn-main btn-fullwidth">
+
+                            <input type="submit" id="send_message" value="Book Now" class="btn-main btn-fullwidth">
                             <div class="clearfix"></div>
                         </form>
+
                     </div>
 
                     <div class="de-box">
@@ -175,6 +182,60 @@
         });
     }
 </script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+@* <script async defer *@
+@*         src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"> *@
+@* </script> *@
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var map = L.map('map').setView([@Model.Cars.Latitude, @Model.Cars.Longitude], 13);
+
+        // Xəritə layı (OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Marker
+        L.marker([@Model.Cars.Latitude, @Model.Cars.Longitude])
+            .addTo(map)
+            .bindPopup('@Model.Cars.Location')
+            .openPopup();
+    });
+</script>
+<script>
+    document.getElementById('bookingForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const carId = this.getAttribute('data-car-id');
+        const pickupDate = document.getElementById('pickupDate').value;
+        const pickupTime = document.getElementById('pickupTime').value;
+        const returnDate = document.getElementById('returnDate').value;
+        const returnTime = document.getElementById('returnTime').value;
+
+        fetch(`/Booking/CheckAvailability`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]')?.value // Əgər antiforgery istifadə olunursa
+            },
+            body: JSON.stringify({
+                carId: carId,
+                pickupDate: pickupDate,
+                pickupTime: pickupTime,
+                returnDate: returnDate,
+                returnTime: returnTime
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                // Tarix uygundursa -> istəyə uyğun yönləndir (məs: ödəniş səhifəsi və ya form submit)
+                alert("Tarix uyğundur, bron səhifəsinə yönləndirilirsiniz.");
+                window.location.href = `/Booking/Confirm?carId=${carId}&pickup=${pickupDate} ${pickupTime}&return=${returnDate} ${returnTime}`;
+            } else {
+                alert(data.message); // Məsələn: "Bu tarixdə maşın artıq bron edilib."
+            }
+        });
+    });
 </script>

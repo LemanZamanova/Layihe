@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Error";
+}
+
+<section class="section pt-5 pb-5 text-center">
+    <div class="container">
+        <h2 class="text-danger mb-4"> Something went wrong</h2>
+        <div asp-validation-summary="All" class="text-danger mb-3"></div>
+        <p class="lead">We couldn't confirm your email. The link might be invalid or expired.</p>
+        <a class="btn btn-warning mt-3" asp-controller="Account" asp-action="Register">Try Registering Again</a>
+    </div>
+</section>

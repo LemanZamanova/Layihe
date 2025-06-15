@@ -3173,6 +3173,10 @@
       "PackagePath": "staticwebassets\\assets\\fonts\\icofont\\icofont.min.css"
     },
     {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\T_icon.png",
+      "PackagePath": "staticwebassets\\assets\\images\\T_icon.png"
+    },
+    {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\background\\1.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\background\\1.jpg"
     },

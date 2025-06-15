@@ -6,5 +6,9 @@ namespace Timoto.Models
     {
         public string Name { get; set; }
         public string Surname { get; set; }
+
+        public string Phone { get; set; }
+        public string? EmailConfirmationCode { get; set; }
+        public DateTime? CodeExpireAt { get; set; }
     }
 }

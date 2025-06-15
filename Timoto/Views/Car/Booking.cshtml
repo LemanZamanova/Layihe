@@ -1,0 +1,50 @@
+﻿@* @model BookingVM *@
+
+@* @{ *@
+@*     ViewData["Title"] = "Complete Booking"; *@
+@* } *@
+
+@* <h2>Complete Your Booking</h2> *@
+
+@* @if (TempData["BookingError"] != null) *@
+@* { *@
+@*     <div class="alert alert-danger"> *@
+@*         @TempData["BookingError"] *@
+@*     </div> *@
+@* } *@
+
+@* <form asp-action="Book" method="post"> *@
+@*     @Html.AntiForgeryToken() *@
+
+@*     <input type="hidden" asp-for="CarId" /> *@
+@*     <input type="hidden" asp-for="PickupDate" /> *@
+@*     <input type="hidden" asp-for="PickupTime" /> *@
+@*     <input type="hidden" asp-for="CollectionDate" /> *@
+@*     <input type="hidden" asp-for="CollectionTime" /> *@
+
+@*     <div class="form-group"> *@
+@*         <label asp-for="FullName"></label> *@
+@*         <input asp-for="FullName" class="form-control" /> *@
+@*         <span asp-validation-for="FullName" class="text-danger"></span> *@
+@*     </div> *@
+
+@*     <div class="form-group"> *@
+@*         <label asp-for="Email"></label> *@
+@*         <input asp-for="Email" class="form-control" /> *@
+@*         <span asp-validation-for="Email" class="text-danger"></span> *@
+@*     </div> *@
+
+@*     <div class="form-group"> *@
+@*         <label asp-for="Phone"></label> *@
+@*         <input asp-for="Phone" class="form-control" /> *@
+@*         <span asp-validation-for="Phone" class="text-danger"></span> *@
+@*     </div> *@
+
+@*     <!-- Gələcəkdə kart və ya digər məlumat sahələri burada yerləşdirilə bilər --> *@
+
+@*     <button type="submit" class="btn btn-primary mt-3">Confirm Booking</button> *@
+@* </form> *@
+
+@* @section Scripts { *@
+@*     @await Html.PartialAsync("_ValidationScriptsPartial") *@
+@* } *@
