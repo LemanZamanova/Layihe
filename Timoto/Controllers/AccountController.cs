@@ -162,7 +162,7 @@ namespace Timoto.Controllers
 
             var model = JsonConvert.DeserializeObject<RegisterVM>(registerJson);
 
-            var user = new AppUser
+            AppUser user = new AppUser
             {
                 UserName = model.Email,
                 Email = model.Email,
@@ -226,5 +226,6 @@ namespace Timoto.Controllers
 
             return RedirectToAction("VerifyCode");
         }
+
     }
 }

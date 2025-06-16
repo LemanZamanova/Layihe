@@ -1,0 +1,108 @@
+﻿@model Timoto.ViewModels.BookingConfirmVM
+
+@{
+    ViewData["Title"] = "Confirm Booking";
+}
+
+<style>
+    .booking-background-wrapper {
+        min-height: 100vh;
+        background-image: url('/assets/images/background/3 - Copy.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 120px;
+    }
+
+    .booking-card {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 900px;
+        width: 100%;
+    }
+
+    label {
+        font-weight: 600;
+    }
+</style>
+
+<div class="booking-background-wrapper">
+    <div class="booking-card">
+
+        <h2 class="text-center mb-4">Confirm Your Booking</h2>
+
+        @if (!ViewData.ModelState.IsValid && ViewData.ModelState[string.Empty]?.Errors?.Count > 0)
+        {
+            foreach (var error in ViewData.ModelState[string.Empty].Errors)
+            {
+                <div class="alert alert-danger text-center">@error.ErrorMessage</div>
+            }
+        }
+
+        <form asp-action="ConfirmBooking" method="post">
+            @Html.AntiForgeryToken()
+
+            <input type="hidden" name="BookingVM.CarId" value="@Model.BookingVM.CarId" />
+            <input type="hidden" name="BookingVM.PickupDate" value="@Model.BookingVM.PickupDate" />
+            <input type="hidden" name="BookingVM.PickupTime" value="@Model.BookingVM.PickupTime" />
+            <input type="hidden" name="BookingVM.CollectionDate" value="@Model.BookingVM.CollectionDate" />
+            <input type="hidden" name="BookingVM.CollectionTime" value="@Model.BookingVM.CollectionTime" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" value="@Model.FullName" class="form-control" readonly />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" value="@Model.Email" class="form-control" readonly />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone</label>
+                        <input type="text" value="@Model.Phone" class="form-control" readonly />
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    @if (Model.UserCards != null && Model.UserCards.Any())
+                    {
+                        <div class="mb-3">
+                            <label class="form-label">Select a Card</label>
+                            <select name="SelectedCardId" class="form-select" required>
+                                <option disabled selected value="">-- Select a Card --</option>
+                                @foreach (var card in Model.UserCards)
+                                {
+                                    <option value="@card.Value">@card.Text</option>
+                                }
+                            </select>
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="margin-top:20px" class="alert text-center text-danger">
+                            You haven't added any cards yet. Please go to your profile to add one.
+                        </div>
+                        <div class="text-center mt-2">
+                            <a href="/Profile/Cards" class="btn btn-primary">Add Card</a>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit"
+                        class="btn btn-success px-5 mt-3"
+                @(Model.UserCards == null || !Model.UserCards.Any() ? "disabled" : "")>
+                    Confirm Booking
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>

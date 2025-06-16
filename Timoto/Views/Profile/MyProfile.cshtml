@@ -1,0 +1,209 @@
+﻿@model Timoto.ViewModels.UpdateProfileVM
+
+@{
+    ViewData["Title"] = "My Profile";
+}
+
+<div class="no-bottom no-top zebra" id="content">
+    <div id="top"></div>
+
+    <!-- Header -->
+    <section id="subheader" class="jarallax text-light">
+        <img src="~/assets/images/background/14.jpg" class="jarallax-img" alt="">
+        <div class="center-y relative text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1>My Profile</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Profile Content -->
+    <section id="section-settings" class="bg-gray-100">
+        <div class="container">
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-lg-3 mb30">
+                    <div class="card p-4 rounded-5">
+                        <div class="profile_avatar">
+                            <div class="profile_img">
+                                <div class="profile_img text-center" style="position: relative; width: 160px; height: 160px; margin: auto; margin-bottom: 40px;">
+
+                                    <form asp-action="UploadProfileImage" asp-controller="Profile" method="post" enctype="multipart/form-data" id="imageUploadForm">
+                                        <input type="file" name="profileImage" id="profileImageInput" accept="image/*"
+                                               class="d-none" onchange="document.getElementById('imageUploadForm').submit();" />
+
+                                        <label for="profileImageInput" style="cursor: pointer;">
+                                            <div style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; background-color:#FFFFFF; display: flex; align-items: center; justify-content: center; position: relative;">
+
+                                                @if (string.IsNullOrEmpty(ViewBag.ProfileImage as string))
+                                                {
+                                                    <!-- Şəkil yoxdursa: Plus simvolu göstər -->
+                                                    <i class="fa fa-plus fa-2x text-muted"></i>
+                                                }
+                                                else
+                                                {
+                                                    <!-- Şəkil varsa: onu göstər və plus gizlə -->
+                                                    <img src="@ViewBag.ProfileImage" alt="+"
+                                                         style="width: 96%; height: 96%; object-fit: cover;" />
+                                                 
+                                                }
+
+                                            </div>
+                                        </label>
+                                    </form>
+
+                                    @if (!string.IsNullOrEmpty(ViewBag.ProfileImage as string))
+                                    {
+                                        <!-- Şəkil varsa, sil düyməsini göstər -->
+                                        <form asp-action="DeleteProfileImage" asp-controller="Profile" method="post"
+                                              style="position: absolute; bottom: -8px; right: -4px;">
+                                            <button type="submit"
+                                                    style="
+                        width: 26px;
+                        height: 26px;
+                        padding: 0;
+                        border-radius: 50%;
+                        border: 2px solid #ffffff;
+                        background-color: #28a745;
+                        color: white;
+                        font-size: 18px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        line-height: 1;">
+                                                <span style="margin-top: -2px;">–</span>
+                                            </button>
+                                        </form>
+                                    }
+                                </div>
+
+
+                            </div>
+                            <div class="profile_name">
+                                <h4>
+                                    @Model.Name @Model.Surname
+                                    <span class="profile_username text-gray">@Model.Email</span>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="spacer-20"></div>
+                        <ul class="menu-col">
+                            <li><a asp-action="MyProfile" asp-controller="Profile" class="active"><i class="fa fa-user"></i>My Profile</a></li>
+                            <li><a asp-action="Orders" asp-controller="Profile"><i class="fa fa-calendar"></i>My Orders</a></li>
+                            <li><a asp-action="Favorites" asp-controller="Profile"><i class="fa fa-car"></i>My Favorite Cars</a></li>
+                            <li><a asp-action="Cards" asp-controller="Profile"><i class="icon_creditcard"></i>My Card Accounts</a></li>
+                            <li><a asp-action="Logout" asp-controller="Account"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="col-lg-9">
+                    <div class="card p-4 rounded-5">
+                        <form asp-action="MyProfile" asp-controller="Profile" method="post" class="form-border">
+                            @Html.AntiForgeryToken()
+
+                            <!-- Success message -->
+                            @if (!string.IsNullOrWhiteSpace(ViewBag.SuccessMessage as string))
+                            {
+                                <div class="alert alert-success text-center">@ViewBag.SuccessMessage</div>
+                            }
+
+                            <!-- Error messages -->
+                            @if (!ViewData.ModelState.IsValid)
+                            {
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                        {
+                                            <li>@error.ErrorMessage</li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+
+                            <div class="de_tab tab_simple">
+                                <ul class="de_nav">
+                                    <li class="active"><span>Profile</span></li>
+                                    <li><span>Notifications</span></li>
+                                </ul>
+
+                                <div class="de_tab_content">
+                                    <!-- Profile Tab -->
+                                    <div class="tab-1">
+                                        <div class="row">
+                                            <div class="col-lg-6 mb20">
+                                                <h5>Name</h5>
+                                                <input asp-for="Name" class="form-control" placeholder="Name" />
+                                            </div>
+                                            <div class="col-lg-6 mb20">
+                                                <h5>Surname</h5>
+                                                <input asp-for="Surname" class="form-control" placeholder="Surname" />
+                                            </div>
+                                            <div class="col-lg-6 mb20">
+                                                <h5>Email</h5>
+                                                <input asp-for="Email" style="padding-bottom:11px;background-color:#F9F9F9;margin-top:10px" class="form-control" placeholder="Enter new email" />
+												@* <small class="text-muted">Changing email requires confirmation.</small> *@
+                                            </div>
+                                            <div class="col-lg-6 mb20">
+                                                <h5>Phone</h5>
+                                                <input asp-for="Phone" class="form-control" placeholder="Phone" />
+                                            </div>
+                                            <div class="col-lg-6 mb20">
+                                                <h5>Current Password <span class="text-danger">*</span></h5>
+                                                <input asp-for="CurrentPassword" class="form-control" type="password" placeholder="Enter current password" />
+                                                <div class="text-center mt-4">
+                                                    <button type="submit" style="margin-top:20px" class="btn-main">Update Profile</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 mb20">
+                                                <h5>New Password</h5>
+                                                <input asp-for="NewPassword" class="form-control" type="password" placeholder="Optional: Enter new password" />
+                                                <small class="text-muted">
+                                                    Forgot your password?
+                                                    <a asp-controller="Account" asp-action="ForgotPassword">Click here</a> to reset.
+                                                </small>
+                                            </div>
+                                         
+                                        </div>
+                                    </div>
+
+                                    <!-- Notification Tab (Optional) -->
+                                    <!-- Notification Tab -->
+                                    <div class="tab-2">
+                                        <h5>Your Notifications</h5>
+                                        @if (Model.Notifications != null && Model.Notifications.Any())
+                                        {
+                                            <ul class="list-group">
+                                                @foreach (var notification in Model.Notifications)
+                                                {
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        @notification.Message
+                                                        <small class="text-muted">@notification.CreatedAt.ToString("yyyy-MM-dd HH:mm")</small>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        }
+                                        else
+                                        {
+                                            <p class="text-muted">You have no notifications yet.</p>
+                                        }
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<a href="#" id="back-to-top"></a>

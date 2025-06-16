@@ -92,56 +92,77 @@
                 </div>
 
                 <!-- RIGHT COLUMN: BOOKING -->
+                @using Microsoft.AspNetCore.Identity
+                @inject SignInManager<AppUser> SignInManager
+
                 <div class="col-lg-3">
+                  
                     <div class="de-price text-center">
                         Daily rate
                         <h3>$@Model.Cars.DailyPrice</h3>
                     </div>
                     <div class="spacer-30"></div>
+                             
+                    <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="de-box mb25">
-                        <form name="contactForm" asp-controller="" asp-action="Book" method="post">
-                            @Html.AntiForgeryToken()
-
-                            <input type="hidden" name="CarId" value="@Model.Cars.Id" />
-
-                            <h4>Booking this car</h4>
-                            <div class="spacer-20"></div>
-                            <div class="row">
-                                <div class="col-lg-12 mb20">
-                                    <h5>Pick Up Date & Time</h5>
-                                    <div class="date-time-field">
-                                        <input type="text" id="date-picker" name="PickUpDate" value="">
-                                        <select name="PickUpTime" id="pickup-time">
-                                            <option selected disabled value="Select time">Time</option>
-                                            @for (int h = 0; h < 24; h++)
-                                            {
-                                                <option value="@($"{h:D2}:00")">@($"{h:D2}:00")</option>
-                                                <option value="@($"{h:D2}:30")">@($"{h:D2}:30")</option>
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12 mb20">
-                                    <h5>Return Date & Time</h5>
-                                    <div class="date-time-field">
-                                        <input type="text" id="date-picker-2" name="CollectionDate" value="">
-                                        <select name="CollectionTime" id="collection-time">
-                                            <option selected disabled value="Select time">Time</option>
-                                            @for (int h = 0; h < 24; h++)
-                                            {
-                                                <option value="@($"{h:D2}:00")">@($"{h:D2}:00")</option>
-                                                <option value="@($"{h:D2}:30")">@($"{h:D2}:30")</option>
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
+                        @if (!SignInManager.IsSignedIn(User))
+                        {
+                            <div class="text-center">
+                                <h5>Booking this car</h5>
+                                <p class="text-muted mt-2 mb-3">To book, please login first</p>
+                                <a asp-controller="Account"
+                                   asp-action="Login"
+                                   asp-route-returnUrl="@Url.Action("Detail", "Car", new { id = Model.Cars.Id })"
+                                   class="btn btn-warning btn-fullwidth">
+                                    Login to Book
+                                </a>
                             </div>
+                        }
+                        else
+                        {
+                            <form asp-controller="Car" asp-action="Book" method="post">
+                                @Html.AntiForgeryToken()
 
-                            <input type="submit" id="send_message" value="Book Now" class="btn-main btn-fullwidth">
-                            <div class="clearfix"></div>
-                        </form>
+                                <input asp-for="Cars.Id" name="CarId" type="hidden" value="@Model.Cars.Id" />
 
+                                <h4>Booking this car</h4>
+                                <div class="spacer-20"></div>
+                                <div class="row">
+                                    <div class="col-lg-12 mb20">
+                                        <h5>Pick Up Date & Time</h5>
+                                        <div class="date-time-field">
+                                            <input asp-for="BookingVM.PickupDate" name="PickupDate" type="text" id="date-picker" class="form-control" />
+                                            <select asp-for="BookingVM.PickupTime" name="PickupTime" class="form-select" id="pickup-time">
+                                                <option disabled selected value="">Time</option>
+                                                @for (int h = 0; h < 24; h++)
+                                                {
+                                                    <option value="@($"{h:D2}:00")">@($"{h:D2}:00")</option>
+                                                    <option value="@($"{h:D2}:30")">@($"{h:D2}:30")</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 mb20">
+                                        <h5>Return Date & Time</h5>
+                                        <div class="date-time-field">
+                                            <input asp-for="BookingVM.CollectionDate" name="CollectionDate" type="text" id="date-picker-2" class="form-control" />
+                                            <select asp-for="BookingVM.CollectionTime" name="CollectionTime" class="form-select" id="collection-time">
+                                                <option disabled selected value="">Time</option>
+                                                @for (int h = 0; h < 24; h++)
+                                                {
+                                                    <option value="@($"{h:D2}:00")">@($"{h:D2}:00")</option>
+                                                    <option value="@($"{h:D2}:30")">@($"{h:D2}:30")</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="submit" id="send_message" value="Book Now" class="btn-main btn-fullwidth">
+                                <div class="clearfix"></div>
+                            </form>
+                        }
                     </div>
 
                     <div class="de-box">
@@ -158,6 +179,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </section>

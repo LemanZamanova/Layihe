@@ -1,5 +1,8 @@
 ﻿@model HomeVM
 <!-- content begin -->
+@{
+    ViewData["Title"] = "Home";
+}
 @if (TempData["WelcomeMessage"] != null)
 {
     <div id="welcomeAlert"

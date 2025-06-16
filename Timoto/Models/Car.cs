@@ -55,5 +55,7 @@ namespace Timoto.Models
 
         //Many-to-Many: CarFeatures
         public ICollection<CarFeature> CarFeatures { get; set; }
+        public ICollection<FavoriteCar> FavoritedBy { get; set; }
+
     }
 }

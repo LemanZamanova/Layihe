@@ -10,5 +10,9 @@ namespace Timoto.Models
         public string Phone { get; set; }
         public string? EmailConfirmationCode { get; set; }
         public DateTime? CodeExpireAt { get; set; }
+        public ICollection<FavoriteCar> FavoriteCars { get; set; }
+
+        public string? ProfileImageUrl { get; set; }
+
     }
 }

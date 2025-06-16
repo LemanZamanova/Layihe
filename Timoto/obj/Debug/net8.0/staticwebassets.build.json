@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qgQYgH0yYI7sp1fdbkBOk+2gTjagPB4c6Y2/U5fy3pw=",
+  "Hash": "r1+LeskT4iq5fuQDFBKfjdfvDeoAf2ADuhGoLgMN/kA=",
   "Source": "Timoto",
   "BasePath": "_content/Timoto",
   "Mode": "Default",
@@ -20427,6 +20427,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\vendor\\phpmailer\\phpmailer\\VERSION"
+    },
+    {
+      "Identity": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\images\\profile\\1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.jpg",
+      "SourceId": "Timoto",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\",
+      "BasePath": "_content/Timoto",
+      "RelativePath": "images/profile/1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wl9rwpv1x6",
+      "Integrity": "ZL0r70gg7aEhKoOnhutqceip83M9eZeZkOrdyGzquCI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\profile\\1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.jpg"
     }
   ],
   "Endpoints": [
@@ -100131,6 +100152,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-II7ZZSynM1oSOEZpxzHHZkMLbDwGRIWuhvbOI6jhcS4="
+        }
+      ]
+    },
+    {
+      "Route": "images/profile/1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.jpg",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\images\\profile\\1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "132223"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZL0r70gg7aEhKoOnhutqceip83M9eZeZkOrdyGzquCI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Jun 2025 22:13:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZL0r70gg7aEhKoOnhutqceip83M9eZeZkOrdyGzquCI="
+        }
+      ]
+    },
+    {
+      "Route": "images/profile/1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.wl9rwpv1x6.jpg",
+      "AssetFile": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\images\\profile\\1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "132223"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZL0r70gg7aEhKoOnhutqceip83M9eZeZkOrdyGzquCI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 16 Jun 2025 22:13:15 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wl9rwpv1x6"
+        },
+        {
+          "Name": "label",
+          "Value": "images/profile/1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZL0r70gg7aEhKoOnhutqceip83M9eZeZkOrdyGzquCI="
         }
       ]
     }

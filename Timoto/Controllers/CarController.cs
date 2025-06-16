@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Timoto.DAL;
 using Timoto.Models;
+using Timoto.Services.Interface;
 using Timoto.ViewModels;
 
 namespace Timoto.Controllers
@@ -11,10 +14,14 @@ namespace Timoto.Controllers
     public class CarController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly IEmailService _emailService;
 
-        public CarController(AppDbContext context)
+        public CarController(AppDbContext context, UserManager<AppUser> userManager, IEmailService emailService)
         {
             _context = context;
+            _userManager = userManager;
+            _emailService = emailService;
         }
         public IActionResult Index(CarFilterVM filter)
         {
@@ -130,25 +137,43 @@ namespace Timoto.Controllers
             var vm = new DetailVM
             {
                 Cars = car,
-
+                BookingVM = new BookingVM
+                {
+                    CarId = car.Id
+                }
 
             };
             return View(vm);
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Book(BookingVM model)
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return await ReturnDetailViewWithErrors(model.CarId);
             }
 
+            DateTime startDate;
+            DateTime endDate;
+            try
+            {
+                startDate = DateTime.Parse($"{model.PickupDate} {model.PickupTime}");
+                endDate = DateTime.Parse($"{model.CollectionDate} {model.CollectionTime}");
+            }
+            catch
+            {
+                ModelState.AddModelError(string.Empty, "The date and time are not in a valid format.");
+                return await ReturnDetailViewWithErrors(model.CarId);
+            }
 
-            DateTime startDate = DateTime.Parse($"{model.PickupDate} {model.PickupTime}");
-            DateTime endDate = DateTime.Parse($"{model.CollectioDate} {model.CollectionTime}");
-
+            if ((startDate - DateTime.Now).TotalDays > 30)
+            {
+                ModelState.AddModelError(string.Empty, "Booking is not allowed for dates that are too far in the future.");
+                return await ReturnDetailViewWithErrors(model.CarId);
+            }
 
             bool isOverlap = _context.Bookings.Any(b =>
                 b.CarId == model.CarId &&
@@ -158,36 +183,84 @@ namespace Timoto.Controllers
 
             if (isOverlap)
             {
-                TempData["BookingError"] = "Bu tarixdə maşın artıq bron edilib.";
-                return RedirectToAction("Detail", "Car", new { id = model.CarId });
+                ModelState.AddModelError(string.Empty, "This car has already been booked for these dates.");
+                return await ReturnDetailViewWithErrors(model.CarId);
             }
 
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+                return RedirectToAction("Login", "Account");
 
-            if ((startDate - DateTime.Now).TotalDays > 30)
+            var confirmModel = new BookingConfirmVM
             {
-                TempData["BookingError"] = "Çox uzaq tarix üçün bron edilə bilməz.";
-                return RedirectToAction("Detail", "Car", new { id = model.CarId });
-            }
+                BookingVM = model,
+                FullName = $"{user.Name} {user.Surname}",
+                Email = user.Email,
+                Phone = user.Phone
+            };
+
+            return RedirectToAction("Confirm", "Booking", model);
+
+        }
 
 
-            Booking booking = new Booking
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> FinalizeBooking(BookingConfirmVM model)
+        {
+            if (!ModelState.IsValid)
+                return View("Book", model);
+
+            var user = await _userManager.GetUserAsync(User);
+
+            var booking = new Booking
             {
-                CarId = model.CarId,
-
-                StartDate = startDate,
-                EndDate = endDate,
+                CarId = model.BookingVM.CarId,
+                StartDate = DateTime.Parse($"{model.BookingVM.PickupDate} {model.BookingVM.PickupTime}"),
+                EndDate = DateTime.Parse($"{model.BookingVM.CollectionDate} {model.BookingVM.CollectionTime}"),
                 CreatedAt = DateTime.Now,
-                IsDeleted = false
+                IsDeleted = false,
+                Name = model.FullName.Split(' ')[0],
+                Surname = model.FullName.Split(' ').Length > 1 ? model.FullName.Split(' ')[1] : "",
+                Email = model.Email,
+                Phone = model.Phone,
+                UserId = user?.Id
             };
 
             _context.Bookings.Add(booking);
             await _context.SaveChangesAsync();
 
-            TempData["BookingSuccess"] = "Maşın uğurla bron edildi.";
-            return RedirectToAction("Detail", "Car", new { id = model.CarId });
+
+            //  refresh zamanı yenidən POST olmasın
+            return RedirectToAction("Success");
         }
+        public IActionResult Success()
+        {
+            return View(); // booking success page
+        }
+        private async Task<IActionResult> ReturnDetailViewWithErrors(int carId)
+        {
+            var car = await _context.Cars
+                .Include(c => c.CarImages)
+                .Include(c => c.BodyType)
+                .Include(c => c.VehicleType)
+                .Include(c => c.FuelType)
+                .Include(c => c.TransmissionType)
+                .Include(c => c.DriveType)
+                .Include(c => c.CarFeatures)
+                .ThenInclude(cf => cf.Feature)
+                .FirstOrDefaultAsync(c => c.Id == carId);
 
+            if (car == null)
+                return NotFound();
 
+            var detailVM = new DetailVM
+            {
+                Cars = car
+            };
+
+            return View("Detail", detailVM);
+        }
 
     }
 }

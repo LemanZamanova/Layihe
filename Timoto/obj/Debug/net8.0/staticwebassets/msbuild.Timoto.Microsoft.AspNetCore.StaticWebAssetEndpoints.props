@@ -11652,5 +11652,17 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ggh7ym0vdr"},{"Name":"integrity","Value":"sha256-II7ZZSynM1oSOEZpxzHHZkMLbDwGRIWuhvbOI6jhcS4="},{"Name":"label","Value":"_content/Timoto/assets/vendor/phpmailer/phpmailer/VERSION"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"7"},{"Name":"Content-Type","Value":"application/octet-stream"},{"Name":"ETag","Value":"\u0022II7ZZSynM1oSOEZpxzHHZkMLbDwGRIWuhvbOI6jhcS4=\u0022"},{"Name":"Last-Modified","Value":"Mon, 28 Aug 2017 08:12:06 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Timoto/images/profile/1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profile\1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-ZL0r70gg7aEhKoOnhutqceip83M9eZeZkOrdyGzquCI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"132223"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022ZL0r70gg7aEhKoOnhutqceip83M9eZeZkOrdyGzquCI=\u0022"},{"Name":"Last-Modified","Value":"Mon, 16 Jun 2025 22:13:15 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/Timoto/images/profile/1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.wl9rwpv1x6.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\profile\1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wl9rwpv1x6"},{"Name":"integrity","Value":"sha256-ZL0r70gg7aEhKoOnhutqceip83M9eZeZkOrdyGzquCI="},{"Name":"label","Value":"_content/Timoto/images/profile/1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"132223"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022ZL0r70gg7aEhKoOnhutqceip83M9eZeZkOrdyGzquCI=\u0022"},{"Name":"Last-Modified","Value":"Mon, 16 Jun 2025 22:13:15 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
   </ItemGroup>
 </Project>

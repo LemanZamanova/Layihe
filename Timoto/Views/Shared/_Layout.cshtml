@@ -3,7 +3,8 @@
 <html lang="zxx">
 
 <head>
-    <title>Timoto.az</title>
+    <title>@ViewData["Title"] - Timoto.az</title>
+
     <link rel="icon" href="~/assets/images/T_icon.png" type="image/gif" sizes="20x20">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -92,7 +93,7 @@
                                             @if (SignInManager.IsSignedIn(User))
                                             {
                                                 
-                                                <li><a class="menu-item" asp-controller="Account" asp-action="Profile">My Profile</a></li>
+                                                <li><a class="menu-item" asp-controller="Profile" asp-action="MyProfile">My Profile</a></li>
                                                 <li><a class="menu-item" asp-controller="Account" asp-action="MyBookings">My Orders</a></li>
                                                 <li><a class="menu-item" asp-controller="Account" asp-action="Favorites">My Favorite Cars</a></li>
                                                 

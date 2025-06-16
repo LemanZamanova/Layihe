@@ -7,6 +7,8 @@ namespace Timoto.ViewModels.Users
         [MinLength(3)]
         [MaxLength(50)]
         public string Name { get; set; }
+        [MinLength(3)]
+        [MaxLength(50)]
         public string Surname { get; set; }
 
         [MaxLength(150)]
@@ -21,7 +23,7 @@ namespace Timoto.ViewModels.Users
         public string ConfirmPassword { get; set; }
 
         [Required]
-        [RegularExpression(@"^\+994(50|51|55|70|77|10)\d{7}$", ErrorMessage = "Telefon nömrəsi düzgün formatda deyil. Məsələn: +99450xxxxxxx")]
+        [RegularExpression(@"^\+994(50|51|55|70|77|10)\d{7}$", ErrorMessage = "The phone number format is invalid. For example: +99450xxxxxxx")]
         public string Phone { get; set; }
     }
 }

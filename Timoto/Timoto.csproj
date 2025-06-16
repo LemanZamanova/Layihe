@@ -28,6 +28,7 @@
     <Folder Include="wwwroot\assets\vendor\FormGuide\PHPFormValidator\tests\" />
     <Folder Include="wwwroot\assets\vendor\phpmailer\phpmailer\examples\" />
     <Folder Include="wwwroot\assets\vendor\phpmailer\phpmailer\language\" />
+    <Folder Include="wwwroot\uploads\profiles\" />
   </ItemGroup>
 
 </Project>

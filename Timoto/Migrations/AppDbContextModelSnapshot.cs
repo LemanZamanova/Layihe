@@ -211,6 +211,9 @@ namespace Timoto.Migrations
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("ProfileImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -480,6 +483,36 @@ namespace Timoto.Migrations
                     b.ToTable("DriveTypes");
                 });
 
+            modelBuilder.Entity("Timoto.Models.FavoriteCar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("FavoriteCars");
+                });
+
             modelBuilder.Entity("Timoto.Models.Feature", b =>
                 {
                     b.Property<int>("Id")
@@ -526,6 +559,38 @@ namespace Timoto.Migrations
                     b.ToTable("FuelTypes");
                 });
 
+            modelBuilder.Entity("Timoto.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Notifications");
+                });
+
             modelBuilder.Entity("Timoto.Models.TransmissionType", b =>
                 {
                     b.Property<int>("Id")
@@ -547,6 +612,39 @@ namespace Timoto.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TransmissionTypes");
+                });
+
+            modelBuilder.Entity("Timoto.Models.UserCard", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CardHolderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CardNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserCards");
                 });
 
             modelBuilder.Entity("Timoto.Models.VehicleType", b =>
@@ -713,6 +811,52 @@ namespace Timoto.Migrations
                     b.Navigation("Car");
                 });
 
+            modelBuilder.Entity("Timoto.Models.FavoriteCar", b =>
+                {
+                    b.HasOne("Timoto.Models.Car", "Car")
+                        .WithMany("FavoritedBy")
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Timoto.Models.AppUser", "User")
+                        .WithMany("FavoriteCars")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Car");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Timoto.Models.Notification", b =>
+                {
+                    b.HasOne("Timoto.Models.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
+            modelBuilder.Entity("Timoto.Models.UserCard", b =>
+                {
+                    b.HasOne("Timoto.Models.AppUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Timoto.Models.AppUser", b =>
+                {
+                    b.Navigation("FavoriteCars");
+                });
+
             modelBuilder.Entity("Timoto.Models.BodyType", b =>
                 {
                     b.Navigation("Cars");
@@ -723,6 +867,8 @@ namespace Timoto.Migrations
                     b.Navigation("CarFeatures");
 
                     b.Navigation("CarImages");
+
+                    b.Navigation("FavoritedBy");
                 });
 
             modelBuilder.Entity("Timoto.Models.DriveType", b =>
