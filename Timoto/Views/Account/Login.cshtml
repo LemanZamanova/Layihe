@@ -1,5 +1,8 @@
 ﻿@using Timoto.ViewModels.Users
   @model LoginVM
+@{
+    ViewData["Title"] = "Login";
+}
  <!-- content begin -->
         <div class="no-bottom no-top" id="content">
             <div id="top"></div>
@@ -37,7 +40,9 @@
                                
                                 <div id="submit">
                                     <input type="submit" id="send_message" value="Sign In" class="btn-main btn-fullwidth rounded-3" />
+
                                 </div>
+                                <a asp-action="ForgotPassword">Forgot Password?</a>
                             </form>
 
 

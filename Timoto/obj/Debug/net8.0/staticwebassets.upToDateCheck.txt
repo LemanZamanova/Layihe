@@ -970,4 +970,9 @@ wwwroot\assets\vendor\phpmailer\phpmailer\get_oauth_token.php
 wwwroot\assets\vendor\phpmailer\phpmailer\LICENSE
 wwwroot\assets\vendor\phpmailer\phpmailer\PHPMailerAutoload.php
 wwwroot\assets\vendor\phpmailer\phpmailer\VERSION
-wwwroot\images\profile\1bb768bb-0c4c-480a-896d-68d110e6c87b_cat2.jpg
+wwwroot\uploads\profiles\0d94add1-29aa-4c3f-885b-c035318f61e9_cat2.jpg
+wwwroot\uploads\profiles\12b0a8f2-e3dc-4f39-86d0-b4e68acb5925_cat2.jpg
+wwwroot\uploads\profiles\18867966-bf16-49d4-bb84-3b8f40faaee6_cat2.jpg
+wwwroot\uploads\profiles\406d1df9-9138-4b98-a1a7-6ee6e5d2836b_cat2.jpg
+wwwroot\uploads\profiles\4ffea8e4-67b1-447e-b5df-759849c14b62_panda.jpg
+wwwroot\uploads\profiles\c0880b5f-d3ad-40bc-b838-d6a4741976aa_panda.jpg

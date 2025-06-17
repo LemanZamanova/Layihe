@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Timoto.Models;
 using Timoto.Services.Interface;
 using Timoto.Utilities.Enums;
+using Timoto.ViewModels;
 using Timoto.ViewModels.Users;
+
 
 namespace Timoto.Controllers
 {
@@ -225,6 +228,136 @@ namespace Timoto.Controllers
             TempData["InfoMessage"] = "A new verification code has been sent to your email address.";
 
             return RedirectToAction("VerifyCode");
+        }
+
+        [HttpGet]
+        public IActionResult ForgotPassword(string? returnUrl = null)
+        {
+            return View(new ForgotPasswordVM { ReturnUrl = returnUrl });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM model)
+        {
+
+            if (!ModelState.IsValid)
+                return View(model);
+
+            if (User.Identity.IsAuthenticated)
+            {
+                var loggedInUser = await _userManager.GetUserAsync(User);
+
+                if (loggedInUser != null && model.Email.ToLower() != loggedInUser.Email.ToLower())
+                {
+                    ModelState.AddModelError("Email", "Please enter your registered email address.");
+                    return View(model);
+                }
+            }
+
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                ModelState.AddModelError("Email", "No user found with this email address.");
+                return View(model);
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+
+            var resetLink = Url.Action("ResetPassword", "Account", new
+            {
+                token = token,
+                email = user.Email,
+                returnUrl = model.ReturnUrl
+            }, Request.Scheme);
+
+            if (resetLink == null)
+                return BadRequest("Reset link generation failed.");
+
+            TempData["EmailSentTo"] = model.Email;
+            TempData["ReturnUrl"] = model.ReturnUrl;
+
+
+            string safeLink = HtmlEncoder.Default.Encode(resetLink);
+
+            await _emailService.SendEmailAsync(user.Email, "Password Reset",
+                $"Click <a href='{safeLink}'>here</a> to reset your password.");
+
+            ViewBag.Success = "Reset link was sent to your email address.";
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult ResetPassword(string token, string email, string? returnUrl = null)
+        {
+            if (string.IsNullOrEmpty(token) || string.IsNullOrEmpty(email))
+                return RedirectToAction("Error", "Home");
+
+            ViewBag.Error = TempData["Error"];
+
+            return View(new ResetPasswordVM
+            {
+                Token = token,
+                Email = email,
+                ReturnUrl = returnUrl
+            });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordVM model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+                return RedirectToAction("ForgotPasswordConfirmation");
+
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+
+            if (!result.Succeeded)
+            {
+                var errors = result.Errors.Select(e => e.Description).ToList();
+
+
+                if (errors.Count == 1 && errors[0].ToLower().Contains("invalid token"))
+                {
+                    TempData["Error"] = "Invalid token.";
+                    return RedirectToAction("ResetPassword", new
+                    {
+                        token = model.Token,
+                        email = model.Email,
+                        returnUrl = model.ReturnUrl
+                    });
+                }
+
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+
+                return View(model);
+            }
+
+            TempData["Success"] = "Password successfully reset.";
+            TempData["ReturnUrl"] = model.ReturnUrl;
+
+            return RedirectToAction("ForgotPasswordConfirmation");
+        }
+
+        public IActionResult ForgotPasswordConfirmation()
+        {
+            ViewBag.ReturnUrl = TempData["ReturnUrl"];
+            return View();
+        }
+
+        public IActionResult ResetPasswordConfirmation()
+        {
+            return View();
         }
 
     }

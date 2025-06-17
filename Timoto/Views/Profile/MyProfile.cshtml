@@ -35,7 +35,7 @@
                             <div class="profile_img">
                                 <div class="profile_img text-center" style="position: relative; width: 160px; height: 160px; margin: auto; margin-bottom: 40px;">
 
-                                    <form asp-action="UploadProfileImage" asp-controller="Profile" method="post" enctype="multipart/form-data" id="imageUploadForm">
+                                    <form asp-action="UploadProfileImage" asp-controller="Profile" method="post" enctype="multipart/form-data" id="imageUploadForm" autocomplete="off">
                                         <input type="file" name="profileImage" id="profileImageInput" accept="image/*"
                                                class="d-none" onchange="document.getElementById('imageUploadForm').submit();" />
 
@@ -107,7 +107,7 @@
                 <!-- Form -->
                 <div class="col-lg-9">
                     <div class="card p-4 rounded-5">
-                        <form asp-action="MyProfile" asp-controller="Profile" method="post" class="form-border">
+                        <form asp-action="MyProfile" asp-controller="Profile" method="post" class="form-border" autocomplete="off">
                             @Html.AntiForgeryToken()
 
                             <!-- Success message -->
@@ -158,17 +158,29 @@
                                             </div>
                                             <div class="col-lg-6 mb20">
                                                 <h5>Current Password <span class="text-danger">*</span></h5>
-                                                <input asp-for="CurrentPassword" class="form-control" type="password" placeholder="Enter current password" />
+                                                <!-- Fake password field to trick autofill -->
+                                                <input type="text" name="fakeusernameremembered" style="display:none" />
+                                                <input type="password" name="fakepasswordremembered" style="display:none" />
+
+                                                <input asp-for="CurrentPassword"
+                                                       class="form-control"
+                                                       type="password"
+                                                      
+                                                       autocomplete="new-password"
+                                                       placeholder="Enter current password"
+                                                       readonly
+                                                       onfocus="this.removeAttribute('readonly');" />
+
                                                 <div class="text-center mt-4">
                                                     <button type="submit" style="margin-top:20px" class="btn-main">Update Profile</button>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 mb20">
                                                 <h5>New Password</h5>
-                                                <input asp-for="NewPassword" class="form-control" type="password" placeholder="Optional: Enter new password" />
+                                                <input asp-for="NewPassword" class="form-control" type="password" placeholder="Optional: Enter new password" autocomplete="off" />
                                                 <small class="text-muted">
                                                     Forgot your password?
-                                                    <a asp-controller="Account" asp-action="ForgotPassword">Click here</a> to reset.
+                                                    <a href="/Account/ForgotPassword?returnUrl=/Profile/MyProfile">Click here</a> to reset.
                                                 </small>
                                             </div>
                                          

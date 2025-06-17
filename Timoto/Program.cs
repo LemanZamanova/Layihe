@@ -16,6 +16,7 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 builder.Services.AddScoped<IEmailService, EmailService>();
+
 builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 {
     opt.Password.RequiredLength = 8;
@@ -28,8 +29,10 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 
 builder.Services.Configure<DataProtectionTokenProviderOptions>(opt =>
 {
-    opt.TokenLifespan = TimeSpan.FromMinutes(1);
+    opt.TokenLifespan = TimeSpan.FromMinutes(15);
 });
+
+
 
 
 builder.Services.AddDbContext<AppDbContext>(opt =>

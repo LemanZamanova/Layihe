@@ -89,9 +89,7 @@ namespace Timoto.Controllers
 
             if (!ModelState.IsValid)
             {
-                ViewBag.ProfileImage = string.IsNullOrEmpty(user.ProfileImageUrl)
-                       ? "/assets/images/profile/default.jpg"
-                       : user.ProfileImageUrl;
+                ViewBag.ProfileImage = string.IsNullOrEmpty(user.ProfileImageUrl) ? "/assets/images/profile/default.jpg" : user.ProfileImageUrl;
                 var fallbackModel = new UpdateProfileVM
                 {
                     Name = user.Name,
@@ -110,13 +108,11 @@ namespace Timoto.Controllers
             }
 
 
-            // 2. Sonra CurrentPassword daxil edilibmi?
+
             if (string.IsNullOrWhiteSpace(model.CurrentPassword))
             {
                 ModelState.AddModelError("CurrentPassword", "Please enter your current password to update your profile.");
-                ViewBag.ProfileImage = string.IsNullOrEmpty(user.ProfileImageUrl)
-                              ? "/assets/images/profile/default.jpg"
-                              : user.ProfileImageUrl;
+                ViewBag.ProfileImage = string.IsNullOrEmpty(user.ProfileImageUrl) ? "/assets/images/profile/default.jpg" : user.ProfileImageUrl;
 
                 model.Notifications = _context.Notifications
                     .Where(n => n.AppUserId == user.Id)
@@ -126,14 +122,12 @@ namespace Timoto.Controllers
                 return View(model);
             }
 
-            // 3. Sonra CurrentPassword düzgün olub-olmadığını yoxla
+
             var isPasswordValid = await _userManager.CheckPasswordAsync(user, model.CurrentPassword);
             if (!isPasswordValid)
             {
                 ModelState.AddModelError("CurrentPassword", "Incorrect password. Did you forget it?");
-                ViewBag.ProfileImage = string.IsNullOrEmpty(user.ProfileImageUrl)
-                         ? "/assets/images/profile/default.jpg"
-                         : user.ProfileImageUrl;
+                ViewBag.ProfileImage = string.IsNullOrEmpty(user.ProfileImageUrl) ? "/assets/images/profile/default.jpg" : user.ProfileImageUrl;
 
                 model.Notifications = _context.Notifications
                     .Where(n => n.AppUserId == user.Id)
@@ -144,7 +138,7 @@ namespace Timoto.Controllers
 
 
 
-            // 4. Əgər yeni şifrə varsa, dəyiş
+
             if (!string.IsNullOrWhiteSpace(model.NewPassword))
             {
                 var result = await _userManager.ChangePasswordAsync(user, model.CurrentPassword, model.NewPassword);
@@ -156,16 +150,13 @@ namespace Timoto.Controllers
                 }
             }
 
-            // 5. Email dəyişibsə, yoxla
             if (user.Email != model.Email)
             {
                 var existingUser = await _userManager.FindByEmailAsync(model.Email);
                 if (existingUser != null && existingUser.Id != user.Id)
                 {
                     ModelState.AddModelError("Email", "This email address is already associated with another account.");
-                    ViewBag.ProfileImage = string.IsNullOrEmpty(user.ProfileImageUrl)
-                         ? "/assets/images/profile/default.jpg"
-                         : user.ProfileImageUrl;
+                    ViewBag.ProfileImage = string.IsNullOrEmpty(user.ProfileImageUrl) ? "/assets/images/profile/default.jpg" : user.ProfileImageUrl;
 
                     model.Notifications = _context.Notifications
                         .Where(n => n.AppUserId == user.Id)
@@ -175,7 +166,7 @@ namespace Timoto.Controllers
                     return View(model);
                 }
 
-                // Email dəyişmə təsdiqi
+
                 var verificationCode = new Random().Next(100000, 999999).ToString();
 
                 HttpContext.Session.SetString("VerifyEmailUserId", user.Id);
@@ -194,7 +185,7 @@ namespace Timoto.Controllers
                 return RedirectToAction("ChangeEmailVerify");
             }
 
-            // 6. Əgər hər şey qaydasındadırsa, digər sahələri yenilə
+            //update 
             user.Name = model.Name;
             user.Surname = model.Surname;
             user.Phone = model.Phone;
@@ -320,7 +311,7 @@ namespace Timoto.Controllers
             if (user == null || profileImage == null || profileImage.Length == 0)
                 return RedirectToAction("MyProfile");
 
-            // Faylı saxlamaq üçün yol (wwwroot içində "uploads" qovluğu olmalıdır)
+
             string folderPath = Path.Combine("wwwroot", "uploads", "profiles");
             if (!Directory.Exists(folderPath))
                 Directory.CreateDirectory(folderPath);
@@ -333,7 +324,7 @@ namespace Timoto.Controllers
                 await profileImage.CopyToAsync(stream);
             }
 
-            // Database-ə yolu yaz (relativ yol)
+
             user.ProfileImageUrl = $"/uploads/profiles/{fileName}";
             await _userManager.UpdateAsync(user);
 
