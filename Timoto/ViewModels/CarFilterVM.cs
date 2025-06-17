@@ -14,5 +14,7 @@ namespace Timoto.ViewModels
 
         // Car list to display
         public List<Car> Cars { get; set; }
+
+        public List<int> FavoriteCarIds { get; set; } = new();
     }
 }

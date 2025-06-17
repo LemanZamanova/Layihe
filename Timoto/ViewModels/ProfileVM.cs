@@ -3,7 +3,7 @@ using Timoto.Models;
 
 namespace Timoto.ViewModels
 {
-    public class ProfileVM
+    public class ProfileVM : IBaseProfileVM
     {
         public string Name { get; set; }
 
@@ -16,6 +16,7 @@ namespace Timoto.ViewModels
         public string Phone { get; set; }
 
         public List<Booking> Bookings { get; set; }
+        public List<Notification> Notifications { get; set; }
         public List<Car> FavoriteCars { get; set; }
         public List<UserCard> Cards { get; set; }
     }

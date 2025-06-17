@@ -1,4 +1,10 @@
-﻿@model HomeVM
+﻿
+@model HomeVM
+
+
+<form id="antiForgeryForm" style="display: none;">
+    @Html.AntiForgeryToken()
+</form>
 <!-- content begin -->
 @{
     ViewData["Title"] = "Home";
@@ -249,15 +255,15 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 offset-lg-3 text-center">
                     <h2>Our Vehicle Fleet</h2>
-                    <p>Explore our wide selection of modern, clean, and reliable cars — from economy to luxury, each ready to match your needs and preferences.</p>
+                    <p>Discover Timoto’s clean, modern, and reliable cars — from economy to luxury, tailored to your needs.</p>
                     <div class="spacer-20"></div>
                 </div>
 
                 <div id="items-carousel" class="owl-carousel wow fadeIn">
+                    
+             
 
-                   
-
-                    @foreach(Car car in Model.Cars)
+                    @foreach (Car car in Model.Cars)
                     {
                         <div class="col-lg-12">
                             <div class="de-item mb30">
@@ -266,17 +272,24 @@
                                 </div>
                                 <div class="d-info">
                                     <div class="d-text">
-                                        <h4>@car.Name</h4>
-                                        <div class="d-item_like">
-                                            <i class="fa fa-heart"></i><span>@car.LikeCount</span>
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <h4 class="mb-0">@car.Name</h4>
+                                            <button type="button" class="like-btn" data-car-id="@car.Id"
+                                                    style="background: none; border: none;">
+                                                <i style="margin-top:10px" class="fa fa-heart @(Model.FavoriteCarIds.Contains(car.Id) ? "text-danger" : "text-muted")"></i>
+                                                <span class="like-count ms-1">@car.LikeCount</span>
+                                            </button>
+
                                         </div>
-                                        <div class="d-atr-group">
+
+                                        <div class="d-atr-group mt-2">
                                             <span class="d-atr"><img src="/assets/images/icons/1.svg" alt="">@car.Seats</span>
                                             <span class="d-atr"><img src="/assets/images/icons/2.svg" alt="">@car.Doors</span>
                                             <span class="d-atr"><img src="/assets/images/icons/3.svg" alt="">@car.LuggageVolume</span>
                                             <span class="d-atr"><img src="/assets/images/icons/4.svg" alt="">@car.BodyType?.Name</span>
                                         </div>
-                                        <div class="d-price">
+
+                                        <div class="d-price mt-2">
                                             Daily rate from <span>$@car.DailyPrice</span>
                                             <a class="btn-main" asp-controller="Car" asp-action="Detail" asp-route-id="@car.Id">Rent Now</a>
                                         </div>
@@ -285,13 +298,11 @@
                             </div>
                         </div>
                     }
-
-
                 </div>
-
             </div>
         </div>
     </section>
+
 
     <section class="text-light jarallax" aria-label="section">
         <img src="/assets/images/background/3.jpg" alt="" class="jarallax-img">
@@ -461,3 +472,36 @@
 </div>
 <!-- content close -->
 <a href="#" id="back-to-top"></a>
+@section Scripts {
+    <script>
+        document.querySelectorAll('.like-btn').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const carId = this.dataset.carId;
+
+                fetch('/Car/ToggleFavoriteAjax', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                    },
+                    body: new URLSearchParams({ carId: carId })
+                })
+                .then(res => res.json())
+                .then(data => {
+                            if (data.requiresLogin) {
+                window.location.href = '/Account/Login?returnUrl=' + encodeURIComponent(window.location.pathname);
+                return;
+            }
+                    if (data.success) {
+                        const icon = this.querySelector('i');
+                        icon.classList.toggle('text-danger', data.isFavorite);
+                        icon.classList.toggle('text-muted', !data.isFavorite);
+
+                        this.querySelector('.like-count').innerText = data.likeCount;
+                    }
+                });
+            });
+        });
+    </script>
+}

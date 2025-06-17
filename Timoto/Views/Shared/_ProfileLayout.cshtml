@@ -1,0 +1,36 @@
+﻿@model Timoto.ViewModels.IBaseProfileVM
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="no-bottom no-top zebra" id="content">
+    <div id="top"></div>
+
+    <section id="subheader" class="jarallax text-light">
+        <img src="~/assets/images/background/14.jpg" class="jarallax-img" alt="">
+        <div class="center-y relative text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1>@ViewData["Title"]</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-settings" class="bg-gray-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb30">
+                    @await Html.PartialAsync("_ProfileSideBar", Model)
+                </div>
+                <div class="col-lg-9">
+                    @RenderSection("ProfileContent", required: true)
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+@RenderSection("Scripts", required: false)

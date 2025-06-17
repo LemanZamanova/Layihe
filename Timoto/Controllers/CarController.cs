@@ -23,7 +23,7 @@ namespace Timoto.Controllers
             _userManager = userManager;
             _emailService = emailService;
         }
-        public IActionResult Index(CarFilterVM filter)
+        public async Task<IActionResult> Index(CarFilterVM filter)
         {
             var query = _context.Cars
                 .Include(c => c.BodyType)
@@ -79,6 +79,18 @@ namespace Timoto.Controllers
                        (4001, 6000),
                        (6001, int.MaxValue)
                      };
+
+            var currentUser = await _userManager.GetUserAsync(User);
+            var favoriteCarIds = new List<int>();
+            if (currentUser != null)
+            {
+                favoriteCarIds = await _context.FavoriteCars
+                .Where(f => f.UserId == currentUser.Id)
+                .Select(f => f.CarId)
+                .ToListAsync();
+            }
+
+
             var vm = new CarFilterVM
             {
                 Cars = query.ToList(),
@@ -86,7 +98,9 @@ namespace Timoto.Controllers
                 SelectedVehicleTypeIds = filter.SelectedVehicleTypeIds ?? new List<int>(),
                 SelectedSeatCounts = filter.SelectedSeatCounts ?? new List<int>(),
                 MinPrice = filter.MinPrice,
-                MaxPrice = filter.MaxPrice
+                MaxPrice = filter.MaxPrice,
+
+                FavoriteCarIds = favoriteCarIds
             };
 
             return View(vm);
@@ -120,6 +134,56 @@ namespace Timoto.Controllers
 
             return RedirectToAction("Index");
         }
+
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ToggleFavoriteAjax(int carId)
+        {
+            var car = await _context.Cars.FindAsync(carId);
+            if (car == null)
+                return Json(new { success = false });
+
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return Json(new { success = false, requiresLogin = true });
+            }
+
+            bool isFavorite = false;
+
+            var existing = await _context.FavoriteCars
+                .FirstOrDefaultAsync(f => f.CarId == carId && f.UserId == user.Id);
+
+            if (existing != null)
+            {
+                _context.FavoriteCars.Remove(existing);
+                car.LikeCount = Math.Max(0, car.LikeCount - 1);
+            }
+            else
+            {
+                _context.FavoriteCars.Add(new FavoriteCar { CarId = carId, UserId = user.Id });
+                car.LikeCount++;
+                isFavorite = true;
+            }
+
+            await _context.SaveChangesAsync();
+
+            return Json(new
+            {
+                success = true,
+                isFavorite,
+                likeCount = car.LikeCount
+            });
+        }
+
+
+
+
+
         public async Task<IActionResult> Detail(int id)
         {
             var car = await _context.Cars

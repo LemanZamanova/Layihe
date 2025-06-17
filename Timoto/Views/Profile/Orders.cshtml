@@ -1,0 +1,97 @@
+﻿@model Timoto.ViewModels.ProfileVM
+
+@{
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+    ViewData["Title"] = "My Orders"; 
+}
+
+@section ProfileContent {
+    <div class="card p-4 rounded-5 mb25">
+        <h4>Scheduled Orders</h4>
+
+        <table class="table de-table">
+            <thead>
+                <tr>
+                    <th><span class="text-uppercase fs-12 text-gray">Order ID</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Car Name</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Pick Up Location</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Drop Off Location</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Pick Up Date</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Return Date</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Status</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dummy rows (test data) -->
+                <tr>
+                    <td><div class="badge bg-gray-100 text-dark">#01245</div></td>
+                    <td><span class="bold">Ferrari Enzo</span></td>
+                    <td>Kentucky</td>
+                    <td>Michigan</td>
+                    <td>March 14, 2023</td>
+                    <td>March 16, 2023</td>
+                    <td><div class="badge rounded-pill bg-warning">scheduled</div></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card p-4 rounded-5 mb25">
+        <h4>Completed Orders</h4>
+
+        <table class="table de-table">
+            <thead>
+                <tr>
+                    <th><span class="text-uppercase fs-12 text-gray">Order ID</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Car Name</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Pick Up Location</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Drop Off Location</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Pick Up Date</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Return Date</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Status</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><div class="badge bg-gray-100 text-dark">#01236</div></td>
+                    <td><span class="bold">Jeep Renegade</span></td>
+                    <td>New York</td>
+                    <td>Los Angeles</td>
+                    <td>March 2, 2023</td>
+                    <td>March 11, 2023</td>
+                    <td><div class="badge rounded-pill bg-success">completed</div></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card p-4 rounded-5 mb25">
+        <h4>Cancelled Orders</h4>
+
+        <table class="table de-table">
+            <thead>
+                <tr>
+                    <th><span class="text-uppercase fs-12 text-gray">Order ID</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Car Name</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Pick Up Location</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Drop Off Location</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Pick Up Date</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Return Date</span></th>
+                    <th><span class="text-uppercase fs-12 text-gray">Status</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><div class="badge bg-gray-100 text-dark">#01263</div></td>
+                    <td><span class="bold">Mini Cooper</span></td>
+                    <td>San Fransisco</td>
+                    <td>Chicago</td>
+                    <td>March 8, 2023</td>
+                    <td>March 12, 2023</td>
+                    <td><div class="badge rounded-pill bg-danger">cancelled</div></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}

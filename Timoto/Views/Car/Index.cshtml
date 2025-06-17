@@ -1,12 +1,20 @@
-﻿@model Timoto.ViewModels.CarFilterVM
+﻿
+@model CarFilterVM
+
+
+
 @{
     ViewData["Title"] = "Cars";
 }
-<!-- content begin -->
+
+
+<form id="antiForgeryForm" style="display: none;">
+    @Html.AntiForgeryToken()
+</form>
+
 <div class="no-bottom no-top zebra" id="content">
     <div id="top"></div>
 
-    <!-- section begin -->
     <section id="subheader" class="jarallax text-light">
         <img src="~/assets/images/background/2.jpg" class="jarallax-img" alt="">
         <div class="center-y relative text-center">
@@ -15,12 +23,10 @@
                     <div class="col-md-12 text-center">
                         <h1>Cars</h1>
                     </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- section close -->
 
     <section id="section-cars">
         <div class="container">
@@ -70,7 +76,6 @@
                             </div>
                         </div>
 
-                       
                         <!-- ENGINE CAPACITY -->
                         <div class="item_filter_group">
                             <h4>Car Engine Capacity (cc)</h4>
@@ -84,47 +89,33 @@
                                 ("6000+", "6000-max")
                                 };
                                 }
-
                                 @foreach (var range in engineRanges)
                                 {
                                     var isChecked = Model.SelectedEngineRanges != null && Model.SelectedEngineRanges.Contains(range.Value);
 
                                     <div class="de_checkbox">
-                                        <input id="engine_@range.Value"
-                                               name="SelectedEngineRanges"
-                                               type="checkbox"
-                                               value="@range.Value"
-                                        @(isChecked ? "checked" : "") />
+                                        <input id="engine_@range.Value" name="SelectedEngineRanges" type="checkbox" value="@range.Value" @(isChecked ? "checked" : "") />
                                         <label for="engine_@range.Value">@range.Label</label>
                                     </div>
                                 }
                             </div>
                         </div>
 
-
                         <!-- PRICE -->
                         <div class="item_filter_group">
                             <h4>Price ($)</h4>
                             <div class="price-input">
                                 <div class="field">
-                                    <span>Min  </span>
+                                    <span>Min</span>
                                     <input type="number" name="MinPrice" min="0" max="2000" class="input-min" value="@Model.MinPrice">
                                 </div>
                                 <div class="field">
-                                    <span>Max  </span>
+                                    <span>Max</span>
                                     <input type="number" name="MaxPrice" min="0" max="2000" class="input-max" value="@Model.MaxPrice">
                                 </div>
                             </div>
-                            <div class="slider">
-                                <div class="progress"></div>
-                            </div>
-                            <div class="range-input">
-                                <input type="range" class="range-min" min="0" max="2000" value="0" step="1">
-                                <input type="range" class="range-max" min="0" max="2000" value="2000" step="1">
-                            </div>
                         </div>
 
-                        <!-- SUBMIT -->
                         <button type="submit" class="btn btn-primary mt-3">Apply Filters</button>
                     </form>
                 </div>
@@ -132,7 +123,7 @@
                 <!-- CAR DISPLAY SECTION -->
                 <div class="col-lg-9">
                     <div class="row">
-                       
+                 
                         @foreach (Car car in Model.Cars)
                         {
                             <div class="col-xl-4 col-lg-6">
@@ -142,17 +133,25 @@
                                     </div>
                                     <div class="d-info">
                                         <div class="d-text">
-                                            <h4>@car.Name</h4>
-                                            <div class="d-item_like">
-                                                <i class="fa fa-heart"></i><span>@car.LikeCount</span>
+                                            
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <h4 class="mb-0">@car.Name</h4>
+                                                <button type="button" class="like-btn" data-car-id="@car.Id"
+                                                        style="background: none; border: none;">
+                                                    <i style="margin-top:10px" class="fa fa-heart @(Model.FavoriteCarIds.Contains(car.Id) ? "text-danger" : "text-muted")"></i>
+                                                    <span class="like-count ms-1">@car.LikeCount</span>
+                                                </button>
+
                                             </div>
-                                            <div class="d-atr-group">
-                                                <span class="d-atr"><img src="~/assets/images/icons/1.svg" alt="">@car.Seats </span>
+
+                                            <div class="d-atr-group mt-2">
+                                                <span class="d-atr"><img src="~/assets/images/icons/1.svg" alt="">@car.Seats</span>
                                                 <span class="d-atr"><img src="~/assets/images/icons/2.svg" alt="">@car.Doors</span>
                                                 <span class="d-atr"><img src="~/assets/images/icons/3.svg" alt="">@car.LuggageVolume</span>
                                                 <span class="d-atr"><img src="~/assets/images/icons/4.svg" alt="">@car.BodyType?.Name</span>
                                             </div>
-                                            <div class="d-price">
+
+                                            <div class="d-price mt-2">
                                                 Daily rate from <span>$@car.DailyPrice</span>
                                                 <a class="btn-main" asp-controller="Car" asp-action="Detail" asp-route-id="@car.Id">Rent Now</a>
                                             </div>
@@ -161,12 +160,45 @@
                                 </div>
                             </div>
                         }
+
+
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 </div>
-<!-- content close -->
 <a href="#" id="back-to-top"></a>
+@section Scripts {
+<script>
+    document.querySelectorAll('.like-btn').forEach(btn => {
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            const carId = this.dataset.carId;
+
+            fetch('/Car/ToggleFavoriteAjax', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                },
+                body: new URLSearchParams({ carId: carId })
+            })
+            .then(res => res.json())
+            .then(data => {
+                        if (data.requiresLogin) {
+            window.location.href = '/Account/Login?returnUrl=' + encodeURIComponent(window.location.pathname);
+            return;
+        }
+                if (data.success) {
+                    const icon = this.querySelector('i');
+                    icon.classList.toggle('text-danger', data.isFavorite);
+                    icon.classList.toggle('text-muted', !data.isFavorite); 
+
+                    this.querySelector('.like-count').innerText = data.likeCount; 
+                }
+            });
+        });
+    });
+</script>
+}

@@ -3,7 +3,7 @@ using Timoto.Models;
 
 namespace Timoto.ViewModels
 {
-    public class UpdateProfileVM
+    public class UpdateProfileVM : IBaseProfileVM
     {
         [Required]
         [MinLength(3)]

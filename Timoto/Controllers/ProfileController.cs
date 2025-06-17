@@ -84,9 +84,9 @@ namespace Timoto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> MyProfile(UpdateProfileVM model)
         {
+            await SetProfileImageAsync();
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login", "Account");
-
             if (!ModelState.IsValid)
             {
                 ViewBag.ProfileImage = string.IsNullOrEmpty(user.ProfileImageUrl) ? "/assets/images/profile/default.jpg" : user.ProfileImageUrl;
@@ -351,6 +351,75 @@ namespace Timoto.Controllers
 
             return RedirectToAction("MyProfile");
         }
+
+
+        public async Task<IActionResult> Orders()
+        {
+            await SetProfileImageAsync();
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Login", "Account");
+            var vm = new ProfileVM
+            {
+                Name = user.Name,
+                Surname = user.Surname,
+                Email = user.Email,
+                Phone = user.Phone,
+
+                Bookings = await _context.Bookings
+                    .Where(b => b.UserId == user.Id && !b.IsDeleted)
+                    .Include(b => b.Car)
+                    .ToListAsync(),
+
+                Notifications = await _context.Notifications
+                    .Where(n => n.AppUserId == user.Id)
+                    .OrderByDescending(n => n.CreatedAt)
+                    .ToListAsync()
+            };
+
+            return View(vm);
+        }
+
+        public async Task<IActionResult> Favorites()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Login", "Account");
+
+            await SetProfileImageAsync();
+
+            var favoriteCars = await _context.FavoriteCars
+                .Where(fc => fc.UserId == user.Id)
+                .Include(fc => fc.Car)
+                    .ThenInclude(c => c.CarImages)
+                .Select(fc => fc.Car)
+                .ToListAsync();
+
+            var vm = new ProfileVM
+            {
+                Name = user.Name,
+                Surname = user.Surname,
+                Email = user.Email,
+                FavoriteCars = favoriteCars
+            };
+
+            return View(vm);
+        }
+
+        private async Task SetProfileImageAsync()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user?.ProfileImageUrl != null)
+            {
+                // Əgər artıq "/uploads" ilə başlayırsa təkrar əlavə etmə
+                ViewBag.ProfileImage = user.ProfileImageUrl.StartsWith("/uploads")
+                    ? user.ProfileImageUrl
+                    : "/uploads/profiles/" + user.ProfileImageUrl;
+            }
+            else
+            {
+                ViewBag.ProfileImage = "/assets/images/profile/default.jpg"; // default şəkil
+            }
+        }
+
 
     }
 }

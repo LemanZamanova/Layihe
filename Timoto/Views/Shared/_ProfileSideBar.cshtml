@@ -1,0 +1,54 @@
+﻿@model Timoto.ViewModels.IBaseProfileVM
+
+<div class="card p-4 rounded-5">
+    <div class="profile_avatar">
+        <div class="profile_img text-center" style="position: relative; width: 160px; height: 160px; margin: auto; margin-bottom: 40px;">
+            <form asp-action="UploadProfileImage" asp-controller="Profile" method="post" enctype="multipart/form-data" id="imageUploadForm" autocomplete="off">
+                <input type="file" name="profileImage" id="profileImageInput" accept="image/*" class="d-none" onchange="document.getElementById('imageUploadForm').submit();" />
+                <label for="profileImageInput" style="cursor: pointer;">
+                    <div style="width: 180px; height: 180px; border-radius: 50%; overflow: hidden; background-color:#FFFFFF; display: flex; align-items: center; justify-content: center;">
+                        @if (string.IsNullOrEmpty(ViewBag.ProfileImage as string))
+                        {
+                            <i class="fa fa-plus fa-2x text-muted"></i>
+                        }
+                        else
+                        {
+                            <img src="@ViewBag.ProfileImage" alt="+" style="width: 96%; height: 96%; object-fit: cover;" />
+                        }
+                    </div>
+                </label>
+            </form>
+
+            @if (!string.IsNullOrEmpty(ViewBag.ProfileImage as string))
+            {
+                <form asp-action="DeleteProfileImage" asp-controller="Profile" method="post"
+                      style="position: absolute; bottom: -8px; right: -4px;">
+                    <button type="submit" style="width: 26px; height: 26px; padding: 0; border-radius: 50%; border: 2px solid #ffffff; background-color: #28a745; color: white; font-size: 18px; display: flex; align-items: center; justify-content: center;">
+                        <span style="margin-top: -2px;">–</span>
+                    </button>
+                </form>
+            }
+        </div>
+        <div class="profile_name text-center">
+            <h4>@Model.Name @Model.Surname</h4>
+            <span class="profile_username text-gray" style="font-size: 14px; word-break: break-all; display:block;">@Model.Email</span>
+
+        </div>
+    </div>
+
+    <div class="spacer-20"></div>
+    <ul class="menu-col">
+        <li><a asp-action="MyProfile" asp-controller="Profile" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "MyProfile" ? "active" : "")"><i class="fa fa-user"></i> My Profile</a></li>
+        <li><a asp-action="Orders" asp-controller="Profile"><i class="fa fa-calendar"></i> My Orders</a></li>
+        <li><a asp-action="Favorites" asp-controller="Profile"><i class="fa fa-car"></i> My Favorite Cars</a></li>
+        <li><a asp-action="Cards" asp-controller="Profile"><i class="icon_creditcard"></i> My Card Accounts</a></li>
+        <li>
+            <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
+                @Html.AntiForgeryToken()
+                <button type="submit" style="all: unset; cursor: pointer; color: black; opacity:0.7; display: block; width: 100%; text-align: left; padding-left: 10px;">
+                    <i style="color:#79CA5C" class="fa fa-sign-out"></i> Sign Out
+                </button>
+            </form>
+        </li>
+    </ul>
+</div>

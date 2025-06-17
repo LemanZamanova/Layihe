@@ -1,0 +1,91 @@
+﻿@model Timoto.ViewModels.ProfileVM
+
+@{
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+    ViewData["Title"] = "My Favorite Cars";
+}
+
+@section ProfileContent {
+    <div class="col-lg-9 " style="width:100%; border-radius:20px">
+        @if (Model.FavoriteCars != null && Model.FavoriteCars.Any())
+        {
+            <form id="antiForgeryForm" style="display: none;">
+                @Html.AntiForgeryToken()
+            </form>
+
+            @foreach (var car in Model.FavoriteCars)
+            {
+                <div class="de-item-list no-border mb30">
+                    <div class="d-img">
+                        <img src="~/assets/images/cars/@car.CarImages.FirstOrDefault(x => x.IsMain)?.ImageUrl" class="img-fluid" alt="">
+                    </div>
+                    <div class="d-info">
+                        <div class="d-text">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h4 class="mb-0">@car.Name</h4>
+                                <button class="like-btn" data-car-id="@car.Id" style="background:none; border:none;">
+                                    <i class="fa fa-heart text-danger"></i>
+                                    <span class="like-count">@car.LikeCount</span>
+                                </button>
+                            </div>
+
+                            <!-- Parametrləri yan-yana göstərən stil -->
+                            <div class="d-atr-group mt-2">
+                                <div style="display: flex; flex-wrap: wrap; gap: 15px;">
+                                    <span><strong>Year:</strong> @car.Year</span>
+                                    <span><strong>Seats:</strong> @car.Seats</span>
+                                    <span><strong>Luggage:</strong> @car.LuggageVolume</span>
+                                    <span><strong>Doors:</strong> @car.Doors</span>
+                                    <span><strong>Engine:</strong> @car.EngineSize</span>
+                                    <span><strong>FuelEconomy:</strong> @car.FuelEconomy</span>
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-price">
+                        Daily rate from <span>$@car.DailyPrice</span>
+                        <a class="btn-main" asp-controller="Car" asp-action="Detail" asp-route-id="@car.Id">Rent Now</a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="alert alert-info">You have no favorite cars yet.</div>
+        }
+    </div>
+}
+
+@section Scripts {
+    <script>
+        document.querySelectorAll('.like-btn').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const carId = this.dataset.carId;
+                const button = this;
+
+                fetch('/Car/ToggleFavoriteAjax', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                    },
+                    body: new URLSearchParams({ carId: carId })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        if (!data.isFavorite) {
+                            button.closest('.de-item-list').remove();
+                        }
+                    } else if (data.requiresLogin) {
+                        window.location.href = "/Account/Login";
+                    }
+                });
+            });
+        });
+    </script>
+}
