@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 using Timoto.DAL;
 using Timoto.Helper;
@@ -84,7 +85,7 @@ namespace Timoto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> MyProfile(UpdateProfileVM model)
         {
-            await SetProfileImageAsync();
+
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login", "Account");
             if (!ModelState.IsValid)
@@ -328,7 +329,8 @@ namespace Timoto.Controllers
             user.ProfileImageUrl = $"/uploads/profiles/{fileName}";
             await _userManager.UpdateAsync(user);
 
-            return RedirectToAction("MyProfile");
+            return Redirect(Request.Headers["Referer"].ToString());
+
         }
 
         [HttpPost]
@@ -349,13 +351,14 @@ namespace Timoto.Controllers
                 await _signInManager.RefreshSignInAsync(user);
             }
 
-            return RedirectToAction("MyProfile");
+            return Redirect(Request.Headers["Referer"].ToString());
+
         }
 
 
         public async Task<IActionResult> Orders()
         {
-            await SetProfileImageAsync();
+
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login", "Account");
             var vm = new ProfileVM
@@ -384,7 +387,7 @@ namespace Timoto.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login", "Account");
 
-            await SetProfileImageAsync();
+
 
             var favoriteCars = await _context.FavoriteCars
                 .Where(fc => fc.UserId == user.Id)
@@ -403,21 +406,139 @@ namespace Timoto.Controllers
 
             return View(vm);
         }
-
-        private async Task SetProfileImageAsync()
+        public async Task<IActionResult> Cards()
         {
+
             var user = await _userManager.GetUserAsync(User);
+            var cards = await _context.UserCards
+                .Where(c => c.UserId == user.Id)
+                .ToListAsync();
+
+            var vm = new ProfileVM
+            {
+                Cards = cards,
+                NewCard = new CardCreateVM()
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddCard(CardCreateVM newCard)
+        {
+
+
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser == null)
+                return RedirectToAction("Login", "Account");
+
+
+            if (!ModelState.IsValid)
+            {
+                var cards = await _context.UserCards
+                    .Where(c => c.UserId == currentUser.Id)
+                    .ToListAsync();
+
+                var vm = new ProfileVM
+                {
+                    Cards = cards,
+                    NewCard = newCard
+                };
+
+                return View("Cards", vm);
+            }
+
+            var exists = await _context.UserCards
+                .AnyAsync(c => c.UserId == currentUser.Id && c.CardNumber == newCard.CardNumber);
+
+            if (exists)
+            {
+                ModelState.AddModelError("NewCard.CardNumber", "This card is already added.");
+
+                var cards = await _context.UserCards
+                    .Where(c => c.UserId == currentUser.Id)
+                    .ToListAsync();
+
+                var vm = new ProfileVM
+                {
+                    Cards = cards,
+                    NewCard = newCard
+                };
+
+                return View("Cards", vm);
+            }
+
+
+            var card = new UserCard
+            {
+                CardHolderName = newCard.HolderName,
+                CardNumber = newCard.CardNumber,
+                ExpiryMonth = newCard.ExpiryMonth,
+                ExpiryYear = newCard.ExpiryYear,
+                CVV = newCard.CVV,
+                UserId = currentUser.Id
+            };
+
+            _context.UserCards.Add(card);
+            await _context.SaveChangesAsync();
+
+            TempData["Success"] = "Card successfully added!";
+            return RedirectToAction("Cards");
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteCard(int id)
+        {
+            var card = await _context.UserCards.FindAsync(id);
+            var user = await _userManager.GetUserAsync(User);
+
+            if (card == null || card.UserId != user.Id)
+            {
+                return NotFound();
+            }
+
+            _context.UserCards.Remove(card);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Cards");
+        }
+        #region SetImage
+        //private async Task SetProfileImageAsync()
+        //{
+        //    var user = await _userManager.GetUserAsync(User);
+        //    if (user?.ProfileImageUrl != null)
+        //    {
+        //        // Əgər artıq "/uploads" ilə başlayırsa təkrar əlavə etmə
+        //        ViewBag.ProfileImage = user.ProfileImageUrl.StartsWith("/uploads")
+        //            ? user.ProfileImageUrl
+        //            : "/uploads/profiles/" + user.ProfileImageUrl;
+        //    }
+        //    else
+        //    {
+        //        ViewBag.ProfileImage = "/assets/images/profile/default.jpg";
+        //    }
+        //}
+
+        #endregion
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            var user = _userManager.GetUserAsync(User).Result;
+
             if (user?.ProfileImageUrl != null)
             {
-                // Əgər artıq "/uploads" ilə başlayırsa təkrar əlavə etmə
                 ViewBag.ProfileImage = user.ProfileImageUrl.StartsWith("/uploads")
                     ? user.ProfileImageUrl
                     : "/uploads/profiles/" + user.ProfileImageUrl;
             }
             else
             {
-                ViewBag.ProfileImage = "/assets/images/profile/default.jpg"; // default şəkil
+                ViewBag.ProfileImage = "/assets/images/profile/default.jpg";
             }
+
+            base.OnActionExecuting(context);
         }
 
 

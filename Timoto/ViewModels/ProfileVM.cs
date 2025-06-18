@@ -19,5 +19,8 @@ namespace Timoto.ViewModels
         public List<Notification> Notifications { get; set; }
         public List<Car> FavoriteCars { get; set; }
         public List<UserCard> Cards { get; set; }
+
+
+        public CardCreateVM NewCard { get; set; }
     }
 }
