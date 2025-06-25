@@ -1,0 +1,57 @@
+﻿
+@model List<GetCarVM>
+@{
+    int count = 0;
+}
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Cars</h4>
+                <a asp-action="Create" class="btn btn-success"> Create </a>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Fuel</th>
+                                <th>Transmission</th>
+                                <th>Body</th>
+                                <th>Vehicle</th>
+                                <th>Drive</th>
+                                <th>Settings</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var car in Model)
+                            {
+                                count++;
+                                <tr>
+                                    <td>@count</td>
+                                    <td>
+                                        <img src="~/assets/images/cars/@car.MainImage" style="width:100px;height:90px;" />
+                                    </td>
+                                    <td>@car.Name</td>
+                                    <td>@car.DailyPrice ₼</td>
+                                    <td>@car.FuelTypeName</td>
+                                    <td>@car.TransmissionTypeName</td>
+                                    <td>@car.BodyTypeName</td>
+                                    <td>@car.VehicleTypeName</td>
+                                    <td>@car.DriveTypeName</td>
+                                    <td>
+                                        <a asp-action="Update" asp-route-id="@car.Id" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                                        <a asp-action="Delete" asp-route-id="@car.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                                        <a asp-action="Detail" asp-route-id="@car.Id" class="btn btn-primary"><i class="mdi mdi-open-in-new"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

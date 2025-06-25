@@ -31,6 +31,7 @@ namespace Timoto.Controllers
                 .Include(c => c.FuelType)
                 .Include(c => c.TransmissionType)
                 .Include(c => c.DriveType)
+                 .Include(c => c.Bookings)
                 .Include(c => c.CarFeatures)
                 .ThenInclude(cf => cf.Feature)
                 .Include(c => c.CarImages)

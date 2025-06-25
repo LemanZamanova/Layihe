@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 using Timoto.DAL;
 using Timoto.Models;
 using Timoto.Services;
@@ -16,6 +17,7 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IPdfService, PdfService>();
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 {
@@ -41,7 +43,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"));
 
 });
-
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
 
 var app = builder.Build();
@@ -52,7 +54,13 @@ app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
+StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
 
+
+app.MapControllerRoute(
+    "admin",
+    "{area:exists}/{controller=home}/{action=index}/{id?}"
+    );
 
 app.MapControllerRoute(
         "default",

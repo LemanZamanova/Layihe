@@ -53,6 +53,36 @@ namespace Timoto.Services
 
             await SendEmailAsync(toEmail, subject, body);
         }
+        public async Task SendEmailAsync(string toEmail, string subject, string message, object attachment)
+        {
+            var fromEmail = _config["EmailSettings:Email"];
+            var password = _config["EmailSettings:Password"];
+
+            SmtpClient smtpClient = new SmtpClient(_config["EmailSettings:Host"])
+            {
+                Port = int.Parse(_config["EmailSettings:Port"]),
+                Credentials = new NetworkCredential(fromEmail, password),
+                EnableSsl = true
+            };
+
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(fromEmail, "Timoto"),
+                Subject = subject,
+                Body = message,
+                IsBodyHtml = true
+            };
+
+            mailMessage.To.Add(toEmail);
+
+            // Əlavə varsa əlavə et
+            if (attachment is string filePath && System.IO.File.Exists(filePath))
+            {
+                mailMessage.Attachments.Add(new Attachment(filePath));
+            }
+
+            await smtpClient.SendMailAsync(mailMessage);
+        }
 
     }
 }

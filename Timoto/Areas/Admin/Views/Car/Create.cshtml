@@ -1,0 +1,148 @@
+﻿@model CreateCarVM
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Car</h4>
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                            {
+                                <li>@error.ErrorMessage</li>
+                            }
+                        </ul>
+                    </div>
+                }
+                <form method="post" enctype="multipart/form-data" class="forms-sample">
+
+                    <!-- Images -->
+                    <div class="form-group">
+                        <label asp-for="MainPhoto">Main Image</label>
+                        <input asp-for="MainPhoto" accept="image/*" class="form-control" />
+                        <span class="text-danger" asp-validation-for="MainPhoto"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AdditionalPhotos">Additional Images</label>
+                        <input asp-for="AdditionalPhotos" accept="image/*" class="form-control" multiple />
+                        <span class="text-danger" asp-validation-for="AdditionalPhotos"></span>
+                    </div>
+
+                    <!-- Basic Info -->
+                    <div class="form-group">
+                        <label asp-for="Name">Name</label>
+                        <input asp-for="Name" class="form-control" placeholder="Name" />
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DailyPrice">Daily Price</label>
+                        <input asp-for="DailyPrice" class="form-control" />
+                        <span class="text-danger" asp-validation-for="DailyPrice"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Year">Year</label>
+                        <input asp-for="Year" class="form-control" />
+                        <span class="text-danger" asp-validation-for="Year"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Description">Description</label>
+                        <textarea asp-for="Description" rows="5" class="form-control"></textarea>
+                        <span class="text-danger" asp-validation-for="Description"></span>
+                    </div>
+
+                    <!-- Technical Info -->
+                    <div class="form-group">
+                        <label asp-for="Seats">Seats</label>
+                        <input asp-for="Seats" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Doors">Doors</label>
+                        <input asp-for="Doors" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LuggageVolume">Luggage Volume (L)</label>
+                        <input asp-for="LuggageVolume" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EngineSize">Engine Size (cc)</label>
+                        <input asp-for="EngineSize" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Mileage">Mileage (km)</label>
+                        <input asp-for="Mileage" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FuelEconomy">Fuel Economy (L/100km)</label>
+                        <input asp-for="FuelEconomy" class="form-control" />
+                    </div>
+
+                    <!-- Appearance -->
+                    <div class="form-group">
+                        <label asp-for="ExteriorColor">Exterior Color</label>
+                        <input asp-for="ExteriorColor" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="InteriorColor">Interior Color</label>
+                        <input asp-for="InteriorColor" class="form-control" />
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label asp-for="Location">Location</label>
+                        <input asp-for="Location" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Latitude">Latitude</label>
+                        <input asp-for="Latitude" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Longitude">Longitude</label>
+                        <input asp-for="Longitude" class="form-control" />
+                    </div>
+
+                    <!-- Dropdowns -->
+                    <div class="form-group">
+                        <label asp-for="FuelTypeId">Fuel Type</label>
+                        <select asp-for="FuelTypeId" asp-items="@(new SelectList(Model.FuelTypes, "Id", "Name"))" class="form-control"></select>
+                        <span class="text-danger" asp-validation-for="FuelTypeId"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TransmissionTypeId">Transmission</label>
+                        <select asp-for="TransmissionTypeId" asp-items="@(new SelectList(Model.TransmissionTypes, "Id", "Name"))" class="form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DriveTypeId">Drive Type</label>
+                        <select asp-for="DriveTypeId" asp-items="@(new SelectList(Model.DriveTypes, "Id", "Name"))" class="form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="BodyTypeId">Body Type</label>
+                        <select asp-for="BodyTypeId" asp-items="@(new SelectList(Model.BodyTypes, "Id", "Name"))" class="form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="VehicleTypeId">Vehicle Type</label>
+                        <select asp-for="VehicleTypeId" asp-items="@(new SelectList(Model.VehicleTypes, "Id", "Name"))" class="form-control"></select>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="form-group">
+                        <label>Features</label>
+                        @foreach (var feature in Model.Features)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="@feature.Id" name="FeatureIds" id="feat_@feature.Id" />
+                                <label class="form-check-label" for="feat_@feature.Id">@feature.Name</label>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Buttons -->
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <a asp-action="Index" class="btn btn-light">Cancel</a>
+                </form>
+             
+            </div>
+        </div>
+    </div>
+</div>

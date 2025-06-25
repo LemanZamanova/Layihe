@@ -13,6 +13,8 @@ namespace Timoto.Models
         public ICollection<FavoriteCar> FavoriteCars { get; set; }
 
         public string? ProfileImageUrl { get; set; }
+        public string StripeCustomerId { get; set; }
+
 
     }
 }

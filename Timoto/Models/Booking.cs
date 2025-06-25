@@ -17,5 +17,9 @@ namespace Timoto.Models
 
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public decimal TotalAmount { get; set; }
+        public string StripePaymentIntentId { get; set; }
+        public string PaymentStatus { get; set; }
+
     }
 }

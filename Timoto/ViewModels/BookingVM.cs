@@ -14,6 +14,8 @@ namespace Timoto.ViewModels
         [Required]
         public string CollectionTime { get; set; }
 
+        public decimal TotalAmount { get; set; }
+
 
 
     }
