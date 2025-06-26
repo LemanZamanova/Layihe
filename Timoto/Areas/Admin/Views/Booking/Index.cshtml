@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Timoto.Models.Booking>
+@{
+    ViewData["Title"] = "Booking List";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>All Bookings</h2>
+
+    <table class="table table-bordered table-striped mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Car</th>
+                <th>User</th>
+                <th>Status</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Total ($)</th>
+                <th>Late Penalty ($)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model)
+            {
+                <tr>
+                    <td>@booking.Id</td>
+                    <td>@booking.Car?.Name</td>
+                    <td>@booking.User?.Email</td>
+                    <td>
+                        @if (booking.Status.HasValue)
+                        {
+                            <span class="badge bg-@GetStatusColor(booking.Status.Value)">
+                                @booking.Status.Value
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">Unknown</span>
+                        }
+                    </td>
+
+                    <td>@booking.StartDate.ToString("dd MMM yyyy")</td>
+                    <td>@booking.EndDate.ToString("dd MMM yyyy")</td>
+                    <td>@booking.TotalAmount.ToString("F2")</td>
+                    <td>@(booking.LatePenaltyAmount.HasValue ? booking.LatePenaltyAmount.Value.ToString("F2") : "-")</td>
+    
+                    <td>
+                        <a asp-action="Detail" asp-route-id="@booking.Id" class="btn btn-primary"><i class="mdi mdi-open-in-new"></i></a>
+                        <a asp-action="Update" asp-route-id="@booking.Id" class="btn btn-warning"><i class="mdi mdi-pencil"></i></a>
+                        <a asp-action="Delete" asp-route-id="@booking.Id" class="btn btn-danger"><i class="mdi mdi-delete"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@functions {
+    string GetStatusColor(Timoto.Utilities.Enums.BookingStatus status)
+    {
+        return status switch
+        {
+            Timoto.Utilities.Enums.BookingStatus.Scheduled => "warning",
+            Timoto.Utilities.Enums.BookingStatus.Completed => "success",
+            Timoto.Utilities.Enums.BookingStatus.Cancelled => "danger",
+            _ => "secondary"
+        };
+    }
+}

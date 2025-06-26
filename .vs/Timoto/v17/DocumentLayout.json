@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\car\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\car\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\car\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\car\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\views\\car\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\views\\car\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\viewmodels\\car\\createcarvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,72 +23,188 @@
       "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\viewmodels\\car\\updatecarvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\viewmodels\\car\\updatecarvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\car\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\car\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\viewmodels\\car\\getcarvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\viewmodels\\car\\getcarvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\car\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\car\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\car\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\car\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\views\\car\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\views\\car\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\models\\transmissiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\models\\transmissiontype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\models\\bodytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\models\\bodytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\models\\drivetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\models\\drivetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\models\\fueltype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\models\\fueltype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\models\\vehicletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\models\\vehicletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\transmissiontypes\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\transmissiontypes\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\transmissiontypes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\transmissiontypes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\transmissiontypes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\transmissiontypes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\controllers\\transmissiontypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\controllers\\transmissiontypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\controllers\\vehicletypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\controllers\\vehicletypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\vehicletypes\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\vehicletypes\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\controllers\\adminbasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\controllers\\adminbasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\controllers\\transmissiontypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\controllers\\transmissiontypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\controllers\\fueltypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\controllers\\fueltypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\controllers\\featurecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\controllers\\featurecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\controllers\\favoritecarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\controllers\\favoritecarcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\controllers\\drivetypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\controllers\\drivetypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\controllers\\bodytypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\controllers\\bodytypescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\viewmodels\\car\\cardetailvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\viewmodels\\car\\cardetailvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\views\\error\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\views\\error\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\controllers\\errorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\models\\bodytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\models\\bodytype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\viewmodels\\adminloginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\viewmodels\\adminloginvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\feature\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\feature\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\feature\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\feature\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\feature\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\feature\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\fueltypes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\fueltypes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\models\\feature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\models\\feature.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\bodytypes\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\bodytypes\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\favoritecar\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\favoritecar\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\viewmodels\\favoritecargroupvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\viewmodels\\favoritecargroupvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\booking\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\booking\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\booking\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\booking\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\booking\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\booking\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\viewmodels\\updatebookingvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\viewmodels\\updatebookingvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\views\\profile\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\views\\profile\\orders.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\services\\pdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\services\\pdfservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\controllers\\profilecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Migrations\\20250626143350_LateBooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Timoto\\Migrations\\20250626143350_LateBooking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\viewmodels\\profilevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\viewmodels\\profilevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Migrations\\20250626133219_Bookingstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Timoto\\Migrations\\20250626133219_Bookingstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\car\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\car\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\viewmodels\\car\\updatecarvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\viewmodels\\car\\updatecarvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\vehicletypes\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|solutionrelative:timoto\\areas\\admin\\views\\vehicletypes\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{60FB21F6-7898-4DD3-A6C8-1220C26AB155}|Timoto\\Timoto.csproj|c:\\users\\home\\onedrive\\desktop\\timoto\\timoto\\timoto\\areas\\admin\\views\\vehicletypes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -106,8 +226,632 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Timoto\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T23:28:20.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Timoto\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAcBAAAAAAAAAAAawAwBAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T23:16:42.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Views\\Car\\Index.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Views\\Car\\Index.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Views\\Car\\Index.cshtml",
+              "RelativeToolTip": "Timoto\\Views\\Car\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T23:12:38.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Car\\Index.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Car\\Index.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Car\\Index.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Car\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACUAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T20:22:35.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CreateCarVM.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\ViewModels\\Car\\CreateCarVM.cs",
+              "RelativeDocumentMoniker": "Timoto\\ViewModels\\Car\\CreateCarVM.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\ViewModels\\Car\\CreateCarVM.cs",
+              "RelativeToolTip": "Timoto\\ViewModels\\Car\\CreateCarVM.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwA4AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T20:05:23.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "VehicleTypesController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\VehicleTypesController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\VehicleTypesController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\VehicleTypesController.cs",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\VehicleTypesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T15:33:32.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CarController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\CarController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\CarController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\CarController.cs",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\CarController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAawJgAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T11:48:10.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AdminBaseController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\AdminBaseController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\AdminBaseController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\AdminBaseController.cs",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\AdminBaseController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T17:34:10.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Car\\Detail.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Car\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Car\\Detail.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Car\\Detail.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAHQAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T18:29:04.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BookingController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\BookingController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\BookingController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\BookingController.cs",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\BookingController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T14:50:09.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Program.cs",
+              "RelativeDocumentMoniker": "Timoto\\Program.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Program.cs",
+              "RelativeToolTip": "Timoto\\Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T16:43:38.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TransmissionTypesController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\TransmissionTypesController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\TransmissionTypesController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\TransmissionTypesController.cs",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\TransmissionTypesController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T15:36:45.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T16:45:25.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "FuelTypesController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\FuelTypesController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\FuelTypesController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\FuelTypesController.cs",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\FuelTypesController.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAswF4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T17:26:45.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "FeatureController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\FeatureController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\FeatureController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\FeatureController.cs",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\FeatureController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T16:21:36.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "FavoriteCarController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\FavoriteCarController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\FavoriteCarController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\FavoriteCarController.cs",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\FavoriteCarController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T15:40:08.001Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DriveTypesController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\DriveTypesController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\DriveTypesController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\DriveTypesController.cs",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\DriveTypesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T17:26:22.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "BodyTypesController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\BodyTypesController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\BodyTypesController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\BodyTypesController.cs",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\BodyTypesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T17:25:24.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Timoto\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAowHwAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T18:55:48.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\appsettings.json",
+              "RelativeDocumentMoniker": "Timoto\\appsettings.json",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\appsettings.json",
+              "RelativeToolTip": "Timoto\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-06-26T17:05:23.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CarDetailVM.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\ViewModels\\Car\\CarDetailVM.cs",
+              "RelativeDocumentMoniker": "Timoto\\ViewModels\\Car\\CarDetailVM.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\ViewModels\\Car\\CarDetailVM.cs",
+              "RelativeToolTip": "Timoto\\ViewModels\\Car\\CarDetailVM.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAowCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T18:30:01.226Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "AccessDenied.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Views\\Error\\AccessDenied.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Views\\Error\\AccessDenied.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Views\\Error\\AccessDenied.cshtml",
+              "RelativeToolTip": "Timoto\\Views\\Error\\AccessDenied.cshtml",
+              "ViewState": "AgIAACgAAAAAAAAAAAAqwEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T18:02:50.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ErrorController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Controllers\\ErrorController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Controllers\\ErrorController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Controllers\\ErrorController.cs",
+              "RelativeToolTip": "Timoto\\Controllers\\ErrorController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T18:03:35.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAqwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T17:08:48.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Home\\Login.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Home\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T16:53:44.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "AdminLoginVM.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\ViewModels\\AdminLoginVM.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\ViewModels\\AdminLoginVM.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\ViewModels\\AdminLoginVM.cs",
+              "RelativeToolTip": "Timoto\\Areas\\ViewModels\\AdminLoginVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T16:42:31.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "BodyType.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\BodyType.cs",
+              "RelativeDocumentMoniker": "Timoto\\Models\\BodyType.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\BodyType.cs",
+              "RelativeToolTip": "Timoto\\Models\\BodyType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T15:30:39.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T12:29:04.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\FuelTypes\\Index.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\FuelTypes\\Index.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\FuelTypes\\Index.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\FuelTypes\\Index.cshtml",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAqwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T16:34:32.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Feature.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\Feature.cs",
+              "RelativeDocumentMoniker": "Timoto\\Models\\Feature.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\Feature.cs",
+              "RelativeToolTip": "Timoto\\Models\\Feature.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T16:29:46.157Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Feature\\Create.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Feature\\Create.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Feature\\Create.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Feature\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T16:23:27.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Feature\\Update.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Feature\\Update.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Feature\\Update.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Feature\\Update.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T16:23:24.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Feature\\Index.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Feature\\Index.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Feature\\Index.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Feature\\Index.cshtml",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAqwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T16:23:11.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\BodyTypes\\Update.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\BodyTypes\\Update.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\BodyTypes\\Update.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\BodyTypes\\Update.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-25T15:25:21.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\FavoriteCar\\Index.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\FavoriteCar\\Index.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\FavoriteCar\\Index.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\FavoriteCar\\Index.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAqwB8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T15:40:38.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "FavoriteCarGroupVM.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\ViewModels\\FavoriteCarGroupVM.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\ViewModels\\FavoriteCarGroupVM.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\ViewModels\\FavoriteCarGroupVM.cs",
+              "RelativeToolTip": "Timoto\\Areas\\ViewModels\\FavoriteCarGroupVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T15:48:57.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Booking\\Index.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Booking\\Index.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Booking\\Index.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Booking\\Index.cshtml",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAABMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T14:57:27.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Booking\\Detail.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Booking\\Detail.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Booking\\Detail.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Booking\\Detail.cshtml",
+              "ViewState": "AgIAABEAAAAAAAAAAAAqwDkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T15:22:16.885Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Booking\\Update.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Booking\\Update.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Booking\\Update.cshtml",
+              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Booking\\Update.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAqwDoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T15:21:56.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "UpdateBookingVM.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\ViewModels\\UpdateBookingVM.cs",
+              "RelativeDocumentMoniker": "Timoto\\Areas\\ViewModels\\UpdateBookingVM.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\ViewModels\\UpdateBookingVM.cs",
+              "RelativeToolTip": "Timoto\\Areas\\ViewModels\\UpdateBookingVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T14:56:01.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Booking.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\Booking.cs",
+              "RelativeDocumentMoniker": "Timoto\\Models\\Booking.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\Booking.cs",
+              "RelativeToolTip": "Timoto\\Models\\Booking.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAIAywBgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T13:18:38.95Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "PdfService.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Services\\PdfService.cs",
+              "RelativeDocumentMoniker": "Timoto\\Services\\PdfService.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Services\\PdfService.cs",
+              "RelativeToolTip": "Timoto\\Services\\PdfService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA0wE4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T14:31:19.553Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "20250626143350_LateBooking.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Migrations\\20250626143350_LateBooking.cs",
+              "RelativeDocumentMoniker": "Timoto\\Migrations\\20250626143350_LateBooking.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Migrations\\20250626143350_LateBooking.cs",
+              "RelativeToolTip": "Timoto\\Migrations\\20250626143350_LateBooking.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T14:33:50.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "Timoto\\Services\\EmailService.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Services\\EmailService.cs",
+              "RelativeToolTip": "Timoto\\Services\\EmailService.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAYwEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T14:03:00.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "Orders.cshtml",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Views\\Profile\\Orders.cshtml",
+              "RelativeDocumentMoniker": "Timoto\\Views\\Profile\\Orders.cshtml",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Views\\Profile\\Orders.cshtml",
+              "RelativeToolTip": "Timoto\\Views\\Profile\\Orders.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-26T13:26:40.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "ProfileController.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Controllers\\ProfileController.cs",
+              "RelativeDocumentMoniker": "Timoto\\Controllers\\ProfileController.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Controllers\\ProfileController.cs",
+              "RelativeToolTip": "Timoto\\Controllers\\ProfileController.cs",
+              "ViewState": "AgIAAGcCAAAAAAAAAADwv4wCAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T13:19:57.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "20250626133219_Bookingstatus.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Migrations\\20250626133219_Bookingstatus.cs",
+              "RelativeDocumentMoniker": "Timoto\\Migrations\\20250626133219_Bookingstatus.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Migrations\\20250626133219_Bookingstatus.cs",
+              "RelativeToolTip": "Timoto\\Migrations\\20250626133219_Bookingstatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T13:32:19.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "ProfileVM.cs",
+              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\ViewModels\\ProfileVM.cs",
+              "RelativeDocumentMoniker": "Timoto\\ViewModels\\ProfileVM.cs",
+              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\ViewModels\\ProfileVM.cs",
+              "RelativeToolTip": "Timoto\\ViewModels\\ProfileVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T13:23:44.095Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -122,254 +866,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CarController.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\CarController.cs",
-              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\CarController.cs",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\CarController.cs",
-              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\CarController.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAAuwD0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T16:02:12.356Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Car\\Create.cshtml",
-              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Car\\Create.cshtml",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Car\\Create.cshtml",
-              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Car\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGsAAACFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T16:00:58.225Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 49,
               "Title": "UpdateCarVM.cs",
               "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\ViewModels\\Car\\UpdateCarVM.cs",
               "RelativeDocumentMoniker": "Timoto\\ViewModels\\Car\\UpdateCarVM.cs",
               "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\ViewModels\\Car\\UpdateCarVM.cs",
               "RelativeToolTip": "Timoto\\ViewModels\\Car\\UpdateCarVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA7wDcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T15:52:16.968Z",
+              "WhenOpened": "2025-06-26T12:13:01.209Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CreateCarVM.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\ViewModels\\Car\\CreateCarVM.cs",
-              "RelativeDocumentMoniker": "Timoto\\ViewModels\\Car\\CreateCarVM.cs",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\ViewModels\\Car\\CreateCarVM.cs",
-              "RelativeToolTip": "Timoto\\ViewModels\\Car\\CreateCarVM.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAywDkAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T15:52:01.303Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "GetCarVM.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\ViewModels\\Car\\GetCarVM.cs",
-              "RelativeDocumentMoniker": "Timoto\\ViewModels\\Car\\GetCarVM.cs",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\ViewModels\\Car\\GetCarVM.cs",
-              "RelativeToolTip": "Timoto\\ViewModels\\Car\\GetCarVM.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T15:51:17.68Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Car\\Index.cshtml",
-              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Car\\Index.cshtml",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Car\\Index.cshtml",
-              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Car\\Index.cshtml",
-              "ViewState": "AgIAABcAAAAAAAAAAAAQwCIAAABmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T16:00:21.001Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 48,
               "Title": "Update.cshtml",
               "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Car\\Update.cshtml",
               "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\Car\\Update.cshtml",
               "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\Car\\Update.cshtml",
               "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\Car\\Update.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T16:01:06.068Z",
+              "WhenOpened": "2025-06-26T11:55:15.923Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Views\\Car\\Index.cshtml",
-              "RelativeDocumentMoniker": "Timoto\\Views\\Car\\Index.cshtml",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Views\\Car\\Index.cshtml",
-              "RelativeToolTip": "Timoto\\Views\\Car\\Index.cshtml",
-              "ViewState": "AgIAAJkAAAAAAAAAAAAAAJ8AAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T17:27:17.873Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\_ViewImports.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T16:00:42.248Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "TransmissionType.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\TransmissionType.cs",
-              "RelativeDocumentMoniker": "Timoto\\Models\\TransmissionType.cs",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\TransmissionType.cs",
-              "RelativeToolTip": "Timoto\\Models\\TransmissionType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T15:40:33.517Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "DriveType.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\DriveType.cs",
-              "RelativeDocumentMoniker": "Timoto\\Models\\DriveType.cs",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\DriveType.cs",
-              "RelativeToolTip": "Timoto\\Models\\DriveType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T15:40:22.35Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "FuelType.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\FuelType.cs",
-              "RelativeDocumentMoniker": "Timoto\\Models\\FuelType.cs",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\FuelType.cs",
-              "RelativeToolTip": "Timoto\\Models\\FuelType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T15:40:14.685Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "VehicleType.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\VehicleType.cs",
-              "RelativeDocumentMoniker": "Timoto\\Models\\VehicleType.cs",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\VehicleType.cs",
-              "RelativeToolTip": "Timoto\\Models\\VehicleType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T15:39:51.455Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Update.cshtml",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\TransmissionTypes\\Update.cshtml",
-              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\TransmissionTypes\\Update.cshtml",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\TransmissionTypes\\Update.cshtml",
-              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\TransmissionTypes\\Update.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T15:39:02.161Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\TransmissionTypes\\Index.cshtml",
-              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\TransmissionTypes\\Index.cshtml",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\TransmissionTypes\\Index.cshtml",
-              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\TransmissionTypes\\Index.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACIAAABaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T15:38:11.741Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\TransmissionTypes\\Create.cshtml",
-              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\TransmissionTypes\\Create.cshtml",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\TransmissionTypes\\Create.cshtml",
-              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\TransmissionTypes\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T15:37:46.433Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "BodyType.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\BodyType.cs",
-              "RelativeDocumentMoniker": "Timoto\\Models\\BodyType.cs",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Models\\BodyType.cs",
-              "RelativeToolTip": "Timoto\\Models\\BodyType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T15:30:39.646Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "TransmissionTypesController.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\TransmissionTypesController.cs",
-              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\TransmissionTypesController.cs",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\TransmissionTypesController.cs",
-              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\TransmissionTypesController.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAQwFcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T15:36:45.412Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "VehicleTypesController.cs",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\VehicleTypesController.cs",
-              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Controllers\\VehicleTypesController.cs",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Controllers\\VehicleTypesController.cs",
-              "RelativeToolTip": "Timoto\\Areas\\Admin\\Controllers\\VehicleTypesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFUAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T15:33:32.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 50,
               "Title": "Update.cshtml",
               "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\VehicleTypes\\Update.cshtml",
               "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\VehicleTypes\\Update.cshtml",
@@ -382,7 +905,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 51,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\VehicleTypes\\Create.cshtml",
               "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\VehicleTypes\\Create.cshtml",
@@ -395,7 +918,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 52,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\VehicleTypes\\Index.cshtml",
               "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\VehicleTypes\\Index.cshtml",
@@ -408,20 +931,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Update.cshtml",
-              "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\BodyTypes\\Update.cshtml",
-              "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\BodyTypes\\Update.cshtml",
-              "ToolTip": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\BodyTypes\\Update.cshtml",
-              "RelativeToolTip": "Timoto\\Areas\\Admin\\Views\\BodyTypes\\Update.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T15:25:21.22Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 53,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\Areas\\Admin\\Views\\BodyTypes\\Index.cshtml",
               "RelativeDocumentMoniker": "Timoto\\Areas\\Admin\\Views\\BodyTypes\\Index.cshtml",

@@ -6,7 +6,7 @@ using Timoto.Models;
 namespace Timoto.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class TransmissionTypesController : Controller
+    public class TransmissionTypesController : AdminBaseController
     {
         private readonly AppDbContext _context;
 
@@ -65,6 +65,8 @@ namespace Timoto.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RoleAuthorize("Admin")]
+
         public async Task<IActionResult> Update(int? id, TransmissionType transmissionType)
         {
             if (id is null || id <= 0) return BadRequest();
@@ -88,6 +90,7 @@ namespace Timoto.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        [RoleAuthorize("Admin")]
 
         public async Task<IActionResult> Delete(int? id)
         {

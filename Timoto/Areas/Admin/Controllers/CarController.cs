@@ -2,14 +2,15 @@
 using Microsoft.EntityFrameworkCore;
 using Timoto.DAL;
 using Timoto.Models;
-using Timoto.Utilities.Enums;
 using Timoto.Utilities.Extensions;
 using Timoto.ViewModels;
 
 namespace Timoto.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class CarController : Controller
+
+
+    public class CarController : AdminBaseController
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
@@ -58,6 +59,18 @@ namespace Timoto.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateCarVM vm)
         {
+            ModelState.Remove(nameof(vm.FuelTypes));
+            ModelState.Remove(nameof(vm.TransmissionTypes));
+            ModelState.Remove(nameof(vm.DriveTypes));
+            ModelState.Remove(nameof(vm.BodyTypes));
+            ModelState.Remove(nameof(vm.VehicleTypes));
+            ModelState.Remove(nameof(vm.Features));
+
+            if (!ModelState.IsValid)
+            {
+                vm = await LoadCreateOrUpdateVM(vm);
+                return View(vm);
+            }
             if (!ModelState.IsValid)
             {
                 foreach (var item in ModelState)
@@ -77,11 +90,11 @@ namespace Timoto.Areas.Admin.Controllers
                 return View(await LoadCreateOrUpdateVM(vm));
             }
 
-            if (!vm.MainPhoto.ValidateSize(FileSize.MB, 2))
-            {
-                ModelState.AddModelError("MainPhoto", "Main image must be less than 2MB");
-                return View(await LoadCreateOrUpdateVM(vm));
-            }
+            //if (!vm.MainPhoto.ValidateSize(FileSize.MB, 3))
+            //{
+            //    ModelState.AddModelError("MainPhoto", "Main image must be less than 3MB");
+            //    return View(await LoadCreateOrUpdateVM(vm));
+            //}
 
             if (vm.AdditionalPhotos != null)
             {
@@ -92,11 +105,11 @@ namespace Timoto.Areas.Admin.Controllers
                         ModelState.AddModelError("AdditionalPhotos", "Only image files are allowed");
                         return View(await LoadCreateOrUpdateVM(vm));
                     }
-                    if (!photo.ValidateSize(FileSize.MB, 2))
-                    {
-                        ModelState.AddModelError("AdditionalPhotos", "Each image must be less than 2MB");
-                        return View(await LoadCreateOrUpdateVM(vm));
-                    }
+                    //if (!photo.ValidateSize(FileSize.MB, 2))
+                    //{
+                    //    ModelState.AddModelError("AdditionalPhotos", "Each image must be less than 3MB");
+                    //    return View(await LoadCreateOrUpdateVM(vm));
+                    //}
                 }
             }
 
@@ -168,7 +181,18 @@ namespace Timoto.Areas.Admin.Controllers
                 TransmissionTypeId = car.TransmissionTypeId,
                 DriveTypeId = car.DriveTypeId,
                 BodyTypeId = car.BodyTypeId,
-                VehicleTypeId = car.VehicleTypeId
+                VehicleTypeId = car.VehicleTypeId,
+                Seats = car.Seats,
+                Doors = car.Doors,
+                LuggageVolume = car.LuggageVolume,
+                EngineSize = car.EngineSize,
+                Mileage = car.Mileage,
+                FuelEconomy = car.FuelEconomy,
+                ExteriorColor = car.ExteriorColor,
+                InteriorColor = car.InteriorColor,
+                Location = car.Location,
+                Latitude = car.Latitude,
+                Longitude = car.Longitude,
             };
 
             vm = await LoadCreateOrUpdateVM(vm);
@@ -177,98 +201,128 @@ namespace Timoto.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public async Task<IActionResult> Update(int id, UpdateCarVM vm)
         {
-            if (id != vm.Id) return BadRequest();
+            ModelState.Remove("FuelTypes");
+            ModelState.Remove("TransmissionTypes");
+            ModelState.Remove("DriveTypes");
+            ModelState.Remove("BodyTypes");
+            ModelState.Remove("VehicleTypes");
+            ModelState.Remove("Features");
+            ModelState.Remove("ImageIds");
+
+            vm = await LoadCreateOrUpdateVM(vm);
 
             if (!ModelState.IsValid)
             {
-                vm = await LoadCreateOrUpdateVM(vm);
                 return View(vm);
             }
 
-            var car = await _context.Cars
+            var existed = await _context.Cars
                 .Include(c => c.CarImages)
                 .Include(c => c.CarFeatures)
                 .FirstOrDefaultAsync(c => c.Id == id);
-            if (car == null) return NotFound();
 
-            // Basic field updates
-            car.Name = vm.Name;
-            car.Year = vm.Year;
-            car.DailyPrice = vm.DailyPrice;
-            car.Description = vm.Description;
-            car.Seats = vm.Seats;
-            car.Doors = vm.Doors;
-            car.EngineSize = vm.EngineSize;
-            car.Mileage = vm.Mileage;
-            car.ExteriorColor = vm.ExteriorColor;
-            car.InteriorColor = vm.InteriorColor;
-            car.Location = vm.Location;
-            car.Latitude = vm.Latitude;
-            car.Longitude = vm.Longitude;
-            car.FuelEconomy = vm.FuelEconomy;
+            if (existed == null) return NotFound();
 
-            car.FuelTypeId = vm.FuelTypeId;
-            car.TransmissionTypeId = vm.TransmissionTypeId;
-            car.DriveTypeId = vm.DriveTypeId;
-            car.BodyTypeId = vm.BodyTypeId;
-            car.VehicleTypeId = vm.VehicleTypeId;
 
-            // main image (optional)
+            //if (vm.MainPhoto is not null &&
+            //    (!vm.MainPhoto.ValidateType("image") || !vm.MainPhoto.ValidateSize(FileSize.MB, 2)))
+            //{
+            //    ModelState.AddModelError(nameof(vm.MainPhoto), "Main image must be a valid image under 2MB.");
+            //    return View(vm);
+            //}
+
+            if (vm.AdditionalPhotos != null)
+            {
+                foreach (var photo in vm.AdditionalPhotos)
+                {
+                    //if (!photo.ValidateType("image") || !photo.ValidateSize(FileSize.MB, 2))
+                    //{
+                    //    ModelState.AddModelError(nameof(vm.AdditionalPhotos), $"File {photo.FileName} is invalid.");
+                    //    return View(vm);
+                    //}
+                }
+            }
+
+            // Field update
+            existed.Name = vm.Name;
+            existed.DailyPrice = vm.DailyPrice;
+            existed.Description = vm.Description;
+            existed.Seats = vm.Seats;
+            existed.Doors = vm.Doors;
+            existed.EngineSize = vm.EngineSize;
+            existed.Mileage = vm.Mileage;
+            existed.FuelEconomy = vm.FuelEconomy;
+            existed.ExteriorColor = vm.ExteriorColor;
+            existed.InteriorColor = vm.InteriorColor;
+            existed.Location = vm.Location;
+            existed.Latitude = vm.Latitude;
+            existed.Longitude = vm.Longitude;
+            existed.Year = vm.Year;
+            existed.FuelTypeId = vm.FuelTypeId;
+            existed.TransmissionTypeId = vm.TransmissionTypeId;
+            existed.DriveTypeId = vm.DriveTypeId;
+            existed.BodyTypeId = vm.BodyTypeId;
+            existed.VehicleTypeId = vm.VehicleTypeId;
+
+            // Features
+            existed.CarFeatures = vm.FeatureIds?.Distinct().Select(fid => new CarFeature
+            {
+                CarId = id,
+                FeatureId = fid
+            }).ToList();
+
+            // Main image update
             if (vm.MainPhoto != null)
             {
-                if (!vm.MainPhoto.ValidateType("image") || !vm.MainPhoto.ValidateSize(FileSize.MB, 2))
+                var oldMain = existed.CarImages.FirstOrDefault(i => i.IsMain);
+                if (oldMain != null)
                 {
-                    ModelState.AddModelError("MainPhoto", "Main image must be a valid image under 2MB");
-                    return View(await LoadCreateOrUpdateVM(vm));
+                    oldMain.ImageUrl.DeleteFile(_env.WebRootPath, "assets", "images", "cars");
+                    _context.CarImages.Remove(oldMain);
                 }
 
-                string newMainFileName = await vm.MainPhoto.CreateFileAsync(_env.WebRootPath, "assets", "images", "cars");
-
-                var currentMain = car.CarImages.FirstOrDefault(i => i.IsMain);
-                if (currentMain != null)
-                {
-                    currentMain.ImageUrl.DeleteFile(_env.WebRootPath, "assets", "images", "cars");
-                    currentMain.ImageUrl = newMainFileName;
-                }
-                else
-                {
-                    car.CarImages.Add(new CarImage { ImageUrl = newMainFileName, IsMain = true });
-                }
+                string newMain = await vm.MainPhoto.CreateFileAsync(_env.WebRootPath, "assets", "images", "cars");
+                existed.CarImages.Add(new CarImage { ImageUrl = newMain, IsMain = true, CreatedAt = DateTime.UtcNow.AddHours(4) });
             }
 
 
-            if (vm.ImageIds != null)
+            if (vm.ImageIds == null) vm.ImageIds = new();
+            var toDelete = existed.CarImages
+                .Where(i => !i.IsMain && !vm.ImageIds.Contains(i.Id))
+                .ToList();
+
+            foreach (var img in toDelete)
             {
-                car.CarImages.RemoveAll(i => !i.IsMain && !vm.ImageIds.Contains(i.Id));
+                img.ImageUrl.DeleteFile(_env.WebRootPath, "assets", "images", "cars");
             }
+
+            _context.CarImages.RemoveRange(toDelete);
 
 
             if (vm.AdditionalPhotos != null)
             {
                 foreach (var photo in vm.AdditionalPhotos)
                 {
-                    if (!photo.ValidateType("image") || !photo.ValidateSize(FileSize.MB, 2))
-                    {
-                        ModelState.AddModelError("AdditionalPhotos", "All images must be valid and under 2MB");
-                        return View(await LoadCreateOrUpdateVM(vm));
-                    }
-
                     string fileName = await photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "cars");
-                    car.CarImages.Add(new CarImage { ImageUrl = fileName, IsMain = false });
+                    existed.CarImages.Add(new CarImage
+                    {
+                        ImageUrl = fileName,
+                        IsMain = false,
+                        CreatedAt = DateTime.UtcNow.AddHours(4)
+                    });
                 }
             }
-
-
-            car.CarFeatures = vm.FeatureIds?
-                .Select(fid => new CarFeature { CarId = car.Id, FeatureId = fid })
-                .ToList();
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
+
+
+        [RoleAuthorize("Admin")]
 
         public async Task<IActionResult> Delete(int id)
         {
@@ -312,6 +366,50 @@ namespace Timoto.Areas.Admin.Controllers
         }
 
 
+        public async Task<IActionResult> Detail(int id)
+        {
+            var car = await _context.Cars
+                .Include(c => c.FuelType)
+                .Include(c => c.TransmissionType)
+                .Include(c => c.DriveType)
+                .Include(c => c.BodyType)
+                .Include(c => c.VehicleType)
+                .Include(c => c.CarImages)
+                .Include(c => c.CarFeatures)
+                    .ThenInclude(cf => cf.Feature)
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (car == null) return NotFound();
+
+            var vm = new CarDetailVM
+            {
+                Name = car.Name,
+                DailyPrice = car.DailyPrice,
+                Year = car.Year,
+                Description = car.Description,
+                Seats = car.Seats,
+                Doors = car.Doors,
+                LuggageVolume = car.LuggageVolume,
+                EngineSize = car.EngineSize,
+                Mileage = car.Mileage,
+                FuelEconomy = car.FuelEconomy,
+                ExteriorColor = car.ExteriorColor,
+                InteriorColor = car.InteriorColor,
+                Location = car.Location,
+                Latitude = car.Latitude.ToString("F6"),
+                Longitude = car.Longitude.ToString("F6"),
+                FuelTypeName = car.FuelType?.Name,
+                TransmissionTypeName = car.TransmissionType?.Name,
+                DriveTypeName = car.DriveType?.Name,
+                BodyTypeName = car.BodyType?.Name,
+                VehicleTypeName = car.VehicleType?.Name,
+                MainImage = car.CarImages.FirstOrDefault()?.ImageUrl,
+                AdditionalImages = car.CarImages.Skip(1).Select(i => i.ImageUrl).ToList(),
+                Features = car.CarFeatures.Select(cf => cf.Feature.Name).ToList()
+            };
+
+            return View(vm);
+        }
 
     }
 }

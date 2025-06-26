@@ -106,23 +106,27 @@
                     <div class="form-group">
                         <label asp-for="FuelTypeId">Fuel Type</label>
                         <select asp-for="FuelTypeId" asp-items="@(new SelectList(Model.FuelTypes, "Id", "Name"))" class="form-control"></select>
-                        <span class="text-danger" asp-validation-for="FuelTypeId"></span>
+                        <span class="text-danger" asp-validation-for="FuelTypes"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="TransmissionTypeId">Transmission</label>
                         <select asp-for="TransmissionTypeId" asp-items="@(new SelectList(Model.TransmissionTypes, "Id", "Name"))" class="form-control"></select>
+                        <span class="text-danger" asp-validation-for="TransmissionTypes"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="DriveTypeId">Drive Type</label>
                         <select asp-for="DriveTypeId" asp-items="@(new SelectList(Model.DriveTypes, "Id", "Name"))" class="form-control"></select>
+                        <span class="text-danger" asp-validation-for="DriveTypes"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="BodyTypeId">Body Type</label>
                         <select asp-for="BodyTypeId" asp-items="@(new SelectList(Model.BodyTypes, "Id", "Name"))" class="form-control"></select>
+                        <span class="text-danger" asp-validation-for="BodyTypes"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="VehicleTypeId">Vehicle Type</label>
                         <select asp-for="VehicleTypeId" asp-items="@(new SelectList(Model.VehicleTypes, "Id", "Name"))" class="form-control"></select>
+                          <span class="text-danger" asp-validation-for="VehicleTypes"></span>
                     </div>
 
                     <!-- Features -->

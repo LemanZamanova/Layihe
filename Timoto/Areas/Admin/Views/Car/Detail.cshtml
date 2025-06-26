@@ -1,0 +1,130 @@
+﻿@model CarDetailVM
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Car Details</h4>
+
+                <!-- Images -->
+                <div class="form-group">
+                    <label>Main Image</label><br />
+                    <img src="~/assets/images/cars/@Model.MainImage" alt="Main Image" width="300" />
+                </div>
+
+                <div class="form-group">
+                    <label>Additional Images</label><br />
+                    @foreach (var image in Model.AdditionalImages)
+                    {
+                        <img src="~/assets/images/cars/@image" alt="Image" width="150" class="me-2 mb-2" />
+                    }
+                </div>
+
+                <!-- Basic Info -->
+                <div class="form-group">
+                    <label>Name:</label>
+                    <p>@Model.Name</p>
+                </div>
+                <div class="form-group">
+                    <label>Daily Price:</label>
+                    <p>@Model.DailyPrice $</p>
+                </div>
+                <div class="form-group">
+                    <label>Year:</label>
+                    <p>@Model.Year</p>
+                </div>
+                <div class="form-group">
+                    <label>Description:</label>
+                    <p>@Model.Description</p>
+                </div>
+
+                <!-- Technical Info -->
+                <div class="form-group">
+                    <label>Seats:</label>
+                    <p>@Model.Seats</p>
+                </div>
+                <div class="form-group">
+                    <label>Doors:</label>
+                    <p>@Model.Doors</p>
+                </div>
+                <div class="form-group">
+                    <label>Luggage Volume (L):</label>
+                    <p>@Model.LuggageVolume</p>
+                </div>
+                <div class="form-group">
+                    <label>Engine Size (cc):</label>
+                    <p>@Model.EngineSize</p>
+                </div>
+                <div class="form-group">
+                    <label>Mileage (km):</label>
+                    <p>@Model.Mileage</p>
+                </div>
+                <div class="form-group">
+                    <label>Fuel Economy (L/100km):</label>
+                    <p>@Model.FuelEconomy</p>
+                </div>
+
+                <!-- Appearance -->
+                <div class="form-group">
+                    <label>Exterior Color:</label>
+                    <p>@Model.ExteriorColor</p>
+                </div>
+                <div class="form-group">
+                    <label>Interior Color:</label>
+                    <p>@Model.InteriorColor</p>
+                </div>
+
+                <!-- Location -->
+                <div class="form-group">
+                    <label>Location:</label>
+                    <p>@Model.Location</p>
+                </div>
+                <div class="form-group">
+                    <label>Latitude:</label>
+                    <p>@Model.Latitude</p>
+                </div>
+                <div class="form-group">
+                    <label>Longitude:</label>
+                    <p>@Model.Longitude</p>
+                </div>
+
+                <!-- Dropdowns -->
+                <div class="form-group">
+                    <label>Fuel Type:</label>
+                    <p>@Model.FuelTypeName</p>
+                </div>
+                <div class="form-group">
+                    <label>Transmission:</label>
+                    <p>@Model.TransmissionTypeName</p>
+                </div>
+                <div class="form-group">
+                    <label>Drive Type:</label>
+                    <p>@Model.DriveTypeName</p>
+                </div>
+                <div class="form-group">
+                    <label>Body Type:</label>
+                    <p>@Model.BodyTypeName</p>
+                </div>
+                <div class="form-group">
+                    <label>Vehicle Type:</label>
+                    <p>@Model.VehicleTypeName</p>
+                </div>
+
+                <!-- Features -->
+                <div class="form-group">
+                    <label>Features:</label>
+                    <ul>
+                        @foreach (var feature in Model.Features)
+                        {
+                            <li>@feature</li>
+                        }
+                    </ul>
+                </div>
+
+                <!-- Back Button -->
+                <a asp-action="Index" class="btn btn-light mt-3">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+

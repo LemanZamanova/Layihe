@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Timoto.ViewModels.FavoriteCarGroupVM>
+
+@{
+    ViewData["Title"] = "Favorite Cars Overview";
+}
+
+<h2>Favorite Cars Overview</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Car</th>
+            <th>Total Likes</th>
+            <th>Users Who Favorited</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Car?.Name</td>
+                <td>@item.Users?.Count</td>
+                <td>
+                    @{
+                        var total = item.Users?.Count ?? 0;
+                        var shownUsers = (item.Users ?? new List<Timoto.Models.AppUser>()).Take(3).ToList();
+
+                    }
+
+                    @foreach (var user in shownUsers)
+                    {
+                        <span class="badge bg-success me-1">@user.Name @user.Surname</span>
+                    }
+
+                    @if (total > 3)
+                    {
+                        <span class="badge bg-success">+@((total - 3)) more</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

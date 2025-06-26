@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 using Timoto.DAL;
 using Timoto.Helper;
 using Timoto.Models;
 using Timoto.Services.Interface;
-
+using Timoto.Utilities.Enums;
 using Timoto.ViewModels;
 namespace Timoto.Controllers
 {
@@ -18,13 +19,15 @@ namespace Timoto.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly IEmailService _emailService;
         private readonly SignInManager<AppUser> _signInManager;
+        private readonly IPdfService _pdfService;
 
-        public ProfileController(AppDbContext context, UserManager<AppUser> userManager, IEmailService emailService, SignInManager<AppUser> signInManager)
+        public ProfileController(AppDbContext context, UserManager<AppUser> userManager, IEmailService emailService, SignInManager<AppUser> signInManager, IPdfService pdfService)
         {
             _context = context;
             _userManager = userManager;
             _emailService = emailService;
             _signInManager = signInManager;
+            _pdfService = pdfService;
         }
 
         public async Task<IActionResult> Index()
@@ -358,9 +361,15 @@ namespace Timoto.Controllers
 
         public async Task<IActionResult> Orders()
         {
-
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login", "Account");
+
+            // bookings burada olmalıdır — vm-dən əvvəl!
+            var bookings = await _context.Bookings
+                .Include(b => b.Car)
+                .Where(b => b.UserId == user.Id && !b.IsDeleted)
+                .ToListAsync();
+
             var vm = new ProfileVM
             {
                 Name = user.Name,
@@ -368,10 +377,9 @@ namespace Timoto.Controllers
                 Email = user.Email,
                 Phone = user.Phone,
 
-                Bookings = await _context.Bookings
-                    .Where(b => b.UserId == user.Id && !b.IsDeleted)
-                    .Include(b => b.Car)
-                    .ToListAsync(),
+                ScheduledBookings = bookings.Where(b => b.Status == BookingStatus.Scheduled).ToList(),
+                CompletedBookings = bookings.Where(b => b.Status == BookingStatus.Completed).ToList(),
+                CancelledBookings = bookings.Where(b => b.Status == BookingStatus.Cancelled).ToList(),
 
                 Notifications = await _context.Notifications
                     .Where(n => n.AppUserId == user.Id)
@@ -540,7 +548,109 @@ namespace Timoto.Controllers
 
             base.OnActionExecuting(context);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CancelBooking(int id)
+        {
+            var booking = await _context.Bookings.FirstOrDefaultAsync(b => b.Id == id && !b.IsDeleted);
+            if (booking == null || booking.Status != BookingStatus.Scheduled)
+                return NotFound();
 
+            if (string.IsNullOrWhiteSpace(booking.StripePaymentIntentId))
+            {
+                booking.Status = BookingStatus.Cancelled;
+                await _context.SaveChangesAsync();
+
+                await _emailService.SendEmailAsync(booking.Email, "Booking Cancelled",
+                    $"Your booking was cancelled. Since no payment was made via Stripe, no refund was issued.");
+
+                return RedirectToAction("Orders", "Profile");
+            }
+
+            decimal penalty = booking.TotalAmount * 0.1m;
+            decimal refundAmount = booking.TotalAmount - penalty;
+
+            var service = new RefundService();
+            var options = new RefundCreateOptions
+            {
+                PaymentIntent = booking.StripePaymentIntentId,
+                Amount = (long)(refundAmount * 100),
+                Reason = "requested_by_customer"
+            };
+
+            try
+            {
+                var refund = await service.CreateAsync(options);
+            }
+            catch (StripeException ex)
+            {
+                TempData["ErrorMessage"] = "Refund failed: " + ex.Message;
+                return RedirectToAction("Orders", "Profile");
+            }
+
+            booking.Status = BookingStatus.Cancelled;
+            await _context.SaveChangesAsync();
+
+            await _emailService.SendEmailAsync(booking.Email, "Booking Cancelled",
+                $"Your booking was cancelled. ${refundAmount} was refunded. ${penalty} was kept as penalty.");
+
+            return RedirectToAction("Orders", "Profile");
+        }
+
+
+        public async Task AutoCompleteBookingsAsync()
+        {
+            var bookingsToComplete = await _context.Bookings
+                .Where(b => b.Status == BookingStatus.Scheduled && b.EndDate <= DateTime.Now)
+                .ToListAsync();
+
+            foreach (var booking in bookingsToComplete)
+            {
+                booking.Status = BookingStatus.Completed;
+
+                if (DateTime.Now > booking.EndDate)
+                {
+                    var hoursLate = (DateTime.Now - booking.EndDate).TotalHours;
+                    booking.LatePenaltyAmount = (decimal)hoursLate * 10;
+                }
+
+                await _emailService.SendEmailAsync(booking.Email, "Booking Completed",
+                    $"Your booking (#{booking.Id}) has been marked as completed.");
+            }
+
+            await _context.SaveChangesAsync();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateBooking(Booking booking)
+        {
+            // Example logic after creating a new booking
+            booking.Status = BookingStatus.Scheduled;
+            _context.Bookings.Add(booking);
+            await _context.SaveChangesAsync();
+
+            await _emailService.SendEmailAsync(booking.Email, "Booking Scheduled",
+                $"Dear {booking.Name}, your booking is successfully scheduled from {booking.StartDate:MMM dd} to {booking.EndDate:MMM dd}.");
+
+            return RedirectToAction("Orders");
+        }
+
+
+        [Authorize]
+        public async Task<IActionResult> DownloadReceipt(int id)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            var booking = await _context.Bookings
+                .Include(b => b.Car)
+                .FirstOrDefaultAsync(b => b.Id == id && b.UserId == user.Id && !b.IsDeleted);
+
+            if (booking == null) return NotFound();
+
+            var pdfPath = await _pdfService.GenerateBookingPdfAsync(booking);
+            var fileBytes = await System.IO.File.ReadAllBytesAsync(pdfPath);
+
+            return File(fileBytes, "application/pdf", $"receipt_booking_{booking.Id}.pdf");
+        }
 
     }
 }

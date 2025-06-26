@@ -113,16 +113,16 @@ namespace Timoto.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public async Task<IActionResult> CreateRoles()
-        {
-            foreach (UserRole role in Enum.GetValues(typeof(UserRole)))
-            {
-                if (!await _roleManager.RoleExistsAsync(role.ToString()))
-                    await _roleManager.CreateAsync(new IdentityRole(role.ToString()));
-            }
+        //public async Task<IActionResult> CreateRoles()
+        //{
+        //    foreach (UserRole role in Enum.GetValues(typeof(UserRole)))
+        //    {
+        //        if (!await _roleManager.RoleExistsAsync(role.ToString()))
+        //            await _roleManager.CreateAsync(new IdentityRole(role.ToString()));
+        //    }
 
-            return RedirectToAction("Index", "Home");
-        }
+        //    return RedirectToAction("Index", "Home");
+        //}
 
         public IActionResult VerifyCode()
         {

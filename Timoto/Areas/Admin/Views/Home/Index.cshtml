@@ -1,5 +1,51 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
 }
+
+<div class="row">
+    <div class="col-md-4 grid-margin stretch-card">
+        <div class="card bg-gradient-primary text-white">
+            <div class="card-body">
+                <h4 class="card-title">Total Cars</h4>
+                <h2>@ViewBag.TotalCars</h2>
+                <p class="mb-0">Active listings</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 grid-margin stretch-card">
+        <div class="card bg-gradient-success text-white">
+            <div class="card-body">
+                <h4 class="card-title">Total Bookings</h4>
+                <h2>@ViewBag.TotalBookings</h2>
+                <p class="mb-0">This month</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 grid-margin stretch-card">
+        <div class="card bg-gradient-warning text-white">
+            <div class="card-body">
+                <h4 class="card-title">Favorite Count</h4>
+                <h2>@ViewBag.TotalFavorites</h2>
+                <p class="mb-0">All-time likes</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">System Quick Actions</h4>
+                <div class="d-flex flex-wrap">
+                    <a asp-area="Admin" asp-controller="Car" asp-action="Create" class="btn btn-outline-primary me-2 mb-2">+ Add Car</a>
+                    <a asp-area="Admin" asp-controller="Booking" asp-action="Index" class="btn btn-outline-secondary me-2 mb-2">📅 Manage Bookings</a>
+                    <a asp-area="Admin" asp-controller="FavoriteCar" asp-action="Index" class="btn btn-outline-success me-2 mb-2">❤️ View Favorites</a>
+                    <a asp-area="Admin" asp-controller="Feature" asp-action="Index" class="btn btn-outline-info me-2 mb-2">🔧 Manage Features</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

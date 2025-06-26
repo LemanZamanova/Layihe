@@ -268,6 +268,17 @@
                         <div class="col-lg-12">
                             <div class="de-item mb30">
                                 <div class="d-img">
+                                    @{
+                                        var now = DateTime.Now;
+                                        var activeBooking = car.Bookings?.FirstOrDefault(b =>
+                                        now >= b.StartDate && now <= b.EndDate && !b.IsDeleted);
+                                    }
+                                    @if (activeBooking != null)
+                                    {
+                                        <div class="badge bg-danger mt-2">
+                                            Reserved until: @activeBooking.EndDate.ToString("dd MMM yyyy HH:mm")
+                                        </div>
+                                    }
                                     <img src="/assets/images/cars/@car.CarImages?.FirstOrDefault(x => x.IsMain)?.ImageUrl" class="img-fluid" alt="">
                                 </div>
                                 <div class="d-info">

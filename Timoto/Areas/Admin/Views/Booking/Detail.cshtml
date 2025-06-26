@@ -1,0 +1,57 @@
+﻿@model Timoto.Models.Booking
+
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<h2>Booking Details</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Name</th>
+        <td>@Model.Name @Model.Surname</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <th>Phone</th>
+        <td>@Model.Phone</td>
+    </tr>
+    <tr>
+        <th>Start Date</th>
+        <td>@Model.StartDate.ToString("f")</td>
+    </tr>
+    <tr>
+        <th>End Date</th>
+        <td>@Model.EndDate.ToString("f")</td>
+    </tr>
+    <tr>
+        <th>Total Amount</th>
+        <td>$@Model.TotalAmount</td>
+    </tr>
+    <tr>
+        <th>Late Penalty</th>
+        <td>@(Model.LatePenaltyAmount.HasValue ? $"${Model.LatePenaltyAmount}" : "None")</td>
+    </tr>
+    <tr>
+        <th>Status</th>
+        <td><span class="badge bg-@GetStatusColor(Model.Status.Value)">@Model.Status</span></td>
+    </tr>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">Back to list</a>
+
+@functions {
+    string GetStatusColor(Timoto.Utilities.Enums.BookingStatus status)
+    {
+        return status switch
+        {
+            Timoto.Utilities.Enums.BookingStatus.Scheduled => "warning",
+            Timoto.Utilities.Enums.BookingStatus.Completed => "success",
+            Timoto.Utilities.Enums.BookingStatus.Cancelled => "danger",
+            _ => "secondary"
+        };
+    }
+}

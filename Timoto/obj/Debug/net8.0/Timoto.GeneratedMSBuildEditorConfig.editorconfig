@@ -44,8 +44,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9keVR5cGVzXFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Areas/Admin/Views/Booking/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va2luZ1xEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Areas/Admin/Views/Booking/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va2luZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Areas/Admin/Views/Booking/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va2luZ1xVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Areas/Admin/Views/Car/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2FyXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Areas/Admin/Views/Car/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2FyXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Areas/Admin/Views/Car/Index.cshtml]
@@ -66,6 +82,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Areas/Admin/Views/DriveTypes/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRHJpdmVUeXBlc1xVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Areas/Admin/Views/FavoriteCar/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRmF2b3JpdGVDYXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Areas/Admin/Views/Feature/Create.cshtml]
@@ -94,6 +114,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Areas/Admin/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
@@ -186,6 +210,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Car/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Error/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JcQWNjZXNzRGVuaWVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/HOME/OneDrive/Desktop/Timoto/Timoto/Timoto/Views/Home/Index.cshtml]

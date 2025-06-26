@@ -1,40 +1,60 @@
 ﻿@model UpdateCarVM
+
 <div class="row">
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Update Car</h4>
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                            {
+                                <li>@error.ErrorMessage</li>
+                            }
+                        </ul>
+                    </div>
+                }
                 <form method="post" enctype="multipart/form-data" class="forms-sample">
+
+                    <!-- Main Image -->
                     <div class="form-group">
                         <img style="width:200px;height:auto;" src="~/assets/images/cars/@Model.PrimaryImage" />
-                        <input type="hidden" asp-for="PrimaryImage" class="form-control">
+                        <input type="hidden" asp-for="PrimaryImage" />
                     </div>
                     <div class="form-group">
                         <label asp-for="MainPhoto">New Main Image</label>
-                        <input asp-for="MainPhoto" accept="image/*" class="form-control">
+                        <input asp-for="MainPhoto" accept="image/*" class="form-control" />
                         <span class="text-danger" asp-validation-for="MainPhoto"></span>
                     </div>
+
+                    <!-- Additional Existing Images -->
                     <div class="form-group d-flex flex-wrap gap-3">
-                        @if (Model.CarImages != null && Model.CarImages.Any())
+                        @if (Model?.CarImages != null && Model.CarImages.Any())
                         {
-                            @foreach (var img in Model.CarImages)
+                            foreach (var img in Model.CarImages)
                             {
                                 <div class="position-relative">
                                     <img src="~/assets/images/cars/@img.ImageUrl" style="width:150px;height:100px;" />
+                                    <input type="hidden" name="ImageIds" value="@img.Id" />
                                     <button class="btn btn-danger position-absolute top-0 end-0 custom-delete" type="button">X</button>
-                                    <input type="hidden" value="@img.Id" asp-for="ImageIds" />
                                 </div>
                             }
                         }
                     </div>
+
+                    <!-- Additional Upload -->
                     <div class="form-group">
                         <label asp-for="AdditionalPhotos">Add More Images</label>
                         <input asp-for="AdditionalPhotos" accept="image/*" class="form-control" multiple />
+                        <span class="text-danger" asp-validation-for="AdditionalPhotos"></span>
                     </div>
 
+                    <!-- Info Fields -->
                     <div class="form-group">
                         <label asp-for="Name">Name</label>
-                        <input asp-for="Name" class="form-control" placeholder="Name" />
+                        <input asp-for="Name" class="form-control" />
                         <span class="text-danger" asp-validation-for="Name"></span>
                     </div>
                     <div class="form-group">
@@ -42,34 +62,90 @@
                         <input asp-for="DailyPrice" class="form-control" />
                         <span class="text-danger" asp-validation-for="DailyPrice"></span>
                     </div>
-
                     <div class="form-group">
                         <label asp-for="Year">Year</label>
                         <input asp-for="Year" class="form-control" />
                         <span class="text-danger" asp-validation-for="Year"></span>
                     </div>
 
+                    <!-- Technical Info -->
+                    <div class="form-group">
+                        <label asp-for="Seats">Seats</label>
+                        <input asp-for="Seats" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Doors">Doors</label>
+                        <input asp-for="Doors" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LuggageVolume">Luggage Volume (L)</label>
+                        <input asp-for="LuggageVolume" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EngineSize">Engine Size (cc)</label>
+                        <input asp-for="EngineSize" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Mileage">Mileage (km)</label>
+                        <input asp-for="Mileage" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FuelEconomy">Fuel Economy (L/100km)</label>
+                        <input asp-for="FuelEconomy" class="form-control" />
+                    </div>
+
+                    <!-- Appearance -->
+                    <div class="form-group">
+                        <label asp-for="ExteriorColor">Exterior Color</label>
+                        <input asp-for="ExteriorColor" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="InteriorColor">Interior Color</label>
+                        <input asp-for="InteriorColor" class="form-control" />
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label asp-for="Location">Location</label>
+                        <input asp-for="Location" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Latitude">Latitude</label>
+                        <input asp-for="Latitude" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Longitude">Longitude</label>
+                        <input asp-for="Longitude" class="form-control" />
+                    </div>
+
+                    <!-- Dropdowns -->
                     <div class="form-group">
                         <label asp-for="FuelTypeId">Fuel Type</label>
                         <select asp-for="FuelTypeId" asp-items="@(new SelectList(Model.FuelTypes, "Id", "Name"))" class="form-control"></select>
+                        <span class="text-danger" asp-validation-for="FuelTypeId"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="TransmissionTypeId">Transmission</label>
                         <select asp-for="TransmissionTypeId" asp-items="@(new SelectList(Model.TransmissionTypes, "Id", "Name"))" class="form-control"></select>
+                        <span class="text-danger" asp-validation-for="TransmissionTypeId"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="DriveTypeId">Drive Type</label>
                         <select asp-for="DriveTypeId" asp-items="@(new SelectList(Model.DriveTypes, "Id", "Name"))" class="form-control"></select>
+                        <span class="text-danger" asp-validation-for="DriveTypeId"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="BodyTypeId">Body Type</label>
                         <select asp-for="BodyTypeId" asp-items="@(new SelectList(Model.BodyTypes, "Id", "Name"))" class="form-control"></select>
+                        <span class="text-danger" asp-validation-for="BodyTypeId"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="VehicleTypeId">Vehicle Type</label>
                         <select asp-for="VehicleTypeId" asp-items="@(new SelectList(Model.VehicleTypes, "Id", "Name"))" class="form-control"></select>
+                        <span class="text-danger" asp-validation-for="VehicleTypeId"></span>
                     </div>
 
+                    <!-- Features -->
                     <div class="form-group">
                         <label>Features</label>
                         @foreach (var feature in Model.Features)
@@ -96,13 +172,17 @@
     </div>
 </div>
 
-@section DeleteImages {
+@section Scripts {
     <script>
-        var btns = document.querySelectorAll(".custom-delete")
-        for (let i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function () {
-                btns[i].parentElement.remove()
-            })
-        }
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll(".custom-delete").forEach(button => {
+                button.addEventListener("click", function () {
+                    const container = this.closest(".position-relative");
+                    const hiddenInput = container.querySelector("input[type='hidden']");
+                    if (hiddenInput) hiddenInput.remove();
+                    container.remove();
+                });
+            });
+        });
     </script>
 }

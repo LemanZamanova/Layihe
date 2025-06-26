@@ -53,6 +53,10 @@ app.UseRouting();
 app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseStatusCodePagesWithReExecute("/Error/AccessDenied");
+
+builder.Services.AddSession();
+
 
 StripeConfiguration.ApiKey = builder.Configuration["Stripe:SecretKey"];
 

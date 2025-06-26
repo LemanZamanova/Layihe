@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
 using Timoto.Models;
 
 namespace Timoto.ViewModels
@@ -31,7 +32,8 @@ namespace Timoto.ViewModels
         public string PrimaryImage { get; set; }
         public IFormFile? MainPhoto { get; set; }
         public List<CarImage>? CarImages { get; set; }
-        public List<int> ImageIds { get; set; } = new();
+        [BindProperty]
+        public List<int>? ImageIds { get; set; } = new();
         public List<IFormFile>? AdditionalPhotos { get; set; }
 
         public int FuelTypeId { get; set; }

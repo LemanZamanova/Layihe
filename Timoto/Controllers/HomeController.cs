@@ -22,6 +22,7 @@ namespace Timoto.Controllers
         {
             var cars = await _context.Cars
                 .Include(c => c.BodyType)
+                 .Include(c => c.Bookings)
                 .Include(c => c.CarImages)
                 .OrderByDescending(c => c.LikeCount)
                 .Take(6)

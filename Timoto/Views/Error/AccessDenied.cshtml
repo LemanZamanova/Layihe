@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Access Denied";
+    Layout = null;
+    var returnUrl = Context.Request.Headers["Referer"].ToString(); // Geri dönmək üçün əvvəlki URL
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>Access Denied - Timoto Admin</title>
+    <link rel="icon" href="~/assets/images/T_icon.png" type="image/png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .error-section {
+            min-height: 100vh;
+            background-image: url('/images/background/11.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .error-box {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .btn-main {
+            background-color: #ffc107;
+            color: #000;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid error-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="error-box">
+                        <h1>Access Denied</h1>
+                        <p>You don't have permission to access this action.</p>
+                        <a href="@(!string.IsNullOrEmpty(returnUrl) ? returnUrl : Url.Action("Index", "Home", new { area = "Admin" }))" class="btn-main">Go Back</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <h1 style="font-size: 120px;">
+                        <span class="text-warning">403</span><br />
+                        <span class="text-light">Forbidden</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

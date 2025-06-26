@@ -9,6 +9,7 @@ namespace Timoto.Services
     {
 
         private readonly IConfiguration _config;
+
         public EmailService(IConfiguration config)
         {
             _config = config;
@@ -36,7 +37,15 @@ namespace Timoto.Services
             mailMessage.To.Add(toEmail);
 
 
-            await smtpClient.SendMailAsync(mailMessage);
+            try
+            {
+                await smtpClient.SendMailAsync(mailMessage);
+            }
+            catch (SmtpException ex)
+            {
+                Console.WriteLine("SMTP Error: " + ex.Message);
+                throw;
+            }
         }
         public async Task SendBookingConfirmationAsync(string toEmail, Booking booking)
         {

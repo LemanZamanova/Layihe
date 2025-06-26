@@ -1,4 +1,5 @@
 ﻿using Timoto.Models.Base;
+using Timoto.Utilities.Enums;
 
 namespace Timoto.Models
 {
@@ -20,6 +21,10 @@ namespace Timoto.Models
         public decimal TotalAmount { get; set; }
         public string StripePaymentIntentId { get; set; }
         public string PaymentStatus { get; set; }
+        public BookingStatus? Status { get; set; } = BookingStatus.Scheduled;
+        public decimal? LatePenaltyAmount { get; set; }
+
+
 
     }
 }

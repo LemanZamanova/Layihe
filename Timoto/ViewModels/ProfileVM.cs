@@ -22,5 +22,9 @@ namespace Timoto.ViewModels
 
 
         public CardCreateVM NewCard { get; set; }
+        public List<Booking> ScheduledBookings { get; set; }
+        public List<Booking> CompletedBookings { get; set; }
+        public List<Booking> CancelledBookings { get; set; }
+
     }
 }

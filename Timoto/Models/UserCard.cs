@@ -19,7 +19,7 @@ namespace Timoto.Models
         public string Last4Digits => CardNumber?.Length >= 4 ? CardNumber.Substring(CardNumber.Length - 4) : "";
         public string UserId { get; set; }
         public AppUser User { get; set; }
-        public string StripePaymentMethodId { get; set; }
+        public string? StripePaymentMethodId { get; set; }
 
     }
 }

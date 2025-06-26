@@ -31,7 +31,37 @@ namespace Timoto.Services
                 doc.Add(new Paragraph($"Start Date: {booking.StartDate:dd MMM yyyy HH:mm}", normalFont));
                 doc.Add(new Paragraph($"End Date: {booking.EndDate:dd MMM yyyy HH:mm}", normalFont));
                 doc.Add(new Paragraph($"Generated at: {DateTime.Now:dd MMM yyyy HH:mm}", normalFont));
+                doc.Add(new Paragraph(" ")); // boş sətir
 
+                // Booking Status Section
+                if (booking.Status == Timoto.Utilities.Enums.BookingStatus.Completed)
+                {
+                    doc.Add(new Paragraph("Booking Status: Completed", titleFont));
+
+                    if (booking.LatePenaltyAmount.HasValue && booking.LatePenaltyAmount.Value > 0)
+                    {
+                        doc.Add(new Paragraph($"Late Return Penalty: ${booking.LatePenaltyAmount.Value}", normalFont));
+                        doc.Add(new Paragraph("Note: The vehicle was returned late. Penalty has been applied.", normalFont));
+                    }
+                    else
+                    {
+                        doc.Add(new Paragraph("Thank you for returning the vehicle on time.", normalFont));
+                    }
+                }
+                else if (booking.Status == Timoto.Utilities.Enums.BookingStatus.Cancelled)
+                {
+                    doc.Add(new Paragraph("Booking Status: Cancelled", titleFont));
+                    doc.Add(new Paragraph("Note: This booking was cancelled by the user.", normalFont));
+                }
+                else if (booking.Status == Timoto.Utilities.Enums.BookingStatus.Scheduled)
+                {
+                    doc.Add(new Paragraph("Booking Status: Scheduled", titleFont));
+                    doc.Add(new Paragraph("Note: This booking is currently active and scheduled.", normalFont));
+                }
+
+                doc.Add(new Paragraph(" ")); // boş sətir
+
+                // Terms
                 doc.Add(new Paragraph("Terms and Conditions", titleFont));
                 doc.Add(new Paragraph("1. The vehicle must be returned to the same location.", normalFont));
                 doc.Add(new Paragraph("2. The customer is responsible for any damage or loss.", normalFont));
