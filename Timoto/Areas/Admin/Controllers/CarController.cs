@@ -274,20 +274,27 @@ namespace Timoto.Areas.Admin.Controllers
                 FeatureId = fid
             }).ToList();
 
-            // Main image update
-            if (vm.MainPhoto != null)
+            if (vm.MainPhoto != null && vm.MainPhoto.Length > 0)
             {
                 var oldMain = existed.CarImages.FirstOrDefault(i => i.IsMain);
                 if (oldMain != null)
                 {
-                    oldMain.ImageUrl.DeleteFile(_env.WebRootPath, "assets", "images", "cars");
+                    try
+                    {
+                        oldMain.ImageUrl.DeleteFile(_env.WebRootPath, "assets", "images", "cars");
+                    }
+                    catch (IOException ex)
+                    {
+                        // loglama və ya bildiriş üçün istifadə oluna bilər
+                        Console.WriteLine("Main image delete error: " + ex.Message);
+                    }
+
                     _context.CarImages.Remove(oldMain);
                 }
 
                 string newMain = await vm.MainPhoto.CreateFileAsync(_env.WebRootPath, "assets", "images", "cars");
                 existed.CarImages.Add(new CarImage { ImageUrl = newMain, IsMain = true, CreatedAt = DateTime.UtcNow.AddHours(4) });
             }
-
 
             if (vm.ImageIds == null) vm.ImageIds = new();
             var toDelete = existed.CarImages

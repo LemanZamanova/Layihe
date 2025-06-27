@@ -389,6 +389,10 @@
       "PackagePath": "staticwebassets\\assets\\css\\style.css"
     },
     {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\files\\Timoto_Brochure_EN.pdf",
+      "PackagePath": "staticwebassets\\assets\\files\\Timoto_Brochure_EN.pdf"
+    },
+    {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\fonts\\elegant_font\\HTML_CSS\\fonts\\ElegantIcons.eot",
       "PackagePath": "staticwebassets\\assets\\fonts\\elegant_font\\HTML_CSS\\fonts\\ElegantIcons.eot"
     },
@@ -3649,6 +3653,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\cars\\0df6c862-5c6b-4f4f-8fd6-ed008f24a51cBMW.jpeg"
     },
     {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cars\\1.jpg"
+    },
+    {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\18172da8-979e-42e6-82ef-f2d55249245cbmv3.jpeg",
       "PackagePath": "staticwebassets\\assets\\images\\cars\\18172da8-979e-42e6-82ef-f2d55249245cbmv3.jpeg"
     },
@@ -3657,8 +3665,20 @@
       "PackagePath": "staticwebassets\\assets\\images\\cars\\18e8d77d-e945-4da2-a800-479b79d7be01hyundai2.jpeg"
     },
     {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cars\\2.jpg"
+    },
+    {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\2caba12d-47ad-4faa-ac54-f3122960ae91r1.png",
       "PackagePath": "staticwebassets\\assets\\images\\cars\\2caba12d-47ad-4faa-ac54-f3122960ae91r1.png"
+    },
+    {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cars\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\4790fa6e-54e7-4f4a-80f7-c5256dc956521.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cars\\4790fa6e-54e7-4f4a-80f7-c5256dc956521.jpg"
     },
     {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\47f8743d-ab7d-4677-a606-2bdf8466f9aarange-rover.jpg",
@@ -3799,6 +3819,10 @@
     {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\b39b7576-0d12-4f2f-b839-3ebc23a72ecalexus2.png",
       "PackagePath": "staticwebassets\\assets\\images\\cars\\b39b7576-0d12-4f2f-b839-3ebc23a72ecalexus2.png"
+    },
+    {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\b9157069-4565-426b-87c3-b7c9a99ec6a24.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\cars\\b9157069-4565-426b-87c3-b7c9a99ec6a24.jpg"
     },
     {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\assets\\images\\cars\\bd14d560-ebe4-4eff-a75e-1ce07ea192cdgreybmw.jpg",
@@ -4557,6 +4581,10 @@
       "PackagePath": "staticwebassets\\pdf\\Booking_3_20250626182755.pdf"
     },
     {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\pdf\\Booking_3_20250627133312.pdf",
+      "PackagePath": "staticwebassets\\pdf\\Booking_3_20250627133312.pdf"
+    },
+    {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\pdf\\Booking_8_20250626180815.pdf",
       "PackagePath": "staticwebassets\\pdf\\Booking_8_20250626180815.pdf"
     },
@@ -4577,6 +4605,10 @@
       "PackagePath": "staticwebassets\\pdf\\Booking_8_20250627033730.pdf"
     },
     {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\pdf\\Booking_8_20250627133229.pdf",
+      "PackagePath": "staticwebassets\\pdf\\Booking_8_20250627133229.pdf"
+    },
+    {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\uploads\\profiles\\33b424bb-d837-41af-b64e-4d74f2c47e6c_panda.jpg",
       "PackagePath": "staticwebassets\\uploads\\profiles\\33b424bb-d837-41af-b64e-4d74f2c47e6c_panda.jpg"
     },
@@ -4587,6 +4619,10 @@
     {
       "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\uploads\\profiles\\b5da1c0b-2c6c-440a-ba95-b77aec8a0e86_cat2.jpg",
       "PackagePath": "staticwebassets\\uploads\\profiles\\b5da1c0b-2c6c-440a-ba95-b77aec8a0e86_cat2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\HOME\\OneDrive\\Desktop\\Timoto\\Timoto\\Timoto\\wwwroot\\uploads\\profiles\\fd602634-0852-473c-bc3b-a2cee4d19bd8_WhatsApp Image 2025-06-28 at 01.43.55_556d6d7d.jpg",
+      "PackagePath": "staticwebassets\\uploads\\profiles\\fd602634-0852-473c-bc3b-a2cee4d19bd8_WhatsApp Image 2025-06-28 at 01.43.55_556d6d7d.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Timoto.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

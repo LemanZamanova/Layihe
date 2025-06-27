@@ -83,7 +83,8 @@
                                         <a class="menu-item" asp-controller="Car" asp-action="Index">Cars</a>
                                        
                                     </li>
-                                    <li><a class="menu-item" href="booking.html">Booking</a></li>
+                                    <li><a class="menu-item" asp-controller="FilterBooking" asp-action="Index">Booking</a></li>
+
                                     @inject SignInManager<AppUser> SignInManager
                                     @inject UserManager<AppUser> UserManager
 
@@ -120,7 +121,7 @@
                                     
                                     
                                     <li>
-                                        <a class="menu-item" href="#">Contact</a>
+                                        <a class="menu-item" asp-controller="Contact" asp-action="Index">Contact</a>
                                         
                                     </li>
                                 </ul>
@@ -158,7 +159,9 @@
                                 <span><i class="id-color fa fa-map-marker fa-lg"></i> 28 May Street, Baku, Azerbaijan</span>
                                 <span><i class="id-color fa fa-phone fa-lg"></i> +994 50 123 45 67</span>
                                 <span><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:support@timoto.az">support@timoto.az</a></span>
-                                <span><i class="id-color fa fa-file-pdf-o fa-lg"></i><a href="#">Download Price List</a></span>
+                                <span>
+                                    <i class="id-color fa fa-file-pdf-o fa-lg"></i><a href="/assets/files/Timoto_Brochure_EN.pdf" download>Download Brochure</a>
+                                    <span>
                             </address>
                         </div>
                     </div>
@@ -169,11 +172,11 @@
                             <div class="col-lg-6">
                                 <div class="widget">
                                     <ul>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Cars</a></li>
-                                        <li><a href="#">Booking</a></li>
-                                        <li><a href="#">FAQs</a></li>
-                                        <li><a href="#">Contact</a></li>
+                                        <li><a asp-controller="Home" asp-action="Index" >Home</a></li>
+                                        <li><a asp-controller="Car" asp-action="Index">Cars</a></li>
+                                        <li><a asp-controller="FilterBooking" asp-action="Index">Booking</a></li>
+                                        <li><a asp-controller="Profil" asp-action="MyProfile">FAQs</a></li>
+                                        <li><a asp-controller="Contact" asp-action="Index">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>

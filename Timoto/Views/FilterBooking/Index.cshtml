@@ -1,0 +1,240 @@
+﻿@model FilterBookingVM
+@using System.Linq
+@{
+    ViewData["Title"] = "Booking";
+    var bodyTypes = ViewBag.BodyTypes as List<Timoto.Models.BodyType>;
+    var locations = ViewBag.Locations as List<string>;
+}
+
+<div class="no-bottom no-top zebra" id="content">
+    <div id="top"></div>
+
+    <section id="subheader" class="jarallax text-light">
+        <img src="~/assets/images/background/subheader.jpg" class="jarallax-img" alt="">
+        <div class="center-y relative text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1>Booking</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="section-hero" class="no-top mt-80 sm-mt-0">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="spacer-single sm-hide"></div>
+                    <div class="p-4 rounded-3 shadow-soft" data-bgcolor="#ffffff">
+                        @using (Html.BeginForm("Index", "FilterBooking", FormMethod.Get))
+                        {
+                            <div id="step-1" class="row">
+                                <!-- Body Type Selection -->
+                                <div class="col-lg-6 mb-3">
+                                    <h5>What is your body type?</h5>
+                                    @Html.DropDownListFor(m => m.BodyType,
+                                             new SelectList(bodyTypes, "Name", "Name", Model.BodyType),
+                                             "Select a body type",
+                                             new { @class = "form-control" })
+                                </div>
+
+                                <!-- Location -->
+                                <div class="col-lg-6 mb-3">
+                                    <h5>Location</h5>
+                                    @Html.DropDownListFor(m => m.Location,
+                                             new SelectList(locations ?? new List<string>(), Model.Location),
+                                             "Select a location",
+                                             new { @class = "form-control" })
+                                </div>
+
+                                <!-- Pick Up Date -->
+                                <div class="col-lg-3 mb-3">
+                                    <h5>Pick Up Date</h5>
+                                    @Html.TextBoxFor(m => m.PickUpDate, new { @class = "form-control", type = "date" })
+                                </div>
+
+                                <!-- Pick Up Time -->
+                                <div class="col-lg-3 mb-3">
+                                    <h5>Pick Up Time</h5>
+                                    @Html.TextBoxFor(m => m.PickUpTime, new { @class = "form-control", type = "time" })
+                                </div>
+
+                                <!-- Return Date -->
+                                <div class="col-lg-3 mb-3">
+                                    <h5>Return Date</h5>
+                                    @Html.TextBoxFor(m => m.ReturnDate, new { @class = "form-control", type = "date" })
+                                </div>
+
+                                <!-- Return Time -->
+                                <div class="col-lg-3 mb-3">
+                                    <h5>Return Time</h5>
+                                    @Html.TextBoxFor(m => m.ReturnTime, new { @class = "form-control", type = "time" })
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <input type="submit" value="Find a Vehicle" class="btn-main pull-right mt-2" />
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="spacer-single"></div>
+
+            <!-- Filtered Results -->
+            <div id="filtered-results">
+                @if (Model?.AvailableCars != null && Model.AvailableCars.Any())
+                {
+                    <div class="row">
+                        @foreach (var car in Model.AvailableCars)
+                        {
+                            <div class="col-lg-4">
+                                <div class="de-item mb30">
+                                    <div class="d-img">
+                                        @if (car.IsActiveBooking)
+                                        {
+                                            <div class="badge bg-danger mt-2">
+                                                Reserved until: @car.ActiveBookingEndDate?.ToString("dd MMM yyyy HH:mm")
+                                            </div>
+                                        }
+                                        <img src="/assets/images/cars/@car.ImageUrl" class="img-fluid" alt="">
+                                    </div>
+                                    <div class="d-info">
+                                        <h4>@car.Name</h4>
+                                        <p class="text-danger mt-1">
+                                            <i class="fa fa-map-marker-alt"></i> @car.DistanceDisplay away
+                                        </p>
+                                        <div class="d-atr-group mt-2">
+                                            <span class="d-atr"><img src="~/assets/images/icons/1.svg" alt="">@car.Seats</span>
+                                            <span class="d-atr"><img src="~/assets/images/icons/3.svg" alt="">@car.Doors</span>
+                                            <span class="d-atr"><img src="~/assets/images/icons/2.svg" alt="">@car.LuggageVolume</span>
+                                            <span class="d-atr"><img src="~/assets/images/icons/4.svg" alt="">@car.BodyTypeName</span>
+                                        </div>
+                                        <div class="d-price mt-2">
+                                            Daily rate from <span>$@car.DailyPrice</span>
+                                            <a class="btn-main" asp-controller="Car" asp-action="Detail" asp-route-id="@car.CarId">Rent Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+    <section aria-label="section" class="pt40 pb40 text-light" data-bgcolor="#181818">
+        <div class="wow fadeInRight d-flex">
+            <div class="de-marquee-list">
+                <div class="d-item">
+                    <span class="d-item-txt">SUV</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Hatchback</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Crossover</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Convertible</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Sedan</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Sports Car</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Coupe</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Minivan</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Station Wagon</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Pickup Truck</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Minivans</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Exotic Cars</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="de-marquee-list">
+                <div class="d-item">
+                    <span class="d-item-txt">SUV</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Hatchback</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Crossover</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Convertible</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Sedan</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Sports Car</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Coupe</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Minivan</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Station Wagon</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Pickup Truck</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Minivans</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                    <span class="d-item-txt">Exotic Cars</span>
+                    <span class="d-item-display">
+                        <i class="d-item-dot"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+<a href="#" id="back-to-top"></a>

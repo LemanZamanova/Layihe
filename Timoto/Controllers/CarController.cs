@@ -327,5 +327,41 @@ namespace Timoto.Controllers
             return View("Detail", detailVM);
         }
 
+
+
+        public async Task<IActionResult> LoadMoreCars(int skip = 0, int take = 6)
+        {
+            var cars = await _context.Cars
+                .Where(c => !c.IsDeleted)
+                .Include(c => c.CarImages)
+                .Include(c => c.Bookings)
+                .OrderByDescending(c => c.Id)
+                .Skip(skip)
+                .Take(take)
+                .ToListAsync();
+
+            var result = cars.Select(c => new
+            {
+                c.Id,
+                c.Name,
+                DailyPrice = c.DailyPrice,
+                LikeCount = c.LikeCount,
+                ImageUrl = c.CarImages.FirstOrDefault(ci => ci.IsMain)?.ImageUrl,
+                Seats = c.Seats,
+                Doors = c.Doors,
+                LuggageVolume = c.LuggageVolume,
+                BodyTypeName = c.BodyType?.Name,
+                IsReserved = c.Bookings.Any(b =>
+                    !b.IsDeleted &&
+                    DateTime.Now >= b.StartDate &&
+                    DateTime.Now <= b.EndDate)
+            }).ToList();
+
+            return Json(result);
+        }
+
+
+
+
     }
 }

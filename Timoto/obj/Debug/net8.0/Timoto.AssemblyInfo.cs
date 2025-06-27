@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Timoto")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36190f5abcbd8e9a03993590cca3be437752c450")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+871e7b18b8080d1a57f2902c6a93ac988bf95252")]
 [assembly: System.Reflection.AssemblyProductAttribute("Timoto")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Timoto")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

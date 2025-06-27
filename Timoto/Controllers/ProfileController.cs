@@ -162,6 +162,7 @@ namespace Timoto.Controllers
                     ModelState.AddModelError("Email", "This email address is already associated with another account.");
                     ViewBag.ProfileImage = string.IsNullOrEmpty(user.ProfileImageUrl) ? "/assets/images/profile/default.jpg" : user.ProfileImageUrl;
 
+                    model.Email = user.Email;
                     model.Notifications = _context.Notifications
                         .Where(n => n.AppUserId == user.Id)
                         .OrderByDescending(n => n.CreatedAt)
@@ -169,7 +170,6 @@ namespace Timoto.Controllers
 
                     return View(model);
                 }
-
 
                 var verificationCode = new Random().Next(100000, 999999).ToString();
 

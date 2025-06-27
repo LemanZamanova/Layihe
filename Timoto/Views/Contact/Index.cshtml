@@ -1,0 +1,89 @@
+﻿@model Timoto.ViewModels.ContactVM
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<div class="no-bottom no-top" id="content">
+    <div id="top"></div>
+
+    <section id="subheader" class="jarallax text-light">
+        <img src="~/assets/images/background/subheader.jpg" class="jarallax-img" alt="">
+        <div class="center-y relative text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1>Contact Us</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section aria-label="section">
+        <div class="container">
+            <div class="row g-custom-x">
+
+                <div class="col-lg-8 mb-sm-30">
+                    <h3>Do you have any question?</h3>
+
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["Success"]</div>
+                    }
+
+                    @using (Html.BeginForm("Index", "Contact", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="col-md-4 mb10">
+                                <div class="field-set">
+                                    @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", placeholder = "Your Name" })
+                                    @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb10">
+                                <div class="field-set">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Your Email", type = "email" })
+                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb10">
+                                <div class="field-set">
+                                    @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", placeholder = "Subject" })
+                                    @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field-set mb20">
+                            @Html.TextAreaFor(m => m.Message, new { @class = "form-control", rows = 4, placeholder = "Your Message" })
+                            @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="mt20">
+                            <input type='submit' value='Send Message' class="btn-main">
+                        </div>
+                    }
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="de-box mb30">
+                        <h4>Baku Office</h4>
+                        <address class="s1">
+                            <span><i class="id-color fa fa-map-marker fa-lg"></i>28 May Street, Baku, Azerbaijan</span>
+                            <span><i class="id-color fa fa-phone fa-lg"></i><a href="tel:+994515525807">+994 51 552 58 07</a></span>
+                            <span><i class="id-color fa fa-envelope-o fa-lg"></i><a href="mailto:contact@timoto.az">contact@timoto.az</a></span>
+                            <span>
+                                <i class="id-color fa fa-file-pdf-o fa-lg"></i><a href="/assets/files/Timoto_Brochure_EN.pdf" download>Download Brochure</a>
+
+                            </span>
+                        </address>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+<a href="#" id="back-to-top"></a>

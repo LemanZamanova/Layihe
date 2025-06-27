@@ -122,8 +122,7 @@
 
                 <!-- CAR DISPLAY SECTION -->
                 <div class="col-lg-9">
-                    <div class="row">
-                 
+                    <div id="car-list" class="row">
                         @foreach (Car car in Model.Cars)
                         {
                             <div class="col-xl-4 col-lg-6">
@@ -145,7 +144,6 @@
                                     </div>
                                     <div class="d-info">
                                         <div class="d-text">
-                                            
                                             <div class="d-flex justify-content-between align-items-center mb-2">
                                                 <h4 class="mb-0">@car.Name</h4>
                                                 <button type="button" class="like-btn" data-car-id="@car.Id"
@@ -153,7 +151,6 @@
                                                     <i style="margin-top:10px" class="fa fa-heart @(Model.FavoriteCarIds.Contains(car.Id) ? "text-danger" : "text-muted")"></i>
                                                     <span class="like-count ms-1">@car.LikeCount</span>
                                                 </button>
-
                                             </div>
 
                                             <div class="d-atr-group mt-2">
@@ -172,45 +169,114 @@
                                 </div>
                             </div>
                         }
-
-
                     </div>
+
+                    <!-- Loading göstəricisi -->
+                    <div id="loading" class="text-center mt-3" style="display: none;">
+                        <p>Loading...</p>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 </div>
 <a href="#" id="back-to-top"></a>
+
 @section Scripts {
-<script>
-    document.querySelectorAll('.like-btn').forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            const carId = this.dataset.carId;
+    <script>
+        let skip = 6;
+        let loading = false;
+        let allLoaded = false;
 
-            fetch('/Car/ToggleFavoriteAjax', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
-                },
-                body: new URLSearchParams({ carId: carId })
-            })
-            .then(res => res.json())
-            .then(data => {
-                        if (data.requiresLogin) {
-            window.location.href = '/Account/Login?returnUrl=' + encodeURIComponent(window.location.pathname);
-            return;
-        }
-                if (data.success) {
-                    const icon = this.querySelector('i');
-                    icon.classList.toggle('text-danger', data.isFavorite);
-                    icon.classList.toggle('text-muted', !data.isFavorite); 
+        window.addEventListener('scroll', async function () {
+            if (loading || allLoaded) return;
 
-                    this.querySelector('.like-count').innerText = data.likeCount; 
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 200) {
+                loading = true;
+                document.getElementById("loading").style.display = "block";
+
+                const response = await fetch(`/Car/LoadMoreCars?skip=${skip}`);
+                const cars = await response.json();
+
+                if (cars.length === 0) {
+                    allLoaded = true;
+                    document.getElementById("loading").innerHTML = "<p>No more cars to load.</p>";
+                    return;
                 }
-            });
+
+                const container = document.getElementById("car-list");
+                cars.forEach(car => {
+                    container.innerHTML += `
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="de-item mb30">
+                            <div class="d-img">
+                                ${car.isReserved ? `<div class="badge bg-danger mt-2">Currently Reserved</div>` : ""}
+                                <img src="/assets/images/cars/${car.imageUrl}" class="img-fluid" alt="${car.name}">
+                            </div>
+                            <div class="d-info">
+                                <div class="d-text">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <h4 class="mb-0">${car.name}</h4>
+                                        <button type="button" class="like-btn" data-car-id="${car.id}"
+                                                style="background: none; border: none;">
+                                            <i style="margin-top:10px" class="fa fa-heart text-muted"></i>
+                                            <span class="like-count ms-1">${car.likeCount}</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="d-atr-group mt-2">
+                                        <span class="d-atr"><img src="/assets/images/icons/1.svg" alt="">${car.seats}</span>
+                                        <span class="d-atr"><img src="/assets/images/icons/3.svg" alt="">${car.doors}</span>
+                                        <span class="d-atr"><img src="/assets/images/icons/2.svg" alt="">${car.luggageVolume}</span>
+                                        <span class="d-atr"><img src="/assets/images/icons/4.svg" alt="">${car.bodyTypeName ?? ""}</span>
+                                    </div>
+
+                                    <div class="d-price mt-2">
+                                        Daily rate from <span>$${car.dailyPrice}</span>
+                                        <a class="btn-main" href="/Car/Detail/${car.id}">Rent Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                });
+
+                skip += cars.length;
+                loading = false;
+                document.getElementById("loading").style.display = "none";
+            }
         });
-    });
-</script>
+
+   
+        document.addEventListener('click', function (e) {
+            if (e.target.closest('.like-btn')) {
+                e.preventDefault();
+                const btn = e.target.closest('.like-btn');
+                const carId = btn.dataset.carId;
+
+                fetch('/Car/ToggleFavoriteAjax', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value
+                    },
+                    body: new URLSearchParams({ carId: carId })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.requiresLogin) {
+                            window.location.href = '/Account/Login?returnUrl=' + encodeURIComponent(window.location.pathname);
+                            return;
+                        }
+                        if (data.success) {
+                            const icon = btn.querySelector('i');
+                            icon.classList.toggle('text-danger', data.isFavorite);
+                            icon.classList.toggle('text-muted', !data.isFavorite);
+                            btn.querySelector('.like-count').innerText = data.likeCount;
+                        }
+                    });
+            }
+        });
+    </script>
 }
