@@ -25,16 +25,9 @@ namespace Timoto.Controllers
                 .ToListAsync();
 
 
-            bool filtersEmpty =
-                string.IsNullOrWhiteSpace(vm.Location) &&
-                string.IsNullOrWhiteSpace(vm.BodyType) &&
-                string.IsNullOrWhiteSpace(vm.PickUpTime) &&
-                string.IsNullOrWhiteSpace(vm.ReturnTime) &&
-                vm.PickUpDate == null &&
-                vm.ReturnDate == null;
-
-            if (filtersEmpty)
+            if (string.IsNullOrWhiteSpace(vm.Location))
             {
+                ModelState.AddModelError("Location", "Location seçimi mütləqdir.");
                 vm.AvailableCars = new List<FilterBookingVM.AvailableCarItem>();
                 return View(vm);
             }
@@ -87,6 +80,10 @@ namespace Timoto.Controllers
                     LikeCount = c.LikeCount,
                     Seats = c.Seats,
                     Doors = c.Doors,
+                    IsFavorited = User.Identity.IsAuthenticated &&
+              _context.FavoriteCars.Any(f => f.User.UserName == User.Identity.Name && f.CarId == c.Id),
+
+
                     LuggageVolume = c.LuggageVolume,
                     BodyTypeName = c.BodyType?.Name,
                     IsActiveBooking = c.Bookings.Any(b => DateTime.Now >= b.StartDate && DateTime.Now <= b.EndDate && !b.IsDeleted),
@@ -97,6 +94,19 @@ namespace Timoto.Controllers
                 })
                 .OrderBy(c => c.DistanceMeters)
                 .ToList();
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.UserName == User.Identity.Name);
+                vm.FavoriteCarIds = await _context.FavoriteCars
+                    .Where(f => f.UserId == user.Id)
+                    .Select(f => f.CarId)
+                    .ToListAsync();
+            }
+            else
+            {
+                vm.FavoriteCarIds = new List<int>();
+            }
+
 
             return View(vm);
         }

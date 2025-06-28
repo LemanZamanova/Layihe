@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Timoto.Models.Booking
+@{
     ViewData["Title"] = "Payment Successful";
 }
 
@@ -30,8 +31,21 @@
 <div class="success-background">
     <div class="bg-opacity-90">
         <div class="emoji-large mb-3">✅</div>
-        <h2 class="text-success mb-3">Payment Successful!</h2>
-        <p>Your car booking has been successfully completed. Thank you for choosing Timoto!</p>
+
+        @if (ViewBag.Message != null)
+        {
+            <h2 class="text-warning mb-3">Notice</h2>
+            <p>@ViewBag.Message</p>
+        }
+        else
+        {
+            <h2 class="text-success mb-3">Payment Successful!</h2>
+            <p>Your car booking for <strong>@Model.Car.Name</strong> has been confirmed.</p>
+            <p><strong>From:</strong> @Model.StartDate.ToString("dd MMM yyyy HH:mm")</p>
+            <p><strong>To:</strong> @Model.EndDate.ToString("dd MMM yyyy HH:mm")</p>
+            <p>We’ve also sent a confirmation to <strong>@Model.Email</strong>.</p>
+        }
+
         <a href="/Car/Index" class="btn btn-success mt-4">Return to Cars</a>
     </div>
 </div>

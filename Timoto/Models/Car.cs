@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.CodeAnalysis;
 using Timoto.Models.Base;
 
 namespace Timoto.Models
@@ -21,8 +22,9 @@ namespace Timoto.Models
         public string ExteriorColor { get; set; }
         public string InteriorColor { get; set; }
 
-
-        public string Location { get; set; }
+        public int? LocationId { get; set; }
+        public Location LocationRef { get; set; }
+        public string? Location { get; set; }
         public double Latitude { get; set; }
         public double Longitude { get; set; }
 

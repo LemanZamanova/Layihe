@@ -392,8 +392,10 @@ namespace Timoto.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("LocationId")
+                        .HasColumnType("int");
 
                     b.Property<double>("Longitude")
                         .HasColumnType("float");
@@ -427,6 +429,8 @@ namespace Timoto.Migrations
                     b.HasIndex("DriveTypeId");
 
                     b.HasIndex("FuelTypeId");
+
+                    b.HasIndex("LocationId");
 
                     b.HasIndex("TransmissionTypeId");
 
@@ -551,7 +555,8 @@ namespace Timoto.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("Id");
 
@@ -580,6 +585,29 @@ namespace Timoto.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FuelTypes");
+                });
+
+            modelBuilder.Entity("Timoto.Models.Location", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("Timoto.Models.Notification", b =>
@@ -796,6 +824,10 @@ namespace Timoto.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Timoto.Models.Location", "LocationRef")
+                        .WithMany("Cars")
+                        .HasForeignKey("LocationId");
+
                     b.HasOne("Timoto.Models.TransmissionType", "TransmissionType")
                         .WithMany("Cars")
                         .HasForeignKey("TransmissionTypeId")
@@ -813,6 +845,8 @@ namespace Timoto.Migrations
                     b.Navigation("DriveType");
 
                     b.Navigation("FuelType");
+
+                    b.Navigation("LocationRef");
 
                     b.Navigation("TransmissionType");
 
@@ -922,6 +956,11 @@ namespace Timoto.Migrations
                 });
 
             modelBuilder.Entity("Timoto.Models.FuelType", b =>
+                {
+                    b.Navigation("Cars");
+                });
+
+            modelBuilder.Entity("Timoto.Models.Location", b =>
                 {
                     b.Navigation("Cars");
                 });

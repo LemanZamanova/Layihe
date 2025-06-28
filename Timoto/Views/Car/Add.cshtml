@@ -1,54 +1,238 @@
 ﻿@model Timoto.ViewModels.CarFormVM
 
 @{
-    ViewData["Title"] = "Add New Car";
+    ViewData["Title"] = "Add Car";
 }
 
-<h2>Add New Car</h2>
+<div class="no-bottom no-top" id="content">
+    <div id="top"></div>
 
-<form asp-action="Add" method="post">
-    <div class="form-group">
-        <label>Name</label>
-        <input asp-for="Car.Name" class="form-control" />
+    
+    < <section id="section-hero" aria-label="section" class="jarallax text-light">
+        <img src="~/assets/images/background/4.jpg" class="jarallax-img" alt="">
+        <div class="spacer-single sm-hide"></div>
+        <div class="spacer-double sm-hide"></div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6">
+                    <div class="de-images">
+                        <img class="di-small-2" src="~/assets/images/misc/e2.jpg" alt="">
+                        <img class="di-big img-fluid" src="~/assets/images/misc/e1.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-5 offset-lg-1">
+                    <h5>Welcome to Timoto</h5>
+                    <div class="spacer-10"></div>
+                    <h1>Turn Your <span class="id-color">Car</span> into a Source of Income</h1>
+                    <p class="lead">
+                        List your personal car on Timoto, manage its availability easily and earn while staying in control — activate, deactivate or edit anytime.
+                    </p>
+                    <a class="btn-main" href="#one">Add Your Car</a>
+                    <div class="spacer-single"></div>
+
+                    <div class="row">
+                        <div class="col-lg-4 wow fadeInRight mb30" data-wow-delay="0.2s">
+                            <div class="de_count transparent text-left">
+                                <h3><span>250</span>+</h3>
+                                <h5 class="id-color">Cars<br>Listed</h5>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 wow fadeInRight mb30" data-wow-delay="0.4s">
+                            <div class="de_count transparent text-left">
+                                <h3><span>24/7</span></h3>
+                                <h5 class="id-color">Flexible<br>Control</h5>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 wow fadeInRight mb30" data-wow-delay="0.6s">
+                            <div class="de_count transparent text-left">
+                                <h3><span>100%</span></h3>
+                                <h5 class="id-color">Owner<br>Autonomy</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- Section: Add Car Form -->
+<section id="one" aria-label="section" class="pt40 pb40" style="background: #fff; box-shadow: rgba(0, 0, 0, 0.1) 0px 8px 24px;">
+    <div class="container">
+        <h1 style="text-align:center; color:#79CA5C;margin-top:20px; margin-bottom:70px;"> Add Your Car</h1>
+        <div class="row">
+            <!-- LEFT COLUMN -->
+            <div class="col-md-6">
+                <div class="form-group mb-3">
+                    <label asp-for="Car.Name" class="form-label">Car Name</label>
+                    <input asp-for="Car.Name" class="form-control" />
+                    <span asp-validation-for="Car.Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.DailyPrice" class="form-label">Daily Price ($)</label>
+                    <input asp-for="Car.DailyPrice" class="form-control" type="number" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.Year" class="form-label">Year</label>
+                    <input asp-for="Car.Year" class="form-control" type="number" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.Seats" class="form-label">Seats</label>
+                    <input asp-for="Car.Seats" class="form-control" type="number" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.Doors" class="form-label">Doors</label>
+                    <input asp-for="Car.Doors" class="form-control" type="number" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.LuggageVolume" class="form-label">Luggage Volume (L)</label>
+                    <input asp-for="Car.LuggageVolume" class="form-control" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.EngineSize" class="form-label">Engine Size (cc)</label>
+                    <input asp-for="Car.EngineSize" class="form-control" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.FuelEconomy" class="form-label">Fuel Economy (L/100km)</label>
+                    <input asp-for="Car.FuelEconomy" class="form-control" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.ExteriorColor" class="form-label">Exterior Color</label>
+                    <input asp-for="Car.ExteriorColor" class="form-control" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.InteriorColor" class="form-label">Interior Color</label>
+                    <input asp-for="Car.InteriorColor" class="form-control" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.Description" class="form-label">Description</label>
+                    <textarea asp-for="Car.Description" class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="col-md-6">
+                <div class="form-group mb-4">
+                    <label asp-for="Car.LocationId" class="form-label">Select Location</label>
+                    <select asp-for="Car.LocationId"
+                            class="form-control select2"
+                            asp-items="@(new SelectList(Model.Locations, "Id", "Name"))">
+                        <option value=""></option> @* Vacib: boş olsun ki, placeholder işləsin *@
+                    </select>
+                    <span asp-validation-for="Car.LocationId" class="text-danger"></span>
+                </div>
+
+                <small class="text-muted d-block mb-1">
+                    You can find your car’s latitude and longitude by right-clicking its location on Google Maps and copying the coordinates.
+                </small>
+
+                <div class="form-group mb-3">
+                     
+                    <label asp-for="Car.Latitude" class="form-label">Latitude</label>
+                    <input asp-for="Car.Latitude" class="form-control" placeholder="e.g., 40.4093" />
+                   
+
+                </div>
+
+                <div class="form-group mb-3">
+                   
+                    <label asp-for="Car.Longitude" class="form-label">Longitude</label>
+                    <input asp-for="Car.Longitude" class="form-control" placeholder="e.g., 49.8671" />
+                    
+
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.FuelTypeId" class="form-label">Fuel Type</label>
+                    <select asp-for="Car.FuelTypeId" class="form-control select2" asp-items="Model.FuelTypes">
+                        <option disabled selected>Choose fuel type</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.TransmissionTypeId" class="form-label">Transmission</label>
+                    <select asp-for="Car.TransmissionTypeId" class="form-control select2" asp-items="Model.TransmissionTypes">
+                        <option disabled selected>Choose transmission</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.DriveTypeId" class="form-label">Drive Type</label>
+                    <select asp-for="Car.DriveTypeId" class="form-control select2" asp-items="Model.DriveTypes">
+                        <option disabled selected>Choose drive type</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Car.BodyTypeId" class="form-label">Body Type</label>
+                    <select asp-for="Car.BodyTypeId" class="form-control select2" asp-items="Model.BodyTypes">
+                        <option disabled selected>Choose body type</option>
+                    </select>
+                </div>
+
+                <!-- FEATURES -->
+                <div class="form-group mb-3">
+                    <label>Features</label>
+                    <div class="de_form">
+                        @foreach (var feature in Model.AllFeatures)
+                        {
+                            <div class="de_checkbox">
+                                <input id="feature_@feature.Id" name="SelectedFeatureIds" type="checkbox" value="@feature.Id" @(Model.SelectedFeatureIds?.Contains(feature.Id) == true ? "checked" : "") />
+                                <label for="feature_@feature.Id">@feature.Name</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label">Main Image</label>
+                    <input type="file" name="MainImage" class="form-control" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="form-label">Additional Images</label>
+                    <input type="file" name="OtherImages" class="form-control" multiple />
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <button type="submit" class="btn-main">Submit Car Listing</button>
+        </div>
+
     </div>
+</section>
+</div>
+<a href="#" id="back-to-top"></a>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <div class="form-group">
-        <label>Daily Price</label>
-        <input asp-for="Car.DailyPrice" class="form-control" />
-    </div>
+<script>
+    $(document).ready(function () {
+        $('.select2').select2({
+            placeholder: "Search for a location",
+            allowClear: true,
+            width: '100%',
+            minimumInputLength: 3,
+             closeOnSelect: true 
+        });
+    });
+</script>
 
-    <div class="form-group">
-        <label>Fuel Type</label>
-        @Html.DropDownListFor(model => model.Car.FuelTypeId, Model.FuelTypes, "Select", new { @class = "form-control" })
-    </div>
 
-    <div class="form-group">
-        <label>Transmission</label>
-        @Html.DropDownListFor(model => model.Car.TransmissionTypeId, Model.TransmissionTypes, "Select", new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
-        <label>Drive Type</label>
-        @Html.DropDownListFor(model => model.Car.DriveTypeId, Model.DriveTypes, "Select", new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
-        <label>Body Type</label>
-        @Html.DropDownListFor(model => model.Car.BodyTypeId, Model.BodyTypes, "Select", new { @class = "form-control" })
-    </div>
-
-    <div class="form-group">
-        <label>Features</label><br />
-        @foreach (var feature in Model.AllFeatures)
-        {
-            <label class="form-check-label">
-                <input type="checkbox" name="SelectedFeatureIds" value="@feature.Id" class="form-check-input" />
-                @feature.Name
-            </label>
-
-            <br />
-        }
-    </div>
-
-    <button type="submit" class="btn btn-success">Add Car</button>
-</form>

@@ -1,0 +1,23 @@
+﻿@model Timoto.Models.Location
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Update Location</h4>
+                <form asp-action="Update" method="post" class="forms-sample">
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="form-group">
+                        <label asp-for="Name">Name</label>
+                        <input asp-for="Name" class="form-control" placeholder="Location name">
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary me-2">Save</button>
+                    <a asp-action="Index" class="btn btn-light">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

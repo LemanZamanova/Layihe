@@ -199,7 +199,8 @@ namespace Timoto.Controllers
                 Quantity = 1
             }
         },
-                SuccessUrl = "https://localhost:7206/Booking/Success",
+                SuccessUrl = "https://localhost:7206/Booking/Success?sessionId={CHECKOUT_SESSION_ID}",
+
                 CancelUrl = "https://localhost:7206/Booking/Cancel",
 
                 PaymentIntentData = new SessionPaymentIntentDataOptions
@@ -208,7 +209,7 @@ namespace Timoto.Controllers
             {
                 { "carId", vm.CarId.ToString() },
                 { "pickupDate", $"{vm.PickupDate}T{vm.PickupTime}" },
-                { "returnDate", $"{vm.CollectionDate}T{vm.CollectionTime}" },
+                { "collectionDate", $"{vm.CollectionDate}T{vm.CollectionTime}" },
                 { "name", name },
                 { "surname", surname },
                 { "email", vm.Email ?? "" },
@@ -227,57 +228,45 @@ namespace Timoto.Controllers
 
 
 
-        public async Task<IActionResult> Success()
+        public async Task<IActionResult> Success(string sessionId)
         {
-            var user = await _userManager.GetUserAsync(User);
-
-            if (TempData["BookingData"] == null)
+            if (string.IsNullOrEmpty(sessionId))
             {
-                ViewBag.Message = "Payment was successful, but booking data is missing.";
+                ViewBag.Message = "Invalid session information. Please contact support.";
                 return View();
             }
 
-            var bookingVM = JsonConvert.DeserializeObject<BookingVM>((string)TempData["BookingData"]);
-
-            if (!DateTime.TryParse($"{bookingVM.PickupDate} {bookingVM.PickupTime}", out DateTime startDate) ||
-                !DateTime.TryParse($"{bookingVM.CollectionDate} {bookingVM.CollectionTime}", out DateTime endDate))
+            try
             {
-                ViewBag.Message = "Invalid booking dates.";
-                return View();
-            }
+                var sessionService = new SessionService();
+                var session = await sessionService.GetAsync(sessionId);
 
-
-            bool isOverlap = _context.Bookings.Any(b =>
-                b.CarId == bookingVM.CarId &&
-                !b.IsDeleted &&
-                (
-                    (startDate >= b.StartDate && startDate < b.EndDate) ||
-                    (endDate > b.StartDate && endDate <= b.EndDate) ||
-                    (startDate <= b.StartDate && endDate >= b.EndDate)
-                ));
-
-            if (!isOverlap)
-            {
-                var booking = new Booking
+                if (session == null || string.IsNullOrEmpty(session.PaymentIntentId))
                 {
-                    CarId = bookingVM.CarId,
-                    UserId = user.Id,
-                    Name = TempData["UserName"].ToString(),
-                    Email = TempData["UserEmail"].ToString(),
-                    Phone = TempData["UserPhone"].ToString(),
-                    StartDate = startDate,
-                    EndDate = endDate,
-                    CreatedAt = DateTime.Now,
-                    IsDeleted = false
-                };
+                    ViewBag.Message = "Unable to retrieve your booking information.";
+                    return View();
+                }
 
-                _context.Bookings.Add(booking);
-                await _context.SaveChangesAsync();
+                var booking = await _context.Bookings
+                    .Include(b => b.Car)
+                    .FirstOrDefaultAsync(b => b.StripePaymentIntentId == session.PaymentIntentId);
+
+                if (booking == null)
+                {
+                    ViewBag.Message = "Your payment was successful, but booking is still being processed. Please refresh this page shortly.";
+                    return View();
+                }
+
+                return View(booking);
             }
-
-            ViewBag.Message = "✅ Payment was successful and your booking is confirmed!";
-            return View();
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Success page error: {ex.Message}");
+                ViewBag.Message = "An error occurred while confirming your booking.";
+                return View();
+            }
         }
+
 
         public IActionResult Cancel()
         {
@@ -292,7 +281,9 @@ namespace Timoto.Controllers
         {
             try
             {
+
                 var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
+
 
                 var stripeEvent = EventUtility.ConstructEvent(
                     json,

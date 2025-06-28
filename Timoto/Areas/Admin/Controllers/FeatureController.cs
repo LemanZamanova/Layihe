@@ -26,7 +26,7 @@ namespace Timoto.Areas.Admin.Controllers
         public async Task<IActionResult> Create(Feature feature)
         {
             if (!ModelState.IsValid) return View(feature);
-
+            feature.CreatedAt = DateTime.UtcNow.AddHours(4);
             _context.Features.Add(feature);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -63,10 +63,11 @@ namespace Timoto.Areas.Admin.Controllers
             var feature = await _context.Features.FindAsync(id);
             if (feature == null) return NotFound();
 
-            feature.IsDeleted = true;
+            _context.Features.Remove(feature);
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
+
     }
 }

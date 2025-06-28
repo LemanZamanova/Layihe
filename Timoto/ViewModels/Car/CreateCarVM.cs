@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using Timoto.Models;
 
 namespace Timoto.ViewModels
@@ -80,5 +81,7 @@ namespace Timoto.ViewModels
         public List<BodyType> BodyTypes { get; set; }
         public List<VehicleType> VehicleTypes { get; set; }
         public List<Feature>? Features { get; set; }
+        public int? LocationId { get; set; }
+        public IEnumerable<Location>? Locations { get; set; }
     }
 }

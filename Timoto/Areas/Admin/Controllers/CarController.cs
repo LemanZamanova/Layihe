@@ -125,6 +125,7 @@ namespace Timoto.Areas.Admin.Controllers
                 FuelEconomy = vm.FuelEconomy,
                 ExteriorColor = vm.ExteriorColor,
                 InteriorColor = vm.InteriorColor,
+                LocationId = vm.LocationId,
                 Location = vm.Location,
                 Latitude = vm.Latitude,
                 Longitude = vm.Longitude,
@@ -257,6 +258,7 @@ namespace Timoto.Areas.Admin.Controllers
             existed.FuelEconomy = vm.FuelEconomy;
             existed.ExteriorColor = vm.ExteriorColor;
             existed.InteriorColor = vm.InteriorColor;
+            existed.LocationId = vm.LocationId;
             existed.Location = vm.Location;
             existed.Latitude = vm.Latitude;
             existed.Longitude = vm.Longitude;
@@ -356,6 +358,7 @@ namespace Timoto.Areas.Admin.Controllers
                 create.DriveTypes = await _context.DriveTypes.ToListAsync();
                 create.BodyTypes = await _context.BodyTypes.ToListAsync();
                 create.VehicleTypes = await _context.VehicleTypes.ToListAsync();
+                create.Locations = await _context.Locations.ToListAsync();
                 create.Features = await _context.Features.ToListAsync();
                 return vm;
             }
@@ -366,6 +369,7 @@ namespace Timoto.Areas.Admin.Controllers
                 update.DriveTypes = await _context.DriveTypes.ToListAsync();
                 update.BodyTypes = await _context.BodyTypes.ToListAsync();
                 update.VehicleTypes = await _context.VehicleTypes.ToListAsync();
+                update.Locations = await _context.Locations.ToListAsync();
                 update.Features = await _context.Features.ToListAsync();
                 return vm;
             }

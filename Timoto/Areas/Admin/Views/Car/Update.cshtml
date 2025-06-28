@@ -106,9 +106,20 @@
 
                     <!-- Location -->
                     <div class="form-group">
-                        <label asp-for="Location">Location</label>
-                        <input asp-for="Location" class="form-control" />
+                        <label asp-for="LocationId">Location</label>
+                        <select asp-for="LocationId" asp-items="@(new SelectList(Model.Locations, "Id", "Name"))" class="form-control">
+                            <option value="">-- Select Location --</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="LocationId"></span>
                     </div>
+                    <!-- Optional: Extra Description -->
+                    <div class="form-group">
+                        <label asp-for="Location">Location Description (Optional)</label>
+                        <input asp-for="Location" class="form-control" />
+                        <span class="text-danger" asp-validation-for="Location"></span>
+                    </div>
+                   
+                   
                     <div class="form-group">
                         <label asp-for="Latitude">Latitude</label>
                         <input asp-for="Latitude" class="form-control" />

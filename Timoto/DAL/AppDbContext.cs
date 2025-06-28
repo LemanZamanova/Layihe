@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
 using Microsoft.EntityFrameworkCore;
 using Timoto.Models;
 
@@ -20,7 +21,7 @@ namespace Timoto.DAL
         public DbSet<CarFeature> CarFeatures { get; set; }
         public DbSet<CarImage> CarImages { get; set; }
         public DbSet<UserCard> UserCards { get; set; }
-
+        public DbSet<Location> Locations { get; set; }
         public DbSet<FavoriteCar> FavoriteCars { get; set; }
         public DbSet<Notification> Notifications { get; set; }
 

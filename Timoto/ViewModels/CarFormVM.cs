@@ -16,5 +16,8 @@ namespace Timoto.ViewModels
         // Many-to-many üçün checkbox
         public List<int> SelectedFeatureIds { get; set; }
         public IEnumerable<Feature> AllFeatures { get; set; }
+        public int? LocationId { get; set; }
+        public IEnumerable<Location>? Locations { get; set; }
+
     }
 }

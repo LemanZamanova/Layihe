@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Timoto.DAL;
 using Timoto.Models;
 using Timoto.Services.Interface;
+using Timoto.Utilities.Enums;
+using Timoto.Utilities.Extensions;
 using Timoto.ViewModels;
 
 namespace Timoto.Controllers
@@ -117,12 +119,114 @@ namespace Timoto.Controllers
                 TransmissionTypes = _context.TransmissionTypes.Select(t => new SelectListItem { Value = t.Id.ToString(), Text = t.Name }),
                 DriveTypes = _context.DriveTypes.Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Name }),
                 BodyTypes = _context.BodyTypes.Select(b => new SelectListItem { Value = b.Id.ToString(), Text = b.Name }),
-                AllFeatures = _context.Features.ToList()
+                AllFeatures = _context.Features.ToList(),
+                Locations = await _context.Locations
+            .Where(l => !l.IsDeleted)
+            .ToListAsync()
             };
 
 
             return View(carFormVM);
         }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Add(CarFormVM vm)
+        {
+            // Repopulate dropdowns if the model is invalid
+            vm.FuelTypes = _context.FuelTypes.Select(f => new SelectListItem { Value = f.Id.ToString(), Text = f.Name });
+            vm.TransmissionTypes = _context.TransmissionTypes.Select(t => new SelectListItem { Value = t.Id.ToString(), Text = t.Name });
+            vm.DriveTypes = _context.DriveTypes.Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Name });
+            vm.BodyTypes = _context.BodyTypes.Select(b => new SelectListItem { Value = b.Id.ToString(), Text = b.Name });
+            vm.AllFeatures = await _context.Features.ToListAsync();
+            vm.Locations = await _context.Locations.Where(l => !l.IsDeleted).ToListAsync();
+
+            // Model validation
+            if (!ModelState.IsValid)
+                return View(vm);
+
+            // Validate main image
+            IFormFile mainImage = Request.Form.Files.FirstOrDefault();
+            if (mainImage == null)
+            {
+                ModelState.AddModelError("MainImage", "Main image is required.");
+                return View(vm);
+            }
+
+            if (!mainImage.ValidateType("image/"))
+            {
+                ModelState.AddModelError("MainImage", "Only image files are allowed.");
+                return View(vm);
+            }
+
+            if (!mainImage.ValidateSize(FileSize.MB, 5))
+            {
+                ModelState.AddModelError("MainImage", "Image size must be less than 5MB.");
+                return View(vm);
+            }
+
+            // Create car entity
+            Car newCar = new Car
+            {
+                Name = vm.Car.Name,
+                Year = vm.Car.Year,
+                DailyPrice = vm.Car.DailyPrice,
+                Description = vm.Car.Description,
+                FuelTypeId = vm.Car.FuelTypeId,
+                TransmissionTypeId = vm.Car.TransmissionTypeId,
+                DriveTypeId = vm.Car.DriveTypeId,
+                BodyTypeId = vm.Car.BodyTypeId,
+                LocationId = vm.LocationId,
+                CreatedAt = DateTime.UtcNow.AddHours(4),
+                IsDeleted = false,
+                CarImages = new List<CarImage>(),
+                CarFeatures = new List<CarFeature>()
+            };
+
+            // Save main image
+            string mainImageName = await mainImage.CreateFileAsync("wwwroot", "assets", "images", "cars");
+            newCar.CarImages.Add(new CarImage
+            {
+                ImageUrl = mainImageName,
+                IsMain = true
+            });
+
+            // Save additional images
+            var extraImages = Request.Form.Files.Skip(1);
+            foreach (var image in extraImages)
+            {
+                if (image.ValidateType("image/") && image.ValidateSize(FileSize.MB, 5))
+                {
+                    string extraImageName = await image.CreateFileAsync("wwwroot", "assets", "images", "cars");
+                    newCar.CarImages.Add(new CarImage
+                    {
+                        ImageUrl = extraImageName,
+                        IsMain = false
+                    });
+                }
+            }
+
+            // Assign selected features
+            if (vm.SelectedFeatureIds != null && vm.SelectedFeatureIds.Any())
+            {
+                foreach (int featureId in vm.SelectedFeatureIds)
+                {
+                    newCar.CarFeatures.Add(new CarFeature
+                    {
+                        FeatureId = featureId
+                    });
+                }
+            }
+
+            // Save to database
+            await _context.Cars.AddAsync(newCar);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Success");
+        }
+
+
         [HttpPost]
         public IActionResult Like(int id)
         {
@@ -189,6 +293,7 @@ namespace Timoto.Controllers
         {
             var car = await _context.Cars
                 .Include(c => c.BodyType)
+
                 .Include(c => c.VehicleType)
                 .Include(c => c.FuelType)
                 .Include(c => c.TransmissionType)
@@ -359,6 +464,7 @@ namespace Timoto.Controllers
 
             return Json(result);
         }
+
 
 
 

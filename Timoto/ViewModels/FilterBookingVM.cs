@@ -5,14 +5,17 @@
 
     public DateTime? PickUpDate { get; set; }
     public string? PickUpTime { get; set; }
+    public int CarId { get; set; }
 
     public DateTime? ReturnDate { get; set; }
     public string? ReturnTime { get; set; }
+    public List<int> FavoriteCarIds { get; set; } = new();
 
     public List<AvailableCarItem> AvailableCars { get; set; } = new();
 
     public class AvailableCarItem
     {
+
         public int CarId { get; set; }
         public string Name { get; set; }
         public int DailyPrice { get; set; }
@@ -24,6 +27,7 @@
      : $"{(int)DistanceMeters} m";
 
 
+        public bool IsFavorited { get; set; }
 
         public int LikeCount { get; set; }
         public int Seats { get; set; }
