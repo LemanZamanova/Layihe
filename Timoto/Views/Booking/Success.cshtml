@@ -31,6 +31,12 @@
 <div class="success-background">
     <div class="bg-opacity-90">
         <div class="emoji-large mb-3">✅</div>
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger mt-3">
+                <strong>Texniki Xəta:</strong> @ViewBag.Error
+            </div>
+        }
 
         @if (ViewBag.Message != null)
         {

@@ -17,7 +17,9 @@
     </tr>
     <tr>
         <th>Phone</th>
-        <td>@Model.Phone</td>
+        <td>
+            @Html.Raw(System.Net.WebUtility.HtmlDecode(Model.Phone))
+        </td>
     </tr>
     <tr>
         <th>Start Date</th>
@@ -33,7 +35,11 @@
     </tr>
     <tr>
         <th>Late Penalty</th>
-        <td>@(Model.LatePenaltyAmount.HasValue ? $"${Model.LatePenaltyAmount}" : "None")</td>
+        <td>
+            @(Model.LatePenaltyAmount.HasValue && Model.LatePenaltyAmount.Value > 0
+                ? $"${Model.LatePenaltyAmount.Value:F2}"
+                : "None")
+        </td>
     </tr>
     <tr>
         <th>Status</th>

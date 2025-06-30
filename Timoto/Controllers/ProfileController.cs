@@ -364,7 +364,7 @@ namespace Timoto.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return RedirectToAction("Login", "Account");
 
-            // bookings burada olmalıdır — vm-dən əvvəl!
+
             var bookings = await _context.Bookings
                 .Include(b => b.Car)
                 .Where(b => b.UserId == user.Id && !b.IsDeleted)
@@ -559,6 +559,7 @@ namespace Timoto.Controllers
             if (string.IsNullOrWhiteSpace(booking.StripePaymentIntentId))
             {
                 booking.Status = BookingStatus.Cancelled;
+                booking.LatePenaltyAmount = 0m;
                 await _context.SaveChangesAsync();
 
                 await _emailService.SendEmailAsync(booking.Email, "Booking Cancelled",
@@ -589,14 +590,17 @@ namespace Timoto.Controllers
             }
 
             booking.Status = BookingStatus.Cancelled;
+            booking.LatePenaltyAmount = penalty;
             await _context.SaveChangesAsync();
 
             await _emailService.SendEmailAsync(booking.Email, "Booking Cancelled",
-                $"Your booking was cancelled. ${refundAmount} was refunded. ${penalty} was kept as penalty.");
+                $"Your booking was cancelled.<br/><br/>" +
+                $"Refund Amount: <b>${refundAmount:F2}</b><br/>" +
+                $"Penalty Charged: <b>${penalty:F2}</b><br/>" +
+                $"Thank you.");
 
             return RedirectToAction("Orders", "Profile");
         }
-
 
         public async Task AutoCompleteBookingsAsync()
         {

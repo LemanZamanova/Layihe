@@ -1,7 +1,9 @@
-﻿using iTextSharp.text;
+﻿using System.Net;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
 using Timoto.Models;
 using Timoto.Services.Interface;
+
 
 namespace Timoto.Services
 {
@@ -27,7 +29,8 @@ namespace Timoto.Services
                 doc.Add(new Paragraph("Car Booking Confirmation", titleFont));
                 doc.Add(new Paragraph($"Name: {booking.Name}", normalFont));
                 doc.Add(new Paragraph($"Email: {booking.Email}", normalFont));
-                doc.Add(new Paragraph($"Phone: {booking.Phone}", normalFont));
+                doc.Add(new Paragraph($"Phone: {WebUtility.HtmlDecode(booking.Phone)}", normalFont));
+
                 doc.Add(new Paragraph($"Start Date: {booking.StartDate:dd MMM yyyy HH:mm}", normalFont));
                 doc.Add(new Paragraph($"End Date: {booking.EndDate:dd MMM yyyy HH:mm}", normalFont));
                 doc.Add(new Paragraph($"Generated at: {DateTime.Now:dd MMM yyyy HH:mm}", normalFont));
@@ -48,11 +51,12 @@ namespace Timoto.Services
                         doc.Add(new Paragraph("Thank you for returning the vehicle on time.", normalFont));
                     }
                 }
-                else if (booking.Status == Timoto.Utilities.Enums.BookingStatus.Cancelled)
+                else if (booking.LatePenaltyAmount.HasValue && booking.LatePenaltyAmount.Value > 0)
                 {
                     doc.Add(new Paragraph("Booking Status: Cancelled", titleFont));
-                    doc.Add(new Paragraph("Note: This booking was cancelled by the user.", normalFont));
+                    doc.Add(new Paragraph($"Late Penalty: ${booking.LatePenaltyAmount.Value:F2}", normalFont));
                 }
+
                 else if (booking.Status == Timoto.Utilities.Enums.BookingStatus.Scheduled)
                 {
                     doc.Add(new Paragraph("Booking Status: Scheduled", titleFont));

@@ -1,16 +1,15 @@
 ﻿using System.Globalization;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using Stripe;
 using Stripe.Checkout;
 using Timoto.DAL;
 using Timoto.Models;
 using Timoto.Services.Interface;
+using Timoto.Utilities.Enums;
 using Timoto.ViewModels;
+
 
 namespace Timoto.Controllers
 {
@@ -171,13 +170,14 @@ namespace Timoto.Controllers
 
             return View("~/Views/Car/Detail.cshtml", vm);
         }
-
         [HttpPost]
-        public IActionResult StartStripeCheckout([FromBody] BookingConfirmVM vm)
+        public async Task<IActionResult> StartStripeCheckout([FromBody] BookingConfirmVM vm)
         {
-            var fullNameParts = vm.FullName?.Split(' ', 2);
-            var name = fullNameParts?.FirstOrDefault() ?? "";
-            var surname = fullNameParts?.Length > 1 ? fullNameParts[1] : "";
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return Unauthorized(); // əgər login olmayıbsa
+
+            DateTime pickupDateTime = DateTime.Parse($"{vm.PickupDate} {vm.PickupTime}");
+            DateTime collectionDateTime = DateTime.Parse($"{vm.CollectionDate} {vm.CollectionTime}");
 
             var options = new SessionCreateOptions
             {
@@ -200,24 +200,19 @@ namespace Timoto.Controllers
             }
         },
                 SuccessUrl = "https://localhost:7206/Booking/Success?sessionId={CHECKOUT_SESSION_ID}",
-
                 CancelUrl = "https://localhost:7206/Booking/Cancel",
-
-                PaymentIntentData = new SessionPaymentIntentDataOptions
-                {
-                    Metadata = new Dictionary<string, string>
-            {
-                { "carId", vm.CarId.ToString() },
-                { "pickupDate", $"{vm.PickupDate}T{vm.PickupTime}" },
-                { "collectionDate", $"{vm.CollectionDate}T{vm.CollectionTime}" },
-                { "name", name },
-                { "surname", surname },
-                { "email", vm.Email ?? "" },
-                { "phone", vm.Phone ?? "" },
-                { "userId", vm.UserId.ToString() },
-                { "totalAmount", vm.TotalAmount.ToString("F2", CultureInfo.InvariantCulture) }
-            }
-                }
+                Metadata = new Dictionary<string, string>
+        {
+            { "carId", vm.CarId.ToString() },
+            { "pickupDate", pickupDateTime.ToString("o") },
+            { "collectionDate", collectionDateTime.ToString("o") },
+            { "name", vm.FullName?.Split(" ")[0] ?? user.Name },
+            { "surname", vm.FullName?.Split(" ").Skip(1).FirstOrDefault() ?? user.Surname },
+            { "email", vm.Email ?? user.Email },
+            { "phone", vm.Phone ?? user.Phone },
+            { "userId", user.Id }, // ✅ user-in ID-si mütləq verilir
+            { "totalAmount", vm.TotalAmount.ToString("F2", CultureInfo.InvariantCulture) }
+        }
             };
 
             var service = new SessionService();
@@ -227,12 +222,11 @@ namespace Timoto.Controllers
         }
 
 
-
         public async Task<IActionResult> Success(string sessionId)
         {
             if (string.IsNullOrEmpty(sessionId))
             {
-                ViewBag.Message = "Invalid session information. Please contact support.";
+                ViewBag.Message = "Session ID not found.";
                 return View();
             }
 
@@ -241,91 +235,33 @@ namespace Timoto.Controllers
                 var sessionService = new SessionService();
                 var session = await sessionService.GetAsync(sessionId);
 
-                if (session == null || string.IsNullOrEmpty(session.PaymentIntentId))
+                if (session.PaymentStatus != "paid")
                 {
-                    ViewBag.Message = "Unable to retrieve your booking information.";
+                    ViewBag.Message = "Payment was not completed.";
                     return View();
                 }
+
+                var intent = session.PaymentIntentId;
+                var metadata = session.PaymentIntent?.Metadata ?? session.Metadata;
+
+                int carId = int.Parse(metadata["carId"]);
+                DateTime pickupDate = DateTime.Parse(metadata["pickupDate"], CultureInfo.InvariantCulture);
+                DateTime collectionDate = DateTime.Parse(metadata["collectionDate"], CultureInfo.InvariantCulture);
+
+                string name = metadata["name"];
+                string surname = metadata["surname"];
+                string email = metadata["email"];
+                string phone = metadata["phone"];
+                string userId = metadata["userId"];
+                decimal totalAmount = decimal.Parse(metadata["totalAmount"], CultureInfo.InvariantCulture);
 
                 var booking = await _context.Bookings
                     .Include(b => b.Car)
-                    .FirstOrDefaultAsync(b => b.StripePaymentIntentId == session.PaymentIntentId);
+                    .FirstOrDefaultAsync(b => b.StripePaymentIntentId == intent);
 
                 if (booking == null)
                 {
-                    ViewBag.Message = "Your payment was successful, but booking is still being processed. Please refresh this page shortly.";
-                    return View();
-                }
-
-                return View(booking);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Success page error: {ex.Message}");
-                ViewBag.Message = "An error occurred while confirming your booking.";
-                return View();
-            }
-        }
-
-
-        public IActionResult Cancel()
-        {
-            return View();
-        }
-
-
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("/stripe/webhook")]
-        public async Task<IActionResult> StripeWebhook()
-        {
-            try
-            {
-
-                var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
-
-
-                var stripeEvent = EventUtility.ConstructEvent(
-                    json,
-                    Request.Headers["Stripe-Signature"],
-                    "whsec_5TpB0dBXKjCpvzdFNuA4PMjm8szW3HcL"
-                );
-
-                if (stripeEvent.Type == "payment_intent.succeeded")
-                {
-                    var paymentIntentJson = stripeEvent.Data.Object.ToString();
-                    var paymentIntent = JsonConvert.DeserializeObject<PaymentIntent>(paymentIntentJson);
-
-
-                    if (paymentIntent == null)
-                        throw new Exception("PaymentIntent deserialization failed.");
-
-                    var metadata = paymentIntent.Metadata;
-
-                    if (metadata == null ||
-                        !metadata.ContainsKey("carId") ||
-                        !metadata.ContainsKey("pickupDate") ||
-                        !metadata.ContainsKey("collectionDate") ||
-                        !metadata.ContainsKey("name") ||
-                        !metadata.ContainsKey("email") ||
-                        !metadata.ContainsKey("phone") ||
-                        !metadata.ContainsKey("userId") ||
-                        !metadata.ContainsKey("totalAmount"))
-                    {
-                        throw new Exception("Required metadata is missing.");
-                    }
-
-                    int carId = int.Parse(metadata["carId"]);
-                    DateTime pickupDate = DateTime.Parse(metadata["pickupDate"]);
-                    DateTime collectionDate = DateTime.Parse(metadata["collectionDate"]);
-                    string name = metadata["name"];
-                    string surname = metadata.ContainsKey("surname") ? metadata["surname"] : "";
-                    string email = metadata["email"];
-                    string phone = metadata["phone"];
-                    string userId = metadata["userId"];
-                    decimal totalAmount = decimal.Parse(metadata["totalAmount"]);
-
-                    bool isOverlap = _context.Bookings.Any(b =>
+                    bool isOverlap = await _context.Bookings.AnyAsync(b =>
                         b.CarId == carId && !b.IsDeleted &&
                         ((pickupDate >= b.StartDate && pickupDate < b.EndDate) ||
                          (collectionDate > b.StartDate && collectionDate <= b.EndDate) ||
@@ -333,43 +269,74 @@ namespace Timoto.Controllers
 
                     if (!isOverlap)
                     {
-                        var booking = new Booking
+                        if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(phone))
+                        {
+                            ViewBag.Message = "Invalid user data: name, email or phone is missing.";
+                            return View();
+                        }
+
+                        booking = new Booking
                         {
                             CarId = carId,
                             UserId = userId,
-                            Name = name,
-                            Surname = surname,
-                            Email = email,
-                            Phone = phone,
+                            Name = string.IsNullOrWhiteSpace(name) ? "Unknown" : name,
+                            Surname = string.IsNullOrWhiteSpace(surname) ? "" : surname,
+                            Email = string.IsNullOrWhiteSpace(email) ? "no-email@domain.com" : email,
+                            Phone = string.IsNullOrWhiteSpace(phone) ? "0000000000" : phone,
                             StartDate = pickupDate,
                             EndDate = collectionDate,
                             TotalAmount = totalAmount,
-                            StripePaymentIntentId = paymentIntent.Id,
-                            PaymentStatus = paymentIntent.Status,
+                            StripePaymentIntentId = string.IsNullOrWhiteSpace(intent) ? Guid.NewGuid().ToString() : intent,
+                            PaymentStatus = string.IsNullOrWhiteSpace(session.PaymentStatus) ? "unknown" : session.PaymentStatus,
+                            Status = BookingStatus.Scheduled,
                             CreatedAt = DateTime.Now,
-                            IsDeleted = false
+                            LatePenaltyAmount = 0m,
+
                         };
 
                         _context.Bookings.Add(booking);
                         await _context.SaveChangesAsync();
 
+                        booking.Car = await _context.Cars.FirstOrDefaultAsync(c => c.Id == carId);
 
                         var pdfPath = await _pdfService.GenerateBookingPdfAsync(booking);
                         await _emailService.SendEmailAsync(email, "Booking Confirmed",
-                            $"Dear {name},<br/><br/>Your booking from <b>{pickupDate:dd MMM yyyy HH:mm}</b> to <b>{collectionDate:dd MMM yyyy HH:mm}</b> has been successfully confirmed.<br/><br/>See attached PDF receipt.",
+                            $"Dear {name},<br/><br/>Your booking from <b>{pickupDate:dd MMM yyyy HH:mm}</b> to <b>{collectionDate:dd MMM yyyy HH:mm}</b> has been successfully confirmed.<br/><br/>PDF receipt is attached.",
                             pdfPath);
+                    }
+                    else
+                    {
+                        ViewBag.Message = "This car is already booked for the selected date range.";
+                        return View();
                     }
                 }
 
-                return Ok();
+                return View(booking);
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Stripe webhook processing error: {ex.Message}");
-                return BadRequest();
+                ViewBag.Message = "An error occurred while confirming your booking.";
+
+                var fullError = ex.Message;
+                if (ex.InnerException != null)
+                    fullError += " | Inner: " + ex.InnerException.Message;
+
+                if (ex.InnerException?.InnerException != null)
+                    fullError += " | Deep: " + ex.InnerException.InnerException.Message;
+
+                ViewBag.Error = fullError;
+
+                return View();
             }
         }
 
+
+
+        public IActionResult Cancel()
+        {
+            TempData["Warning"] = "Payment was cancelled.";
+            return RedirectToAction("Index", "Home");
+        }
 
 
 
