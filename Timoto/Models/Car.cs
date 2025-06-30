@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.CodeAnalysis;
 using Timoto.Models.Base;
+using Timoto.Utilities.Enums;
 
 namespace Timoto.Models
 {
@@ -54,6 +55,10 @@ namespace Timoto.Models
         public List<CarImage> CarImages { get; set; }
         [NotMapped]
         public CarImage MainImage => CarImages?.FirstOrDefault(img => img.IsMain);
+        public CarStatus Status { get; set; } = CarStatus.Pending;
+
+        public string? UserId { get; set; }
+        public AppUser? User { get; set; }
 
         //Many-to-Many: CarFeatures
         public ICollection<CarFeature> CarFeatures { get; set; }

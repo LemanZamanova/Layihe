@@ -18,12 +18,14 @@ namespace Timoto.Controllers
         private readonly AppDbContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly IEmailService _emailService;
+        private readonly IWebHostEnvironment _env;
 
-        public CarController(AppDbContext context, UserManager<AppUser> userManager, IEmailService emailService)
+        public CarController(AppDbContext context, UserManager<AppUser> userManager, IEmailService emailService, IWebHostEnvironment env)
         {
             _context = context;
             _userManager = userManager;
             _emailService = emailService;
+            _env = env;
         }
         public async Task<IActionResult> Index(CarFilterVM filter)
         {
@@ -110,64 +112,50 @@ namespace Timoto.Controllers
         }
 
 
+        [HttpGet]
         public async Task<IActionResult> Add()
         {
-
-            CarFormVM carFormVM = new CarFormVM
+            var vm = new CarFormVM
             {
-                FuelTypes = _context.FuelTypes.Select(f => new SelectListItem { Value = f.Id.ToString(), Text = f.Name }),
-                TransmissionTypes = _context.TransmissionTypes.Select(t => new SelectListItem { Value = t.Id.ToString(), Text = t.Name }),
-                DriveTypes = _context.DriveTypes.Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Name }),
-                BodyTypes = _context.BodyTypes.Select(b => new SelectListItem { Value = b.Id.ToString(), Text = b.Name }),
-                AllFeatures = _context.Features.ToList(),
-                Locations = await _context.Locations
-            .Where(l => !l.IsDeleted)
-            .ToListAsync()
+                FuelTypes = await _context.FuelTypes.Select(f => new SelectListItem { Value = f.Id.ToString(), Text = f.Name }).ToListAsync(),
+                TransmissionTypes = await _context.TransmissionTypes.Select(t => new SelectListItem { Value = t.Id.ToString(), Text = t.Name }).ToListAsync(),
+                DriveTypes = await _context.DriveTypes.Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Name }).ToListAsync(),
+                BodyTypes = await _context.BodyTypes.Select(b => new SelectListItem { Value = b.Id.ToString(), Text = b.Name }).ToListAsync(),
+                Locations = await _context.Locations.Where(l => !l.IsDeleted).ToListAsync(),
+                AllFeatures = await _context.Features.ToListAsync(),
+                VehicleTypes = await _context.VehicleTypes.Select(v => new SelectListItem { Value = v.Id.ToString(), Text = v.Name }).ToListAsync(),
             };
 
-
-            return View(carFormVM);
+            return View(vm);
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Add(CarFormVM vm)
+        public async Task<IActionResult> Add(CarFormVM vm, IFormFile MainImage, List<IFormFile> OtherImages)
         {
-            // Repopulate dropdowns if the model is invalid
-            vm.FuelTypes = _context.FuelTypes.Select(f => new SelectListItem { Value = f.Id.ToString(), Text = f.Name });
-            vm.TransmissionTypes = _context.TransmissionTypes.Select(t => new SelectListItem { Value = t.Id.ToString(), Text = t.Name });
-            vm.DriveTypes = _context.DriveTypes.Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Name });
-            vm.BodyTypes = _context.BodyTypes.Select(b => new SelectListItem { Value = b.Id.ToString(), Text = b.Name });
+            ModelState.Clear();
+            TempData["Success"] = "Your car listing has been submitted and is awaiting moderator approval.";
+            vm.FuelTypes = await _context.FuelTypes.Select(f => new SelectListItem { Value = f.Id.ToString(), Text = f.Name }).ToListAsync();
+            vm.TransmissionTypes = await _context.TransmissionTypes.Select(t => new SelectListItem { Value = t.Id.ToString(), Text = t.Name }).ToListAsync();
+            vm.DriveTypes = await _context.DriveTypes.Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Name }).ToListAsync();
+            vm.BodyTypes = await _context.BodyTypes.Select(b => new SelectListItem { Value = b.Id.ToString(), Text = b.Name }).ToListAsync();
             vm.AllFeatures = await _context.Features.ToListAsync();
             vm.Locations = await _context.Locations.Where(l => !l.IsDeleted).ToListAsync();
+            vm.VehicleTypes = await _context.VehicleTypes.Select(v => new SelectListItem { Value = v.Id.ToString(), Text = v.Name }).ToListAsync();
 
-            // Model validation
             if (!ModelState.IsValid)
                 return View(vm);
 
-            // Validate main image
-            IFormFile mainImage = Request.Form.Files.FirstOrDefault();
-            if (mainImage == null)
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Login", "Account");
+
+            if (MainImage == null || !MainImage.ValidateType("image/") || !MainImage.ValidateSize(FileSize.MB, 5))
             {
-                ModelState.AddModelError("MainImage", "Main image is required.");
+                ModelState.AddModelError("MainImage", "Main image is required and must be a valid image under 5MB.");
                 return View(vm);
             }
 
-            if (!mainImage.ValidateType("image/"))
-            {
-                ModelState.AddModelError("MainImage", "Only image files are allowed.");
-                return View(vm);
-            }
-
-            if (!mainImage.ValidateSize(FileSize.MB, 5))
-            {
-                ModelState.AddModelError("MainImage", "Image size must be less than 5MB.");
-                return View(vm);
-            }
-
-            // Create car entity
-            Car newCar = new Car
+            var newCar = new Car
             {
                 Name = vm.Car.Name,
                 Year = vm.Car.Year,
@@ -177,55 +165,57 @@ namespace Timoto.Controllers
                 TransmissionTypeId = vm.Car.TransmissionTypeId,
                 DriveTypeId = vm.Car.DriveTypeId,
                 BodyTypeId = vm.Car.BodyTypeId,
+                VehicleTypeId = vm.Car.VehicleTypeId,
                 LocationId = vm.LocationId,
+                Location = vm.Car.Location,
+                Latitude = vm.Car.Latitude,
+                Longitude = vm.Car.Longitude,
+                Seats = vm.Car.Seats,
+                Doors = vm.Car.Doors,
+                LuggageVolume = vm.Car.LuggageVolume,
+                EngineSize = vm.Car.EngineSize,
+                FuelEconomy = vm.Car.FuelEconomy,
+                ExteriorColor = vm.Car.ExteriorColor,
+                InteriorColor = vm.Car.InteriorColor,
                 CreatedAt = DateTime.UtcNow.AddHours(4),
+                UserId = user.Id,
+                Status = CarStatus.Pending,
                 IsDeleted = false,
                 CarImages = new List<CarImage>(),
                 CarFeatures = new List<CarFeature>()
             };
 
             // Save main image
-            string mainImageName = await mainImage.CreateFileAsync("wwwroot", "assets", "images", "cars");
-            newCar.CarImages.Add(new CarImage
-            {
-                ImageUrl = mainImageName,
-                IsMain = true
-            });
+            string mainImageName = await MainImage.CreateFileAsync(_env.WebRootPath, "assets", "images", "cars");
+            newCar.CarImages.Add(new CarImage { ImageUrl = mainImageName, IsMain = true });
 
-            // Save additional images
-            var extraImages = Request.Form.Files.Skip(1);
-            foreach (var image in extraImages)
+            // Save other images
+            if (OtherImages != null)
             {
-                if (image.ValidateType("image/") && image.ValidateSize(FileSize.MB, 5))
+                foreach (var img in OtherImages)
                 {
-                    string extraImageName = await image.CreateFileAsync("wwwroot", "assets", "images", "cars");
-                    newCar.CarImages.Add(new CarImage
+                    if (img.ValidateType("image/") && img.ValidateSize(FileSize.MB, 5))
                     {
-                        ImageUrl = extraImageName,
-                        IsMain = false
-                    });
+                        string imgName = await img.CreateFileAsync(_env.WebRootPath, "assets", "images", "cars");
+                        newCar.CarImages.Add(new CarImage { ImageUrl = imgName, IsMain = false });
+                    }
                 }
             }
 
-            // Assign selected features
             if (vm.SelectedFeatureIds != null && vm.SelectedFeatureIds.Any())
             {
-                foreach (int featureId in vm.SelectedFeatureIds)
+                foreach (var id in vm.SelectedFeatureIds.Distinct())
                 {
-                    newCar.CarFeatures.Add(new CarFeature
-                    {
-                        FeatureId = featureId
-                    });
+                    newCar.CarFeatures.Add(new CarFeature { FeatureId = id });
                 }
             }
 
-            // Save to database
             await _context.Cars.AddAsync(newCar);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("Success");
+            TempData["Success"] = "Your car listing has been submitted and is awaiting moderator approval.";
+            return RedirectToAction(nameof(Add));
         }
-
 
         [HttpPost]
         public IActionResult Like(int id)

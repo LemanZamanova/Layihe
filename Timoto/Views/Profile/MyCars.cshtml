@@ -1,0 +1,50 @@
+﻿@using Timoto.Utilities.Enums
+@model Timoto.ViewModels.ProfileVM
+
+@{
+    Layout = "~/Views/Shared/_ProfileLayout.cshtml";
+    ViewData["Title"] = "My Cars";
+}
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+@section ProfileContent {
+    <div class="card p-4 rounded-5 mb25">
+        <h4 class="mb-4">My Cars</h4>
+
+        @if (!Model.Cars.Any())
+        {
+            <p class="text-muted">You haven't listed any cars yet.</p>
+        }
+        else
+        {
+            <h5 class="mb-2">Pending Approval</h5>
+            <div class="row mb-4">
+                @foreach (var car in Model.Cars.Where(c => c.Status == CarStatus.Pending))
+                {
+                    <partial name="_CarCardPartial" model="car" />
+                }
+            </div>
+
+            <h5 class="mb-2">Approved</h5>
+            <div class="row mb-4">
+                @foreach (var car in Model.Cars.Where(c => c.Status == CarStatus.Approved))
+                {
+                    <partial name="_CarCardPartial" model="car" />
+                }
+            </div>
+
+            <h5 class="mb-2">Rejected</h5>
+            <div class="row">
+                @foreach (var car in Model.Cars.Where(c => c.Status == CarStatus.Rejected))
+                {
+                    <partial name="_CarCardPartial" model="car" />
+                }
+            </div>
+        }
+
+    </div>
+}

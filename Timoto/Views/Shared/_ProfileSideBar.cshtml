@@ -40,8 +40,9 @@
     <ul class="menu-col">
         <li><a asp-action="MyProfile" asp-controller="Profile" class="@(ViewContext.RouteData.Values["action"]?.ToString() == "MyProfile" ? "active" : "")"><i class="fa fa-user"></i> My Profile</a></li>
         <li><a asp-action="Orders" asp-controller="Profile"><i class="fa fa-calendar"></i> My Orders</a></li>
-        <li><a asp-action="Favorites" asp-controller="Profile"><i class="fa fa-car"></i> My Favorite Cars</a></li>
+        <li><a asp-action="Favorites" asp-controller="Profile"><i class="fa fa-heart"></i> My Favorite Cars</a></li>
         <li><a asp-action="Cards" asp-controller="Profile"><i class="icon_creditcard"></i> My Card Accounts</a></li>
+        <li><a asp-action="MyCars" asp-controller="Profile"><i class="fa fa-car"></i> My Cars</a></li>
         <li>
             <form asp-controller="Account" asp-action="Logout" method="post" style="display:inline;">
                 @Html.AntiForgeryToken()

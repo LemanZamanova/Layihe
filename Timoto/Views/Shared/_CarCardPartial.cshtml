@@ -1,0 +1,16 @@
+﻿@model Timoto.Models.Car
+
+<div class="card mb-3 shadow-sm rounded-4 p-3">
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <img src="~/assets/images/cars/@Model.MainImage?.ImageUrl" class="img-fluid rounded" alt="@Model.Name" />
+        </div>
+        <div class="col-md-8">
+            <h5 class="mb-1">@Model.Name</h5>
+            <p class="mb-1"><strong>Year:</strong> @Model.Year</p>
+            <p class="mb-1"><strong>Price:</strong> $@Model.DailyPrice / day</p>
+            <p class="mb-1"><strong>Status:</strong> @Model.Status</p>
+            <p class="mb-1 text-muted">@Model.Description?.Substring(0, Math.Min(80, Model.Description.Length))...</p>
+        </div>
+    </div>
+</div>

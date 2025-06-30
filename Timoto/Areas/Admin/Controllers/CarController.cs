@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Timoto.DAL;
 using Timoto.Models;
+using Timoto.Services.Interface;
+using Timoto.Utilities.Enums;
 using Timoto.Utilities.Extensions;
 using Timoto.ViewModels;
 
@@ -14,11 +16,15 @@ namespace Timoto.Areas.Admin.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
+        private readonly IEmailService _emailService;
 
-        public CarController(AppDbContext context, IWebHostEnvironment env)
+
+        public CarController(AppDbContext context, IWebHostEnvironment env, IEmailService emailService)
         {
             _context = context;
             _env = env;
+
+            _emailService = emailService;
         }
 
         public async Task<IActionResult> Index()
@@ -136,6 +142,7 @@ namespace Timoto.Areas.Admin.Controllers
                 DriveTypeId = vm.DriveTypeId,
                 BodyTypeId = vm.BodyTypeId,
                 VehicleTypeId = vm.VehicleTypeId,
+                Status = CarStatus.Approved,
                 CreatedAt = DateTime.UtcNow.AddHours(4),
                 CarImages = new List<CarImage>(),
                 CarFeatures = vm.FeatureIds?.Select(id => new CarFeature { FeatureId = id }).ToList()
@@ -421,6 +428,50 @@ namespace Timoto.Areas.Admin.Controllers
 
             return View(vm);
         }
+        public async Task<IActionResult> Pending()
+        {
+            var pendingCars = await _context.Cars
+                .Include(c => c.User)
+                .Where(c => c.Status == CarStatus.Pending && c.UserId != null)
+                .ToListAsync();
+
+            return View(pendingCars);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Approve(int id)
+        {
+            var car = await _context.Cars.FindAsync(id);
+            if (car == null) return NotFound();
+
+            car.Status = CarStatus.Approved;
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Pending");
+        }
+        [HttpPost]
+        public async Task<IActionResult> Reject(int id, string reason)
+        {
+            var car = await _context.Cars
+                .Include(c => c.User)
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (car == null) return NotFound();
+
+            // Email göndər
+            await _emailService.SendEmailAsync(car.User.Email, "Maşın Rədd Edildi",
+                $"Təəssüf ki, maşınınız moderator tərəfindən rədd edildi. Səbəb: {reason}");
+
+            // Bazadan sil
+            _context.Cars.Remove(car);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Pending");
+        }
+
+
 
     }
+
 }
+

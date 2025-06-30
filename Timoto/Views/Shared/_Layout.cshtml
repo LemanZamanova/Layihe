@@ -127,10 +127,18 @@
                                 </ul>
                                 <div class="de-flex-col">
                                     <div class="menu_side_area">
-                                        <a asp-controller="Car" asp-action="Add" class="btn-main">Add Car</a>
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <a asp-controller="Car" asp-action="Add" class="btn-main">Add Car</a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="Account" asp-action="Login" class="btn-main">Add Car</a>
+                                        }
                                         <span id="menu-btn"></span>
                                     </div>
-                            </div>
+                                </div>
+
                             
                             </div>
                         </div>

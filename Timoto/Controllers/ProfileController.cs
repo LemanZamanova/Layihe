@@ -655,6 +655,20 @@ namespace Timoto.Controllers
 
             return File(fileBytes, "application/pdf", $"receipt_booking_{booking.Id}.pdf");
         }
+        public async Task<IActionResult> MyCars()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return RedirectToAction("Login", "Account");
 
+            var cars = await _context.Cars
+                .Include(c => c.CarImages)
+                .Where(c => !c.IsDeleted && c.UserId == user.Id)
+                .ToListAsync();
+
+            return View(new ProfileVM
+            {
+                Cars = cars
+            });
+        }
     }
 }

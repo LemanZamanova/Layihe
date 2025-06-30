@@ -1,0 +1,41 @@
+﻿@using Timoto.Models
+@model List<Car>
+
+@{
+    ViewData["Title"] = "Pending Cars";
+}
+
+<h2>Pending Cars </h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Car Name</th>
+            <th>User Email</th>
+            <th>Status</th>
+            <th>Submission Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@car.Name</td>
+                <td>@car.User.Email</td>
+                <td>@car.Status</td>
+                <td>@car.CreatedAt.ToString("dd.MM.yyyy")</td>
+                <td>
+                    <form asp-action="Approve" asp-route-id="@car.Id" method="post" style="display:inline;">
+                        <button class="btn btn-success">Approve</button>
+                    </form>
+
+                    <form asp-action="Reject" asp-route-id="@car.Id" method="post" style="display:inline;">
+                        <input type="text" name="reason" placeholder="Enter rejection reason" required class="form-control d-inline" style="width: 200px;" />
+                        <button class="btn btn-danger">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

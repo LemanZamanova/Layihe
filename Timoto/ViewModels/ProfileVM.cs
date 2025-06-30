@@ -26,5 +26,7 @@ namespace Timoto.ViewModels
         public List<Booking> CompletedBookings { get; set; }
         public List<Booking> CancelledBookings { get; set; }
 
+        public List<Car> Cars { get; set; }
+
     }
 }

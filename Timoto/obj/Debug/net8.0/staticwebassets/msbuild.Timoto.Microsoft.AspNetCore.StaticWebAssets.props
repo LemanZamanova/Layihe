@@ -16578,6 +16578,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\3.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\35aee4ca-b5a7-4110-aadc-0293616bf3e06a239aae-6728-4c61-b9e0-d86f3fd52820toyota-rav.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Timoto</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Timoto</BasePath>
+      <RelativePath>assets/images/cars/35aee4ca-b5a7-4110-aadc-0293616bf3e06a239aae-6728-4c61-b9e0-d86f3fd52820toyota-rav.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>fawpe9xlk9</Fingerprint>
+      <Integrity>Sa4irH0M5jyB5lq4nIgPMRIsJIgEdJKt60J8bP8qc5s=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\35aee4ca-b5a7-4110-aadc-0293616bf3e06a239aae-6728-4c61-b9e0-d86f3fd52820toyota-rav.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\4.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>Timoto</SourceId>
@@ -16757,6 +16775,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\6a239aae-6728-4c61-b9e0-d86f3fd52820toyota-rav.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\6fe09feb-201b-4916-8691-c220787962ad6a239aae-6728-4c61-b9e0-d86f3fd52820toyota-rav.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Timoto</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Timoto</BasePath>
+      <RelativePath>assets/images/cars/6fe09feb-201b-4916-8691-c220787962ad6a239aae-6728-4c61-b9e0-d86f3fd52820toyota-rav.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>fawpe9xlk9</Fingerprint>
+      <Integrity>Sa4irH0M5jyB5lq4nIgPMRIsJIgEdJKt60J8bP8qc5s=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\6fe09feb-201b-4916-8691-c220787962ad6a239aae-6728-4c61-b9e0-d86f3fd52820toyota-rav.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\70ca7ca2-711c-4c74-b79b-619be7d683e7Opel.jpg'))">
       <SourceType>Package</SourceType>
@@ -16955,6 +16991,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\8bca4b25-ec74-4c16-9cfc-898d6a9c3d37ford-raptor.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\8bd1dd55-3a76-4385-9691-724104cc05164.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Timoto</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Timoto</BasePath>
+      <RelativePath>assets/images/cars/8bd1dd55-3a76-4385-9691-724104cc05164.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>7zny9byq0v</Fingerprint>
+      <Integrity>4wJDBD0hrboZwNC5aM5+mr25Ma1ILO/cIOTIfFaGrfU=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\8bd1dd55-3a76-4385-9691-724104cc05164.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\8c1f2b2d-610d-4bd3-a10c-9358c86bffc0hyundai-staria.jpg'))">
       <SourceType>Package</SourceType>
@@ -17172,6 +17226,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\b9157069-4565-426b-87c3-b7c9a99ec6a24.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\ba062c68-224a-4390-a099-1c10f70c59c13.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Timoto</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Timoto</BasePath>
+      <RelativePath>assets/images/cars/ba062c68-224a-4390-a099-1c10f70c59c13.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>u1753iu8v8</Fingerprint>
+      <Integrity>DgI70Ux3zZXddEB0m257wM9o9vrA+u7eTcgkMqqkKnk=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\ba062c68-224a-4390-a099-1c10f70c59c13.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\bd14d560-ebe4-4eff-a75e-1ce07ea192cdgreybmw.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>Timoto</SourceId>
@@ -17388,6 +17460,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\bmw2.jpeg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\BMWF90.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Timoto</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Timoto</BasePath>
+      <RelativePath>assets/images/cars/BMWF90.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>3iin4p7ol5</Fingerprint>
+      <Integrity>lUr25+jfKPfRmlm8vUnrO5wAMf3mCoxRNYfYbIeSU68=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\BMWF90.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\c06b1443-dd99-470c-8d0c-fc6f7bd4046fGT.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>Timoto</SourceId>
@@ -17532,6 +17622,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\da092439-96cf-4884-a76a-f42b33ded027audiA6_1jpeg.jpeg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\db3aea5e-08a0-4cd4-a831-111ac9397fe84.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Timoto</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Timoto</BasePath>
+      <RelativePath>assets/images/cars/db3aea5e-08a0-4cd4-a831-111ac9397fe84.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>7zny9byq0v</Fingerprint>
+      <Integrity>4wJDBD0hrboZwNC5aM5+mr25Ma1ILO/cIOTIfFaGrfU=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\db3aea5e-08a0-4cd4-a831-111ac9397fe84.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\dbb71d45-2370-4b4f-bb83-b508d4508b76greybmw1.jpeg'))">
       <SourceType>Package</SourceType>
       <SourceId>Timoto</SourceId>
@@ -17603,6 +17711,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\ec7ec984-95f7-46e9-8e0c-4fb413018884porshe718.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\ee9680da-052a-4d2a-a2aa-49a994d06b5e4.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Timoto</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Timoto</BasePath>
+      <RelativePath>assets/images/cars/ee9680da-052a-4d2a-a2aa-49a994d06b5e4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>7zny9byq0v</Fingerprint>
+      <Integrity>4wJDBD0hrboZwNC5aM5+mr25Ma1ILO/cIOTIfFaGrfU=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\ee9680da-052a-4d2a-a2aa-49a994d06b5e4.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\assets\images\cars\ee9c7b83-8784-4bc3-891e-7e4c3766e601RangeRover1.jpeg'))">
       <SourceType>Package</SourceType>
@@ -21077,6 +21203,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pdf\Booking_19_20250630163535.pdf'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pdf\Booking_19_20250630163704.pdf'))">
+      <SourceType>Package</SourceType>
+      <SourceId>Timoto</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Timoto</BasePath>
+      <RelativePath>pdf/Booking_19_20250630163704.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>t6apmutfze</Fingerprint>
+      <Integrity>K2Llcig0aYnYCIt2aYB/hNjaOdsckW8Hv0owW9rVEa4=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pdf\Booking_19_20250630163704.pdf'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\pdf\Booking_3_20250626180743.pdf'))">
       <SourceType>Package</SourceType>

@@ -18,6 +18,6 @@ namespace Timoto.ViewModels
         public IEnumerable<Feature> AllFeatures { get; set; }
         public int? LocationId { get; set; }
         public IEnumerable<Location>? Locations { get; set; }
-
+        public IEnumerable<SelectListItem> VehicleTypes { get; set; }
     }
 }
