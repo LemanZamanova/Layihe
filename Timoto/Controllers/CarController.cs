@@ -30,6 +30,7 @@ namespace Timoto.Controllers
         public async Task<IActionResult> Index(CarFilterVM filter)
         {
             var query = _context.Cars
+
                 .Include(c => c.BodyType)
                  .Include(c => c.VehicleType)
                 .Include(c => c.FuelType)
@@ -68,7 +69,7 @@ namespace Timoto.Controllers
                     }
                 }
             }
-
+            query = query.Where(c => c.IsActive == true);
             // ViewBag-lə filtrdə lazım olanlar
             ViewBag.BodyTypes = _context.BodyTypes.ToList();
             ViewBag.VehicleTypes = _context.VehicleTypes.ToList();
@@ -170,6 +171,7 @@ namespace Timoto.Controllers
                 Location = vm.Car.Location,
                 Latitude = vm.Car.Latitude,
                 Longitude = vm.Car.Longitude,
+                Mileage = vm.Car.Mileage,
                 Seats = vm.Car.Seats,
                 Doors = vm.Car.Doors,
                 LuggageVolume = vm.Car.LuggageVolume,

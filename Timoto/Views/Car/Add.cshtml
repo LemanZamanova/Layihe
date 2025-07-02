@@ -9,7 +9,8 @@
 <div class="no-bottom no-top" id="content">
     <div id="top"></div>
 
-    <section id="section-hero" aria-label="section" class="jarallax text-light">
+    <section id="section-hero" aria-label="section" class="jarallax text-light" style="padding-top: 200px;">
+
         <img src="~/assets/images/background/4.jpg" class="jarallax-img" alt="">
         <div class="container">
             <div class="row">
@@ -43,6 +44,8 @@
             }
             <form asp-action="Add" method="post" enctype="multipart/form-data">
                 @Html.AntiForgeryToken()
+               
+
                 <div class="row">
                     <!-- LEFT COLUMN -->
                     <div class="col-md-6">
@@ -55,42 +58,57 @@
                         <div class="form-group mb-3">
                             <label asp-for="Car.DailyPrice" class="form-label">Daily Price ($)</label>
                             <input asp-for="Car.DailyPrice" class="form-control" type="number" />
+                            <span asp-validation-for="Car.DailyPrice" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.Year" class="form-label">Year</label>
                             <input asp-for="Car.Year" class="form-control" type="number" />
+                            <span asp-validation-for="Car.Year" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.Seats" class="form-label">Seats</label>
                             <input asp-for="Car.Seats" class="form-control" type="number" />
+                            <span asp-validation-for="Car.Seats" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.Doors" class="form-label">Doors</label>
                             <input asp-for="Car.Doors" class="form-control" type="number" />
+                            <span asp-validation-for="Car.Doors" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.LuggageVolume" class="form-label">Luggage Volume (L)</label>
                             <input asp-for="Car.LuggageVolume" class="form-control" />
+                            <span asp-validation-for="Car.LuggageVolume" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.EngineSize" class="form-label">Engine Size (cc)</label>
                             <input asp-for="Car.EngineSize" class="form-control" />
+                            <span asp-validation-for="Car.EngineSize" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.FuelEconomy" class="form-label">Fuel Economy (L/100km)</label>
                             <input asp-for="Car.FuelEconomy" class="form-control" />
+                            <span asp-validation-for="Car.FuelEconomy" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.ExteriorColor" class="form-label">Exterior Color</label>
                             <input asp-for="Car.ExteriorColor" class="form-control" />
+                            <span asp-validation-for="Car.ExteriorColor" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.InteriorColor" class="form-label">Interior Color</label>
                             <input asp-for="Car.InteriorColor" class="form-control" />
+                            <span asp-validation-for="Car.InteriorColor" class="text-danger"></span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label asp-for="Car.Mileage" class="form-label">Milleage</label>
+                            <input asp-for="Car.Mileage" class="form-control" > 
+                            <span asp-validation-for="Car.Mileage" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.Description" class="form-label">Description</label>
                             <textarea asp-for="Car.Description" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Car.Description" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -106,15 +124,20 @@
                         <div class="form-group mb-3">
                             <label asp-for="Car.Location" class="form-label">Optional Location (e.g., 'near metro')</label>
                             <input asp-for="Car.Location" class="form-control" />
+                            <span asp-validation-for="Car.Location" class="text-danger"></span>
                         </div>
-
+                        <p class="text-muted small">
+                            You can find your car’s exact <strong>latitude</strong> and <strong>longitude</strong> by right-clicking on the map in <a href="https://maps.google.com" target="_blank">Google Maps</a> and selecting <em>"What's here?"</em>. Coordinates like <code>40.4093</code> (latitude) and <code>49.8671</code> (longitude) will appear. Copy and paste them into the fields below.
+                        </p>
                         <div class="form-group mb-3">
                             <label asp-for="Car.Latitude" class="form-label">Latitude</label>
                             <input asp-for="Car.Latitude" class="form-control" />
+                            <span asp-validation-for="Car.Latitude" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.Longitude" class="form-label">Longitude</label>
                             <input asp-for="Car.Longitude" class="form-control" />
+                            <span asp-validation-for="Car.Longitude" class="text-danger"></span>
                         </div>
 
                         @* Dropdowns *@
@@ -123,18 +146,21 @@
                             <select asp-for="Car.FuelTypeId" class="form-control select2" asp-items="Model.FuelTypes">
                                 <option disabled selected>Choose fuel type</option>
                             </select>
+                            <span asp-validation-for="Car.FuelTypeId" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.TransmissionTypeId" class="form-label">Transmission</label>
                             <select asp-for="Car.TransmissionTypeId" class="form-control select2" asp-items="Model.TransmissionTypes">
                                 <option disabled selected>Choose transmission</option>
                             </select>
+                            <span asp-validation-for="Car.TransmissionTypeId" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.DriveTypeId" class="form-label">Drive Type</label>
                             <select asp-for="Car.DriveTypeId" class="form-control select2" asp-items="Model.DriveTypes">
                                 <option disabled selected>Choose drive type</option>
                             </select>
+                            <span asp-validation-for="Car.DriveTypeId" class="text-danger"></span>
                         </div>
                         <div class="form-group mb-3">
                             <label asp-for="Car.VehicleTypeId" class="form-label">Vehicle Type</label>
@@ -148,6 +174,7 @@
                             <select asp-for="Car.BodyTypeId" class="form-control select2" asp-items="Model.BodyTypes">
                                 <option disabled selected>Choose body type</option>
                             </select>
+                            <span asp-validation-for="Car.BodyTypeId" class="text-danger"></span>
                         </div>
 
                         @* Features *@

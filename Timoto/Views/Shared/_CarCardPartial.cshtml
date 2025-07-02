@@ -1,16 +1,97 @@
 ﻿@model Timoto.Models.Car
 
-<div class="card mb-3 shadow-sm rounded-4 p-3">
-    <div class="row align-items-center">
-        <div class="col-md-4">
-            <img src="~/assets/images/cars/@Model.MainImage?.ImageUrl" class="img-fluid rounded" alt="@Model.Name" />
+<div class="col-xl-4 col-lg-6">
+    <div class="de-item mb30 position-relative" style="overflow: hidden;">
+
+        <!-- STATUS BUTTON -->
+        <form id="toggleForm-@Model.Id" class="position-absolute" style="top: 10px; right: 10px; z-index: 10;">
+            @Html.AntiForgeryToken()
+            <button type="submit"
+                    data-car-id="@Model.Id"
+                    class="btn btn-sm fw-bold shadow toggle-status-btn"
+                    style="background-color:@(Model.IsActive == true ? "#79CA5C" : "#ccc");
+                   color:@(Model.IsActive == true ? "#fff" : "#000");"
+                    id="statusBtn-@Model.Id">
+                @(Model.IsActive == true ? "Active" : "Deactive")
+            </button>
+        </form>
+
+
+        <!-- MAIN IMAGE -->
+        <div class="d-img">
+            @{
+                var now = DateTime.Now;
+                var activeBooking = Model.Bookings?.FirstOrDefault(b => now >= b.StartDate && now <= b.EndDate && !b.IsDeleted);
+            }
+
+            @if (activeBooking != null)
+            {
+                <div class="badge bg-danger mt-2">
+                    Reserved until: @activeBooking.EndDate.ToString("dd MMM yyyy HH:mm")
+                </div>
+            }
+
+            <img src="~/assets/images/cars/@Model.CarImages.FirstOrDefault(x => x.IsMain)?.ImageUrl"
+                 class="img-fluid" alt="@Model.Name">
         </div>
-        <div class="col-md-8">
-            <h5 class="mb-1">@Model.Name</h5>
-            <p class="mb-1"><strong>Year:</strong> @Model.Year</p>
-            <p class="mb-1"><strong>Price:</strong> $@Model.DailyPrice / day</p>
-            <p class="mb-1"><strong>Status:</strong> @Model.Status</p>
-            <p class="mb-1 text-muted">@Model.Description?.Substring(0, Math.Min(80, Model.Description.Length))...</p>
+
+        <!-- INFO -->
+        <div class="d-info">
+            <div class="d-text">
+                <h4 class="mb-0">@Model.Name</h4>
+
+                <div class="d-atr-group mt-2">
+                    <span class="d-atr"><img src="~/assets/images/icons/1.svg" alt="">@Model.Seats</span>
+                    <span class="d-atr"><img src="~/assets/images/icons/3.svg" alt="">@Model.Doors</span>
+                    <span class="d-atr"><img src="~/assets/images/icons/2.svg" alt="">@Model.LuggageVolume</span>
+                    <span class="d-atr"><img src="~/assets/images/icons/4.svg" alt="">@Model.BodyType?.Name</span>
+                </div>
+
+                <div class="d-price mt-2">
+                    Daily rate from <span>$@Model.DailyPrice</span>
+                    <a class="btn-main" asp-controller="Profile" asp-action="CarDetail" asp-route-id="@Model.Id">Detail</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.toggle-status-btn').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const carId = this.dataset.carId;
+                const button = document.getElementById('statusBtn-' + carId);
+                const form = this.closest("form");
+                const token = form.querySelector('input[name="__RequestVerificationToken"]').value;
+
+                const formData = new FormData();
+                formData.append("id", carId);
+
+                fetch('/Profile/ToggleCarStatusAjax', {
+                    method: 'POST',
+                    headers: {
+                        'RequestVerificationToken': token
+                    },
+                    body: formData
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            button.textContent = data.buttonText;
+                            button.style.backgroundColor = data.bgColor;
+                            button.style.color = data.textColor;
+                        } else {
+                            alert("Something went wrong!");
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                        alert("Network or server error.");
+                    });
+            });
+        });
+    });
+</script>

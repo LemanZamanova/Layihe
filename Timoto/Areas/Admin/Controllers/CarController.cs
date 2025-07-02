@@ -30,6 +30,7 @@ namespace Timoto.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var cars = await _context.Cars
+
                 .Include(c => c.FuelType)
                 .Include(c => c.TransmissionType)
                 .Include(c => c.BodyType)
@@ -124,6 +125,7 @@ namespace Timoto.Areas.Admin.Controllers
                 Name = vm.Name,
                 Seats = vm.Seats,
                 Doors = vm.Doors,
+                IsActive = true,
                 LuggageVolume = vm.LuggageVolume,
                 EngineSize = vm.EngineSize,
                 Year = vm.Year,

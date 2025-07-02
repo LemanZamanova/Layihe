@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Timoto.Models;
 
 namespace Timoto.ViewModels
@@ -7,17 +8,26 @@ namespace Timoto.ViewModels
     {
         public Car Car { get; set; }
 
-        // FK üçün dropdown listlər
-        public IEnumerable<SelectListItem> FuelTypes { get; set; }
-        public IEnumerable<SelectListItem> TransmissionTypes { get; set; }
-        public IEnumerable<SelectListItem> DriveTypes { get; set; }
-        public IEnumerable<SelectListItem> BodyTypes { get; set; }
 
-        // Many-to-many üçün checkbox
+        [BindNever]
+        public IEnumerable<SelectListItem> FuelTypes { get; set; }
+        [BindNever]
+        public IEnumerable<SelectListItem> TransmissionTypes { get; set; }
+        [BindNever]
+        public IEnumerable<SelectListItem> DriveTypes { get; set; }
+        [BindNever]
+        public IEnumerable<SelectListItem> BodyTypes { get; set; }
+        [BindNever]
+
+
         public List<int> SelectedFeatureIds { get; set; }
+        [BindNever]
         public IEnumerable<Feature> AllFeatures { get; set; }
+        [BindRequired]
         public int? LocationId { get; set; }
+
         public IEnumerable<Location>? Locations { get; set; }
+        [BindNever]
         public IEnumerable<SelectListItem> VehicleTypes { get; set; }
     }
 }

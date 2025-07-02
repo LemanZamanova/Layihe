@@ -18,6 +18,7 @@ builder.Services.AddSession(options =>
 });
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IPdfService, PdfService>();
+builder.Services.AddHostedService<CarCleanupService>();
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(opt =>
 {

@@ -64,5 +64,9 @@ namespace Timoto.Models
         public ICollection<CarFeature> CarFeatures { get; set; }
         public ICollection<FavoriteCar> FavoritedBy { get; set; }
         public ICollection<Booking> Bookings { get; set; }
+        //Profil ucun aktivlik 
+        public bool? IsActive { get; set; } = true;
+        public DateTime? DeactivatedAt { get; set; }
+
     }
 }

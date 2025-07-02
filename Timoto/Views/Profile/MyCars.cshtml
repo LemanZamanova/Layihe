@@ -1,14 +1,9 @@
-﻿@using Timoto.Utilities.Enums
-@model Timoto.ViewModels.ProfileVM
+﻿@model Timoto.ViewModels.ProfileVM
+@using Timoto.Utilities.Enums
 
 @{
     Layout = "~/Views/Shared/_ProfileLayout.cshtml";
     ViewData["Title"] = "My Cars";
-}
-
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success">@TempData["Success"]</div>
 }
 
 @section ProfileContent {
@@ -38,13 +33,12 @@
             </div>
 
             <h5 class="mb-2">Rejected</h5>
-            <div class="row">
+            <div class="row mb-4">
                 @foreach (var car in Model.Cars.Where(c => c.Status == CarStatus.Rejected))
                 {
                     <partial name="_CarCardPartial" model="car" />
                 }
             </div>
         }
-
     </div>
 }

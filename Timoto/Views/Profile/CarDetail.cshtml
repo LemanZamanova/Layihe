@@ -1,0 +1,131 @@
+﻿@model Timoto.Models.Car
+@{
+    ViewData["Title"] = "Car Detail";
+}
+<section id="subheader" class="jarallax text-light">
+    <img src="~/assets/images/background/2.jpg" class="jarallax-img" alt="">
+    <div class="center-y relative text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Vehicle Fleet</h1>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container my-5">
+    <h2 class="mb-4">@Model.Name</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">@TempData["Success"]</div>
+    }
+  
+    <form asp-action="UpdateCarInfo" method="post" asp-controller="Profile">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="id" value="@Model.Id" />
+
+        <div class="row">
+            <!-- Left: Image -->
+            <div class="col-md-6">
+                <img src="~/assets/images/cars/@Model.CarImages.FirstOrDefault(x => x.IsMain)?.ImageUrl"
+                     class="img-fluid rounded shadow mb-4" />
+            @if (Model.CarImages != null && Model.CarImages.Count > 1)
+            {
+                <div class="row">
+                    @foreach (var image in Model.CarImages.Where(i => !i.IsMain))
+                    {
+                        <div class="col-4 mb-2">
+                            <img src="~/assets/images/cars/@image.ImageUrl" class="img-thumbnail" style="height: 120px; object-fit: cover;" />
+                        </div>
+                    }
+                </div>
+            }
+            </div>
+            <!-- Right: Info -->
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label class="form-label">Year</label>
+                    <input class="form-control" value="@Model.Year" readonly />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Body</label>
+                    <input class="form-control" value="@Model.BodyType?.Name" readonly />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Seats</label>
+                    <input class="form-control" value="@Model.Seats" readonly />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Doors</label>
+                    <input class="form-control" value="@Model.Doors" readonly />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Engine</label>
+                    <input class="form-control" value="@Model.EngineSize" readonly />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Transmission</label>
+                    <input class="form-control" value="@Model.TransmissionType?.Name" readonly />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Fuel Type</label>
+                    <input class="form-control" value="@Model.FuelType?.Name" readonly />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Drive</label>
+                    <input class="form-control" value="@Model.DriveType?.Name" readonly />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mileage</label>
+                    <input class="form-control" value="@Model.Mileage" readonly />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control" rows="3" readonly>@Model.Description</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Features</label>
+                    <ul>
+                        @foreach (var feature in Model.CarFeatures)
+                        {
+                            <li>@feature.Feature.Name</li>
+                        }
+                    </ul>
+                </div>
+
+                <!-- Editable Fields -->
+                <div class="mb-3">
+                    <label class="form-label">Daily Price ($)</label>
+                    <input type="number" name="dailyPrice" class="form-control" value="@Model.DailyPrice" required />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Location</label>
+                    <input type="text" name="location" class="form-control" value="@Model.Location" required />
+                </div>
+                <div class="form-group mb-3">
+                    <label  class="form-label">Latitude</label>
+                    <input  class="form-control" value="@Model.Latitude" required />
+                </div>
+                <div class="form-group mb-3">
+                    <label  class="form-label">Longitude</label>
+                    <input  class="form-control" value="@Model.Longitude " required  />
+                </div>
+                <button type="submit" class="btn btn-success">Update</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -355,6 +355,9 @@ namespace Timoto.Migrations
                     b.Property<int>("DailyPrice")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("DeactivatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -381,6 +384,9 @@ namespace Timoto.Migrations
                     b.Property<string>("InteriorColor")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool?>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");

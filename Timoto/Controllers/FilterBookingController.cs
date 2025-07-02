@@ -60,6 +60,7 @@ namespace Timoto.Controllers
             }
 
             var cars = await _context.Cars
+                 .Where(c => !c.IsDeleted && c.IsActive == true)
                 .Include(c => c.CarImages)
                 .Include(c => c.Bookings)
                 .Include(c => c.BodyType)

@@ -670,5 +670,77 @@ namespace Timoto.Controllers
                 Cars = cars
             });
         }
+
+
+        [HttpGet]
+        public IActionResult CarDetail(int id)
+        {
+            var userId = _userManager.GetUserId(User);
+            var car = _context.Cars
+                .Include(c => c.CarImages)
+                .Include(c => c.FuelType)
+                .Include(c => c.BodyType)
+                .Include(c => c.DriveType)
+                .Include(c => c.TransmissionType)
+                .Include(c => c.CarFeatures)
+                    .ThenInclude(cf => cf.Feature)
+                .FirstOrDefault(c => c.Id == id && c.UserId == userId);
+
+            if (car == null)
+                return NotFound();
+
+            return View(car);
+        }
+
+        // Car Info Update (POST) – Only Price & Location
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateCarInfo(int id, int dailyPrice, string location)
+        {
+            var userId = _userManager.GetUserId(User);
+            var car = _context.Cars.FirstOrDefault(c => c.Id == id && c.UserId == userId);
+
+            if (car == null)
+                return NotFound();
+
+            // Update only allowed fields
+            car.DailyPrice = dailyPrice;
+            car.Location = location;
+
+
+            _context.SaveChanges();
+
+            TempData["Success"] = "Car information updated successfully.";
+            return RedirectToAction("CarDetail", new { id = car.Id });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ToggleCarStatusAjax(int id)
+        {
+            var car = await _context.Cars.FirstOrDefaultAsync(c => c.Id == id);
+            if (car == null)
+                return Json(new { success = false });
+
+            car.IsActive = !(car.IsActive ?? false);
+
+            if (!car.IsActive == false)
+                car.DeactivatedAt = DateTime.UtcNow.AddHours(4);
+            else
+                car.DeactivatedAt = null;
+
+            await _context.SaveChangesAsync();
+
+            return Json(new
+            {
+                success = true,
+                isActive = car.IsActive,
+                buttonText = car.IsActive == true ? "Active" : "Deactive", // ✔ doğru yazı
+                bgColor = car.IsActive == true ? "#79CA5C" : "#ccc",       // ✔ rənglər
+                textColor = car.IsActive == true ? "#fff" : "#000"
+            });
+        }
+
+
+
     }
 }
